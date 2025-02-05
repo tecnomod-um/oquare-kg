@@ -10,6 +10,14 @@
 |    <br>Indexed in a   searchable resource (Mark D. Wilkinson et al., s. f.)    |    <br>The degree to   which the digital resource can be found using web-based search engines.                                         |
 |    <br>Identifier   Uniqueness (Mark D. Wilkinson et al., s. f.)               |    <br>Whether there   is a scheme to uniquely identify the digital resource.                                                          |
 
+
+| Metric                                                                      |     Definition                                                                                                                      |
+|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+|     Dereferenceability   of the URI (Debattista et al., 2018)               |     The aim of this metric is to check the number of valid   dereferenceable URIs used in a graph.                                  |
+|     Identifier persistence (Mark D. Wilkinson et al., s. f.)                |     Whether there   is a policy that describes what the provider will do in the event an   identifier scheme becomes deprecated.    |
+|     Resource   Identifier in Metadata (Mark D. Wilkinson et al., s. f.)     |     Whether the   metadata document contains the globally unique and persistent identifier for   the digital resource.              |
+|     Indexed in a   searchable resource (Mark D. Wilkinson et al., s. f.)    |     The degree to   which the digital resource can be found using web-based search engines.                                         |
+|     Identifier   Uniqueness (Mark D. Wilkinson et al., s. f.)               |     Whether there   is a scheme to uniquely identify the digital resource.                                                          |
 ### Licensing
 Licensing is defined as the granting of permission for a consumer to re-use a dataset under defined conditions [^1].
 ### Clustering  
