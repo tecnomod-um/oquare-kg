@@ -1,6 +1,6 @@
 # The OQuaRE KG quality characteristics
 
-The OQuaRE KG framework includes 4 characteristics:
+The OQuaRE KG framework includes 4 characteristics: accessibility, representational, structural, contextual.
 
 ### Accessibility
 Accessibility is the extent to which data are available or easily and quickly retrievable [^1].
