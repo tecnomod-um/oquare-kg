@@ -12,9 +12,14 @@
 | Identifier Uniqueness [^2]            | Whether there is a scheme to uniquely identify the digital resource.                                                       |
 
 ### Licensing
-Licensing is defined as the granting of permission for a consumer to re-use a dataset under defined conditions [^1].
+| **Metric**                                                 | **Definition**                                                                                                                                       |
+|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Machine-readable license [^1]         | The aim of this metric is to check if a dataset has a valid machine-readable license.                                                              |
+| Human-readable license [^1]           | Verifies whether a human-readable text, stating the licensing model attributed to the   resource, has been provided as part of the graph.          |
+| Accessible Usage License [^2]  | The existence of a license document, for both (independently) the data and its associated   metadata, and the ability to retrieve those documents. |
+
 ### Clustering  
-Clustering refers to the degree to which entities representing the same or closely related concepts are accurately identified, grouped and linked within or across data sources.
+
 
 ## Representational
 ### Interpretability
