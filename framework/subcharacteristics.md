@@ -1,6 +1,6 @@
 # The OQuaRE KG quality subcharacteristics
 
-The characteristics of the OQuaRE KG framework have 14 associated subcharacteristics that can be applied to assess the quality of knowledge graphs:
+The characteristics of the OQuaRE KG framework have 14 associated subcharacteristics that can be applied to assess the quality of knowledge graphs.
 
 ## Accessibility
 ### Availability
@@ -40,5 +40,5 @@ Timeliness measures how up-to-date data is relative to a specific task [^1].
 
 
 
-[^1]: Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., & Auer, S. (2016). Quality assessment for Linked Data: A Survey. Semantic Web, 7(1), 63-93.[https://doi.org/10.3233/SW-150175](https://doi.org/10.3233/SW-150175)
+[^1]: Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., & Auer, S. (2016). Quality assessment for Linked Data: A Survey. Semantic Web, 7(1), 63-93.https://doi.org/10.3233/SW-150175
 [^2]: Debattista, J., Lange, C., Auer, S., & Cortis, D. (2018). Evaluating the quality of the LOD cloud: An empirical investigation. Semantic Web, 9(6), 859-901. https://doi.org/10.3233/SW-180306
