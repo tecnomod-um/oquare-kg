@@ -1,5 +1,7 @@
 # The OQuaRE KG quality metrics
 
+A subcharacteristic comprises at least one or more quality metrics which are, in turn, grouped into characteristics.
+
 ## Accessibility
 ### Availability
 
