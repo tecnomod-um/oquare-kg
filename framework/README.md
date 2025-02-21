@@ -7,8 +7,8 @@ OquareKG is a framework developed based on Oquare, a quality framework for ontol
 ## Global overview
 OQuare KG is a quality framework for assessing knowledge graphs, based on OQuaRE [^1]. It defines key characteristics and subcharacteristics essential for evaluating knowledge graph quality. Each characteristic is linked to specific subcharacteristics that contribute to the quality assessment process. Additionally, each subcharacteristic is measured using one or more quality metrics.
 
-[^1] Duque-Ramos, A., Fernández-Breis, J.T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based approach for evaluating the quality of ontologies. Journal of Research and Practice in Information Technology, 43, 159-173.
-[^2] Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., Appleton, G., Axton, M., Baak, A., ... & Bouwman, J. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Scientific data, 3.
+[^1]: Duque-Ramos, A., Fernández-Breis, J.T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based approach for evaluating the quality of ontologies. Journal of Research and Practice in Information Technology, 43, 159-173.
+[^2]: Wilkinson, M. D., Dumontier, M., Aalbersberg, I. J., Appleton, G., Axton, M., Baak, A., ... & Bouwman, J. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Scientific data, 3.
 
 The following table shows the characteristics and their associated subcharacteristics:
 
