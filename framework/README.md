@@ -12,12 +12,12 @@ OQuare KG is a quality framework for assessing knowledge graphs, based on OQuaRE
 
 The following table shows the characteristics and their associated subcharacteristics:
 
-| **    Characteristics   ** | **    Subcharacteristics   **                                       |
-|----------------------------|---------------------------------------------------------------------|
-|     Accessibility          |     Availability,   licensing, clustering                           |
-|     Representational       |     Interpretability,   interoperability, versatility               |
-|     Structural             |     Completeness,   consistency, syntactic validity, redundancy     |
-|     Contextual             |     Understandability,   trustworthiness, provenance, timeliness    |
+| **Characteristics** | **Subcharacteristics**                                      |
+|---------------------|-------------------------------------------------------------|
+|Accessibility        |Availability,   licensing, clustering                        |
+|Representational     |Interpretability,   interoperability, versatility            |
+|Structural           |Completeness,   consistency, syntactic validity, redundancy  |
+|Contextual           |Understandability,   trustworthiness, provenance, timeliness |
 
 ## Details
 
