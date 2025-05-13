@@ -1,20 +1,21 @@
 # The OQuaRE KG quality characteristics
 
-The OQuaRE KG framework includes 4 characteristics: accessibility, representational, structural, contextual.
-
-### Accessibility
-Accessibility is the extent to which data are available or easily and quickly retrievable [^1].
-
-### Representational
-Captures aspects related to the design of the data [^2].
+The OQuaRE KG framework includes 5 characteristics: structural, functional adequacy, compatibility, transferability and operability.
 
 ### Structural
 The structural dimension accounts for the intrinsic design and structure of the knowledge graph, independent of the user's specific context. 
 
-###	Contextual
-Are those dimensions that highly depend on the context of the task at hand [^2]. 
+### Functional adequacy
+Functional adequacy refers to the capability of the knowledge graph to provide concrete functions. [^1]
 
+### Compatibility
+The ability of two or more software components to exchange information and/or to perform their required functions while sharing the same hardware or software environment. [^1]
 
-[^1]: Wang, R. Y., & Strong, D. M. (1996). Beyond Accuracy: What Data Quality Means to Data Consumers. Journal of Management Information Systems, 12(4), 5-33.[https://doi.org/10.1080/07421222.1996.11518099](https://doi.org/10.1080/07421222.1996.11518099)
+### Transferability
+The degree to which the software product can be transferred from one environment to another.[^1]
 
-[^2]: Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., & Auer, S. (2016). Quality assessment for Linked Data: A Survey. Semantic Web, 7(1), 63-93.[https://doi.org/10.3233/SW-150175](https://doi.org/10.3233/SW-150175)
+### Operability
+Effort needed for use, and on the individual assessment of such use, by a stated or implied set of users. [^1]
+
+[^1]: Duque-Ramos, A., Fernández-Breis, J. T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based Approach for Evaluating the Quality of Ontologies. Journal of Research and Practice in Information Technology, 43(2).
+
