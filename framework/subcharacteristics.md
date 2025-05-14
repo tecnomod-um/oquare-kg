@@ -36,7 +36,7 @@ Availability of a dataset is the extent to which data (or some portion of it) is
 ### Versatility
 Versatility refers to the availability of the data in different representations and in an internationalized way [^1].
 
-### Operability
+## Operability
 ### Licensing
 Licensing is defined as the granting of permission for a consumer to re-use a dataset under defined conditions [^1].
 
