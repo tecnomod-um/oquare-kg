@@ -2,55 +2,6 @@
 
 A subcharacteristic comprises at least one or more quality metrics which are, in turn, grouped into characteristics.
 
-## Accessibility
-### Availability
-
-| **Metric**                            | **Definition**                                                                                                             |
-|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| Dereferenceability of the URI [^1]    | The aim of this metric is to check the number of valid   dereferenceable URIs used in a graph.                             |
-| Identifier persistence [^2]           | Whether there is a policy that describes what the provider will do in the event an   identifier scheme becomes deprecated. |
-| Resource Identifier in Metadata [^2]  | Whether the metadata document contains the globally unique and persistent identifier for   the digital resource.           |
-| Indexed in a searchable resource [^2] | The degree to which the digital resource can be found using web-based search engines.                                      |
-| Identifier Uniqueness [^2]            | Whether there is a scheme to uniquely identify the digital resource.                                                       |
-
-### Licensing
-
-| **Metric**                    | **Definition**                                                                                                                                   |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| Machine-readable license [^1] | The aim of this metric is to check if a dataset has a valid machine-readable license.                                                            |
-| Human-readable license [^1]   | Verifies whether a human-readable text, stating the licensing model attributed to the resource, has been provided as part of the graph.          |
-| Accessible Usage License [^2] | The existence of a license document, for both (independently) the data and its associated metadata, and the ability to retrieve those documents. |
-
-### Clustering  
-
-| **Metric**                                   | **Definition**                                                                                                                                                                                |
-|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Links to external linked data providers [^1] | Well-interlinked data enables better analysis and understanding of the data. The aim of this metric is to identify the total number of external RDF links used within the   assessed dataset. |
-| Use Qualified References [^2]                | Relationships within (meta)data, and between local and third-party data, have explicit and ‘useful’ semantic meaning.                                                                         |
-
-## Representational
-### Interpretability
-
-| Metric                                       | Definition                                                                                                                                                                                                                             |
-|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Re-use of existing terms [^1]                | This metric assesses if a graph re-uses relevant terms in a particular domain. In particular, this metric checks if a property or a class (in case the predicate is rdf:type) used in a triple refers to a term in another vocabulary. |
-| Use a Knowledge Representation Language [^2] | Use of a formal, accessible, shared, and broadly applicable language for knowledge representation.                                                                                                                                     |
-
-### Interoperability
-
-| **Metric**                                   | **Definition**                                                                                                                                                                                                                                 |
-|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Re-use of existing terms [^1]                | This metric   assesses if a graph re-uses relevant terms in a particular domain. In   particular, this metric checks if a property or a class (in case the   predicate is rdf:type) used in a triple refers to a term in another   vocabulary. |
-| Use a Knowledge Representation Language [^2] | Use of a   formal, accessible, shared, and broadly applicable language for knowledge   representation.                                                                                                                                         |
-| Use FAIR Vocabularies [^2]                   | The metadata   values and qualified relations should themselves be FAIR, for example, terms   from open, community-accepted vocabularies published in an appropriate   knowledge-exchange format.                                              |
-| Machine-readability of metadata [^2]         | The   availability of machine-readable metadata that describes a digital resource.                                                                                                                                                             |
-
-### Versatility
-
-| **Metric**                           | **Definition**                                                                                |
-|--------------------------------------|-----------------------------------------------------------------------------------------------|
-| Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|
-| Usage of multiple languages [^1]     | This metric checks the number of languages a graph supports.                                  |
 
 ## Structural
 ### Completeness
@@ -79,8 +30,26 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | **Metric**                   | **Definition**                                                                                                                                               |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Extensional conciseness [^1] | The extensional conciseness metric checks for redundant resources in the assessed graph and thus measures the number of unique instances found in the graph. |
+ 
 
-## Contextual
+### Interpretability
+
+| Metric                                       | Definition                                                                                                                                                                                                                             |
+|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Re-use of existing terms [^1]                | This metric assesses if a graph re-uses relevant terms in a particular domain. In particular, this metric checks if a property or a class (in case the predicate is rdf:type) used in a triple refers to a term in another vocabulary. |
+| Use a Knowledge Representation Language [^2] | Use of a formal, accessible, shared, and broadly applicable language for knowledge representation.                                                                                                                                     |
+
+
+### Timeliness
+
+| **Metric**                                                  | **Definition**                                                                                                                                                                          |
+|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Freshness of datasets based on currency and volatility [^3] | Detecting freshness of graphs based on currency and volatility. Currency is the age of the data when delivered to the user and volatility is the length of time the data remains valid. |
+| Freshness of datasets based on their data source [^3]       | Detecting freshness of datasets based on their data source by measuring the distance between the last modified time of the data source and last modified time of the dataset            |
+
+
+
+## Functional adequacy
 ### Understandability
 
 | **Metric**                                 | **Definition**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -95,12 +64,14 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Human readable labelling and comments [^1] | The aim of this metric is to calculate graph’s completeness in terms of human readable labels and descriptions. The metric measures the percentage of local entities that have a label or a description.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Indication of used vocabularies [^1]       | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric.                                                                                                                                                                                                                                                                                                                                                       |
 
+
 ### Trustworthiness
 
 | **Metric**                                             | **Definition**                                                                                                                                                                                                                                                                                |
 |--------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Trustworthiness of statements, datasets and rules [^3] | Using trust ontologies that assigns trust values that can be transferred from known to unknown data using: (i) content-based methods (from content or rules) and (ii) metadata-based methods (based on reputation assignments, user ratings, and provenance, rather than the content itself). |
 | Traceability of the data [^1]                          | This metric checks whether each resource has provenance information related to the origin of data.                                                                                                                                                                                            |
+
 
 ### Provenance
  
@@ -111,12 +82,58 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Use FAIR Vocabularies [^2]                     | The metadata values and qualified relations should themselves be FAIR, for example, terms from open, community-accepted vocabularies published in an appropriate knowledge-exchange format.                                                                                 |
 | Detailed Provenance [^2]                       | That there is provenance information associated with the data, covering at least two primary types of provenance information: Who/what/When produced the data (i.e. for citation). And Why/How was the data produced (i.e. to understand context and relevance of the data) |
 
-### Timeliness
 
-| **Metric**                                                  | **Definition**                                                                                                                                                                          |
-|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Freshness of datasets based on currency and volatility [^3] | Detecting freshness of graphs based on currency and volatility. Currency is the age of the data when delivered to the user and volatility is the length of time the data remains valid. |
-| Freshness of datasets based on their data source [^3]       | Detecting freshness of datasets based on their data source by measuring the distance between the last modified time of the data source and last modified time of the dataset            |
+### Clustering  
+
+| **Metric**                                   | **Definition**                                                                                                                                                                                |
+|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Links to external linked data providers [^1] | Well-interlinked data enables better analysis and understanding of the data. The aim of this metric is to identify the total number of external RDF links used within the   assessed dataset. |
+| Use Qualified References [^2]                | Relationships within (meta)data, and between local and third-party data, have explicit and ‘useful’ semantic meaning.                                                                         |
+
+
+
+## Compatibility
+### Interoperability
+
+| **Metric**                                   | **Definition**                                                                                                                                                                                                                                 |
+|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Re-use of existing terms [^1]                | This metric   assesses if a graph re-uses relevant terms in a particular domain. In   particular, this metric checks if a property or a class (in case the   predicate is rdf:type) used in a triple refers to a term in another   vocabulary. |
+| Use a Knowledge Representation Language [^2] | Use of a   formal, accessible, shared, and broadly applicable language for knowledge   representation.                                                                                                                                         |
+| Use FAIR Vocabularies [^2]                   | The metadata   values and qualified relations should themselves be FAIR, for example, terms   from open, community-accepted vocabularies published in an appropriate   knowledge-exchange format.                                              |
+| Machine-readability of metadata [^2]         | The   availability of machine-readable metadata that describes a digital resource.                                                                                                                                                             |
+
+
+## Transferability
+### Availability
+
+| **Metric**                            | **Definition**                                                                                                             |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Dereferenceability of the URI [^1]    | The aim of this metric is to check the number of valid   dereferenceable URIs used in a graph.                             |
+| Identifier persistence [^2]           | Whether there is a policy that describes what the provider will do in the event an   identifier scheme becomes deprecated. |
+| Resource Identifier in Metadata [^2]  | Whether the metadata document contains the globally unique and persistent identifier for   the digital resource.           |
+| Indexed in a searchable resource [^2] | The degree to which the digital resource can be found using web-based search engines.                                      |
+| Identifier Uniqueness [^2]            | Whether there is a scheme to uniquely identify the digital resource.                                                       |
+
+### Versatility
+
+| **Metric**                           | **Definition**                                                                                |
+|--------------------------------------|-----------------------------------------------------------------------------------------------|
+| Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|
+| Usage of multiple languages [^1]     | This metric checks the number of languages a graph supports.                                  |
+
+
+## Operability
+### Licensing
+
+| **Metric**                    | **Definition**                                                                                                                                   |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Machine-readable license [^1] | The aim of this metric is to check if a dataset has a valid machine-readable license.                                                            |
+| Human-readable license [^1]   | Verifies whether a human-readable text, stating the licensing model attributed to the resource, has been provided as part of the graph.          |
+| Accessible Usage License [^2] | The existence of a license document, for both (independently) the data and its associated metadata, and the ability to retrieve those documents. |
+
+
+
+
 
 
 
