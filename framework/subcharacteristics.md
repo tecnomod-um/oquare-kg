@@ -3,8 +3,6 @@
 The characteristics of the OQuaRE KG framework have 14 associated subcharacteristics that can be applied to assess the quality of knowledge graphs.
 
 ## Structural
-### Completeness
-Completeness refers to the degree to which all required information is present in a particular dataset [^1].
 ### Consistency
 Consistency means that two or more entities do not conflict with respect to knowledge representation and inference mechanisms.
 ### Syntactic validity
