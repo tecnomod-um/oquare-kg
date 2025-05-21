@@ -4,12 +4,6 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 ## Structural
-### Completeness
-
-| **Metric**                     | **Definition**                                                                                                                |
-|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Population completeness [^2]   | Population completeness is the percentage of all real-world objects of a particular type that are represented in the datasets.|
-| Interlinking completeness [^2] | Refers to the degree to which instances in the dataset are interlinked.                                                       |
 
 ### Consistency
 
