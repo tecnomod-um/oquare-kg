@@ -29,14 +29,16 @@ Clustering refers to the degree to which entities representing the same or close
 Interoperability is the degree to which the format and structure of the information conforms to previously returned information as well as data from other sources [^1].
 
 ## Transferability
-### Availability
-Availability of a dataset is the extent to which data (or some portion of it) is present, obtainable and ready for use [^1].
 ### Versatility
 Versatility refers to the availability of the data in different representations and in an internationalized way [^1].
 
 ## Operability
 ### Licensing
 Licensing is defined as the granting of permission for a consumer to re-use a dataset under defined conditions [^1].
+
+## Reliability
+### Availability
+Availability of a dataset is the extent to which data (or some portion of it) is present, obtainable and ready for use [^1].
 
 
 
