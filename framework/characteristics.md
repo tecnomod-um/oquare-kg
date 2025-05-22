@@ -17,5 +17,8 @@ The degree to which the software product can be transferred from one environment
 ## Operability
 Effort needed for use, and on the individual assessment of such use, by a stated or implied set of users. [^1]
 
-[^1]: Duque-Ramos, A., Fernández-Breis, J. T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based Approach for Evaluating the Quality of Ontologies. Journal of Research and Practice in Information Technology, 43(2).
+## Reliability
+Reliability refers to the capability of the knowledge graph to maintain its level of performance under stated conditions for a given period of time.[^1]
+
+[^1]:Duque-Ramos, A., Fernández-Breis, J. T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based Approach for Evaluating the Quality of Ontologies. Journal of Research and Practice in Information Technology, 43(2).
 
