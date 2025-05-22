@@ -74,8 +74,6 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Provision of basic provenance information [^1] | At the very least, a graph should have a dc:creator or dc:publisher within its metadata.                                                                                                                                                                                    |
 | Traceability of the data [^1]                  | This metric checks whether each resource has provenance information related to the origin of data.                                                                                                                                                                          |
 
-
-
 ### Clustering  
 
 | **Metric**                                   | **Definition**                                                                                                                                                                                |
@@ -95,13 +93,6 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 ## Transferability
-### Availability
-
-| **Metric**                            | **Definition**                                                                                                             |
-|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| Dereferenceability of the URI [^1]    | The aim of this metric is to check the number of valid   dereferenceable URIs used in a graph.                             |
-
-
 ### Versatility
 
 | **Metric**                           | **Definition**                                                                                |
@@ -119,6 +110,12 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Human-readable license [^1]   | Verifies whether a human-readable text, stating the licensing model attributed to the resource, has been provided as part of the graph.          |
 
 
+## Reliability
+### Availability
+
+| **Metric**                            | **Definition**                                                                                                             |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Dereferenceability of the URI [^1]    | The aim of this metric is to check the number of valid   dereferenceable URIs used in a graph.                             |
 
 
 
