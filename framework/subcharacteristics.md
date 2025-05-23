@@ -3,6 +3,8 @@
 The characteristics of the OQuaRE KG framework have 14 associated subcharacteristics that can be applied to assess the quality of knowledge graphs.
 
 ## Structural
+### Formalisation
+The capability of a knowledge graph's ontology or schema to enable reasoning processes. 
 ### Consistency
 Consistency means that two or more entities do not conflict with respect to knowledge representation and inference mechanisms.
 ### Syntactic validity
@@ -15,6 +17,8 @@ Interpretability refers to technical aspects of the data, that is, whether infor
 Timeliness measures how up-to-date data is relative to a specific task [^1].
 
 ## Functional adequacy
+### Inference
+The degree to which the ontology or schema of a knowledge graph can be used by reasoners to make implicit knowledge explicit within the graph. 
 ### Understandability
 Understandability refers to the ease with which data can be comprehended without ambiguity and be used by a human information consumer [^1].
 ### Trustworthiness
