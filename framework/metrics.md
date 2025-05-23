@@ -135,7 +135,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 
-[^1]: Debattista, J., Lange, C., Auer, S., & Cortis, D. (2018). Evaluating the quality of the LOD cloud: An empirical investigation. Semantic Web, 9(6), 859-901. https://doi.org/10.3233/SW-180306
+[^1]: Modified from: Debattista, J., Lange, C., Auer, S., & Cortis, D. (2018). Evaluating the quality of the LOD cloud: An empirical investigation. Semantic Web, 9(6), 859-901. https://doi.org/10.3233/SW-180306
 [^2]: Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., & Auer, S. (2016). Quality assessment for Linked Data: A Survey. Semantic Web, 7(1), 63-93.https://doi.org/10.3233/SW-150175
 [^3]: Modified from: Abad-Navarro, F., Martínez-Costa, C., & Fernández-Breis, J. T. (2023). HURON: A Quantitative Framework for Assessing Human Readability in Ontologies. IEEE Access, 11, 101833-101851. IEEE Access. https://doi.org/10.1109/ACCESS.2023.3316512
 [^4]: Modified from: Duque-Ramos, A., Fernández-Breis, J. T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based Approach for Evaluating the Quality of Ontologies. Journal of Research and Practice in Information Technology, 43(2).
