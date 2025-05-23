@@ -4,6 +4,12 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 ## Structural
+### Formalisation
+
+| **Metric**               | **Definition**                                                                                                              |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+|  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric.  |
+
 
 ### Consistency
 
@@ -44,6 +50,13 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 ## Functional adequacy
+
+### Inference
+
+| **Metric**               | **Definition**                                                                                                              |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+|Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric.  |
+
 ### Understandability
 
 | **Metric**                                 | **Definition**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
