@@ -1,6 +1,6 @@
 from rdflib import Graph, URIRef, PROV, RDF
 
-def prov_information_metric(graph):
+def traceability_data_metric(graph):
     """
     Calculates the ratio of resources that have at least one associated PROV predicate.
 
