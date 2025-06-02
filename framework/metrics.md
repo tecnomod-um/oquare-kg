@@ -76,7 +76,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 | **Metric**                                             | **Definition**                                                                                                                                                                                                                                                                                |
 |--------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Trustworthiness of statements, datasets and rules [^2] | Using trust ontologies that assigns trust values that can be transferred from known to unknown data using: (i) content-based methods (from content or rules) and (ii) metadata-based methods (based on reputation assignments, user ratings, and provenance, rather than the content itself). |
+| Evidence metric | This metric verifies whether graph’s assertions have terms for capturing evidence.  |
 | Traceability of the data [^1]                          | This metric checks whether each resource has provenance information related to the origin of data.                                                                                                                                                                                            |
 
 
@@ -84,7 +84,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
  
 | **Metric**                                     | **Definition**                                                                                                                                                                                                                                                              |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Provision of basic provenance information [^1] | At the very least, a graph should have a dc:creator or dc:publisher within its metadata.                                                                                                                                                                                    |
+| Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset.                                                                                                                                                                                     |
 | Traceability of the data [^1]                  | This metric checks whether each resource has provenance information related to the origin of data.                                                                                                                                                                          |
 
 ### Clustering  
