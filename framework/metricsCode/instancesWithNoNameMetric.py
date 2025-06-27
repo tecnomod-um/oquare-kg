@@ -1,6 +1,6 @@
 from rdflib import RDF, RDFS, DCTERMS, FOAF
 
-def instances_without_name(graph):
+def instances_without_name_metric(graph):
     """
 
     Calculates the ratio of instances without a name used in a graph.

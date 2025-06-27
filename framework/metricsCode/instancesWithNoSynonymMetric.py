@@ -1,6 +1,6 @@
 from rdflib import SKOS, RDF
 
-def instances_without_synonyms(graph):
+def instances_without_synonyms_metric(graph):
     """
 
     Calculates the ratio of instances without description used in a graph.
