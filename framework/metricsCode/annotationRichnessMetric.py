@@ -1,4 +1,4 @@
-from rdflib import Graph, RDF, Literal, URIRef
+from rdflib import Graph, RDF, Literal, URIRef,RDFS, OWL
 
 def annotation_richness_metric(graph):
     """
@@ -11,28 +11,37 @@ def annotation_richness_metric(graph):
         The metric value representing the ratio of annotation properties to total instances. Best = 1
     """
 
-    # Counters for annotation properties and total instances.
-    total_annotation_properties = 0
-    total_instances = 0
+    total_annotations = set()
+    total_instances = set()  
 
-    # Count the number of annotation properties.
-    annotation_properties = set()
-    for subject, predicate, obj in graph:
-        if isinstance(predicate, URIRef) and predicate != RDF.type:
-            annotation_properties.add(predicate)
-    total_annotation_properties = len(annotation_properties)
+    # Define a default set of annotation predicates. As many as needed
+    annotation_properties = {
+        RDFS.label,
+        RDFS.comment,
+        RDFS.seeAlso,
+        RDFS.isDefinedBy,
+        OWL.versionInfo,
+        URIRef("http://purl.org/dc/terms/description"),
+        URIRef("http://purl.org/dc/terms/title"),
+        URIRef("http://purl.org/dc/elements/1.1/description"),
+        URIRef("http://purl.org/dc/elements/1.1/title")
+    }
 
-    # Count the number of total instances.
-    instance_subjects = set()
     for subject, predicate, obj in graph:
+        # Check if the predicate is an annotation predicate
+        if predicate in annotation_properties and isinstance(subject, URIRef):
+            total_annotations.add((subject))
+
+        # Count instances only if they have an rdf:type
         if predicate == RDF.type and isinstance(subject, URIRef):
-            instance_subjects.add(subject)
-    total_instances = len(instance_subjects)
+            total_instances.add(subject)
 
-    # Calculate the metric.
-    if total_instances > 0:
-        annotation_richness = total_annotation_properties / total_instances
+    num_total_annotations = len(total_annotations)
+    num_total_instances = len(total_instances)
+
+    if num_total_instances > 0:
+        descriptions_metric = num_total_annotations / num_total_instances
     else:
-        annotation_richness = 0
+        descriptions_metric = 0
 
-    return annotation_richness
+    return descriptions_metric
