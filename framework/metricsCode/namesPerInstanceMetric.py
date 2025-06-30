@@ -8,7 +8,7 @@ def names_per_instance_metric(graph):
         graph: The RDF graph.
 
     Returns:
-        The names per instance metric. Best = 1
+        The names per instance metric. Best >= 1
     """
 
     total_names = 0

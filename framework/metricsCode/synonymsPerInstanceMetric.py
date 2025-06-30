@@ -8,11 +8,11 @@ def synonyms_per_instance_metric(graph):
         graph: RDF graph.
         
     Returns:
-        The synonyms per instance metric. Best = 1
+        The synonyms per instance metric. Best >= 1
     """
 
     total_synonyms = 0
-    total_instances = 0
+    instances = set()
 
     # Define a default set of synonym properties
     synonym_properties = {
@@ -26,7 +26,9 @@ def synonyms_per_instance_metric(graph):
         if isinstance(subject, URIRef) and predicate in synonym_properties:
             total_synonyms += 1
         elif predicate == RDF.type and isinstance(subject, URIRef):    # Count instances
-            total_instances += 1
+            instances.add(subject)
+
+    total_instances = len(instances)
 
     # Calculate metric
     if total_instances > 0:

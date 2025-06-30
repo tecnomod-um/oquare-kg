@@ -8,10 +8,10 @@ def annotation_richness_metric(graph):
         graph: RDF graph.
 
     Returns:
-        The metric value representing the ratio of annotation properties to total instances. Best = 1
+        The metric value representing the ratio of annotation properties to total instances. Best > 1
     """
 
-    total_annotations = set()
+    total_annotations = 0
     total_instances = set()  
 
     # Define a default set of annotation predicates. As many as needed
@@ -30,17 +30,16 @@ def annotation_richness_metric(graph):
     for subject, predicate, obj in graph:
         # Check if the predicate is an annotation predicate
         if predicate in annotation_properties and isinstance(subject, URIRef):
-            total_annotations.add((subject))
+            total_annotations += 1
 
         # Count instances only if they have an rdf:type
         if predicate == RDF.type and isinstance(subject, URIRef):
             total_instances.add(subject)
 
-    num_total_annotations = len(total_annotations)
     num_total_instances = len(total_instances)
 
     if num_total_instances > 0:
-        descriptions_metric = num_total_annotations / num_total_instances
+        descriptions_metric = total_annotations / num_total_instances
     else:
         descriptions_metric = 0
 
