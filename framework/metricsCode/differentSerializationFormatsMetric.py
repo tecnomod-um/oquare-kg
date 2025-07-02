@@ -19,4 +19,4 @@ def serialization_formats_metric(graph):
             # Extraer la parte final de la URI
             formats.add(str(obj).split("/")[-1])
 
-    return formats if formats else None
+    return formats

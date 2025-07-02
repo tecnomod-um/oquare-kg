@@ -2,18 +2,19 @@ from rdflib import Graph, URIRef, DCTERMS, Literal
 
 def basic_provenance_metric(graph):
     """
-    Calculates the percentage of PROV predicates used in a RDF graph.
+    Calculates the percentage of provenance and authoring predicates used in a RDF graph.
 
     Args:
         graph: RDF graph.
 
     Returns:
-        The percentage of predicates used in the graph. Best = 1
+        The ratio of predicates used in the graph. Best = 1
     """
 
     basic_prov_predicates = {
         DCTERMS.creator,
-        DCTERMS.publisher
+        DCTERMS.publisher,
+        URIRef("http://purl.org/pav/providedBy")
     }
     # basic provenance predicates used in the graph
     used_prov_predicates = set()
