@@ -1,4 +1,4 @@
-from rdflib import RDF, RDFS, DCTERMS, FOAF
+from rdflib import RDF, RDFS, DCTERMS, FOAF, SKOS, URIRef, DC
 
 def instances_without_name_metric(graph):
     """
@@ -14,7 +14,16 @@ def instances_without_name_metric(graph):
   
     instances = set()
     named_instances = set()
-    name_predicates = {RDFS.label, DCTERMS.title, FOAF.name}  # set of names predicates, add as many as necesary
+    name_predicates = {
+            RDFS.label,
+            DCTERMS.title,
+            DC.title,
+            FOAF.name,
+            SKOS.prefLabel,
+            URIRef("http://purl.obolibrary.org/obo/IAO_0000589"),
+            URIRef("https://schema.org/name"),
+            URIRef("http://purl.obolibrary.org/obo/NCIT_P108")
+    }  # set of names predicates, add as many as necesary
 
     # Find the instances (rdf:type predicates)
     for subject, predicate, obj in graph:

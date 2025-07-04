@@ -1,4 +1,4 @@
-from rdflib import Graph, URIRef, Literal, RDF
+from rdflib import Graph, URIRef, Literal, RDF, SKOS, DCTERMS, DC, RDFS
 
 def descriptions_per_instance_metric(graph):
     """
@@ -16,11 +16,14 @@ def descriptions_per_instance_metric(graph):
 
     # Define a default set of description predicates. As many as needed
     description_predicates = {
-        URIRef("http://schema.org/description"),
-        URIRef("http://purl.org/dc/terms/description"),
-        URIRef("http://www.w3.org/2000/01/rdf-schema#comment"),
+            URIRef ("http://purl.obolibrary.org/obo/IAO_0000115"),
+            SKOS.definition,
+            DCTERMS.description,
+            DC.description,
+            RDFS.comment,
+            URIRef("http://schema.org/description"),
+            URIRef("http://purl.obolibrary.org/obo/NCIT_P97")
     }
-
     for subject, predicate, obj in graph:
         # Check if the predicate is a description predicate
         if predicate in description_predicates and isinstance(subject, URIRef):

@@ -1,4 +1,4 @@
-from rdflib import Graph, RDF, URIRef
+from rdflib import Graph, RDF, URIRef,SKOS
 
 def synonyms_per_instance_metric(graph):
     """
@@ -16,8 +16,21 @@ def synonyms_per_instance_metric(graph):
 
     # Define a default set of synonym properties
     synonym_properties = {
-        URIRef("http://www.w3.org/2004/02/skos/core#altLabel"),
-        URIRef("http://www.w3.org/2004/02/skos/core#hiddenLabel"),
+            SKOS.altLabel,
+            SKOS.hiddenLabel,
+            URIRef("http://purl.obolibrary.org/obo/hasExactSynonym"),
+            URIRef("http://www.geneontology.org/formats/oboInOWL#hasExactSynonym"),
+            URIRef("http://purl.obolibrary.org/obo/hasRelatedSynonym"),
+            URIRef("http://www.geneontology.org/formats/oboInOWL#hasRelatedSynonym"),
+            URIRef("http://www.geneontology.org/formats/oboInOWL#hasBroadSynonym"),
+            URIRef("http://purl.obolibrary.org/obo/hasNarrowSynonym"),
+            URIRef("http://www.geneontology.org/formats/oboInOWL#hasNarrowSynonym"),
+            URIRef("http://purl.obolibrary.org/obo/NCIT_P90"),
+            URIRef("http://purl.obolibrary.org/obo/IAO_0000118"),
+            URIRef("http://purl.obolibrary.org/obo/OBI_9991119"),
+            URIRef("http://purl.obolibrary.org/obo/OBI_9991118"),
+            URIRef("http://purl.obolibrary.org/obo/OBI_0001847"),
+            URIRef("http://purl.obolibrary.org/obo/OBI_0001886"),
         # Add other common synonym properties here
     }
 

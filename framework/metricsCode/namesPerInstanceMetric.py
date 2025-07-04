@@ -1,4 +1,4 @@
-from rdflib import Graph, RDF, RDFS, URIRef, Literal, DCTERMS, DC
+from rdflib import Graph, RDF, RDFS, URIRef, Literal, DCTERMS, DC, FOAF, SKOS
 
 def names_per_instance_metric(graph):
     """
@@ -16,10 +16,14 @@ def names_per_instance_metric(graph):
 
     # Define name properties. Add as many as needed
     name_properties = {
-        RDFS.label,
-        URIRef("http://schema.org/name"),
-        DC.title,
-        DCTERMS.title
+            RDFS.label,
+            DCTERMS.title,
+            DC.title,
+            FOAF.name,
+            SKOS.prefLabel,
+            URIRef("http://purl.obolibrary.org/obo/IAO_0000589"),
+            URIRef("https://schema.org/name"),
+            URIRef("http://purl.obolibrary.org/obo/NCIT_P108")
     }
 
     # Count names and instances in a single pass

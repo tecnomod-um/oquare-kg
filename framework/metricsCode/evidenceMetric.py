@@ -36,6 +36,8 @@ def evidence_metric(graph):
     # Set of common evidence related predicates.
     # Add any other specific predicates that indicate evidence.
     evidence_predicates = {
+        URIRef("http://geneontology.org/lego/evidence"),
+        URIRef("http://geneontology.org/lego/evidence-with"),
         DCTERMS.source,
         DCTERMS.references,
         RDFS.isDefinedBy,

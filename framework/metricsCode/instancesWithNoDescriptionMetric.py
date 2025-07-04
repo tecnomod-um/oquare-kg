@@ -1,4 +1,4 @@
-from rdflib import Graph, RDF, RDFS, DCTERMS, URIRef
+from rdflib import Graph, RDF, RDFS, DCTERMS, URIRef, SKOS, DC
 
 def instances_without_description_metric(graph):
     """
@@ -12,7 +12,15 @@ def instances_without_description_metric(graph):
     """
     instances = set()
     described_instances = set()
-    description_predicates = {RDFS.comment, DCTERMS.description}
+    description_predicates = {
+            URIRef ("http://purl.obolibrary.org/obo/IAO_0000115"),
+            SKOS.definition,
+            DCTERMS.description,
+            DC.description,
+            RDFS.comment,
+            URIRef("http://schema.org/description"),
+            URIRef("http://purl.obolibrary.org/obo/NCIT_P97")
+        }
 
     for subject, predicate, obj in graph:
         if isinstance(subject, URIRef):
