@@ -1,11 +1,13 @@
 from rdflib import Graph, RDF, RDFS, DCTERMS, URIRef, OWL, Literal
 from rdflib.namespace import Namespace
 
+""""
 # Define the ECO namespace
 ECO = Namespace("http://purl.obolibrary.org/obo/ECO_")
 
-# === Mapping of GO Evidence Codes to ECO IDs ===
+# Mapping of GO Evidence Codes to ECO IDs 
 # This allows interpreting GO evidence codes as specific ECO types.
+# Add as many as necessary
 go_to_eco = {
     "IDA": str(ECO["0000314"]), # Inferred from Direct Assay
     "EXP": str(ECO["0000269"]), # Experimental Evidence
@@ -17,20 +19,29 @@ go_to_eco = {
 
 # Create a set of valid ECO URIs for quick lookup
 valid_eco_uris = set(go_to_eco.values())
+"""
+evidence_uris = {
+    URIRef("http://purl.obolibrary.org/obo/ECO_0000305"),
+    URIRef("http://purl.obolibrary.org/obo/ECO_0000314"),
+    URIRef("http://purl.obolibrary.org/obo/ECO_0000250"),
+    URIRef("http://purl.obolibrary.org/obo/ECO_0000501"),
+    URIRef("http://purl.obolibrary.org/obo/ECO_0000304"),
+    URIRef("http://purl.obolibrary.org/obo/ECO_0000303"),
+}
 
-def evidence_codes_metric(graph):
+def calculate_metric(self, graph: Graph) -> float:
     """
-    Calculates the average number of valid ECO codes associated with instances
+    Calculates the average number of evidence URIs associated with instances
     in the graph.
 
     Args:
-        graph: A RDFlib Graph.
+        graph: RDF Graph.
 
     Returns:
-        The average number of valid ECO codes per instance. Best=1
+        The average number of evidence URIs per instance. Best =< 1
     """
     total_instances = 0
-    total_eco_code_occurrences = 0 # Count each occurrence of a valid ECO code
+    total_evidence_code_occurrences = 0 # Count each occurrence of a valid ECO code
 
     # Identify all instances
     instances = set()
@@ -41,13 +52,14 @@ def evidence_codes_metric(graph):
 
     # Count all occurrences of ECO codes associated with instances
     for subject, predicate, obj in graph:
-        # Check if the subject is an identified instance and the object is a valid ECO URI
-        if subject in instances and isinstance(obj, URIRef) and str(obj) in valid_eco_uris:
-            total_eco_code_occurrences += 1 # Count every time a valid ECO is found
+        # Check if the subject is an identified instance and the object is a evidence URI
+        # if subject in instances and isinstance(obj, URIRef) and str(obj) in EvidenceCodesMetric.valid_eco_uris:
+        if subject in instances and isinstance(obj, URIRef) and obj in evidence_uris:
+            total_evidence_code_occurrences += 1 # Count every time a valid ECO is found
 
-    if total_instance_declarations > 0:
-        eco_codes_metric = total_eco_code_occurrences / total_instances
+    if total_instances > 0:
+        evidence_metric = total_evidence_code_occurrences / total_instances
     else:
-        eco_codes_metric = 0
+        evidence_metric = 0
 
-    return eco_codes_metric
+    return evidence_metric

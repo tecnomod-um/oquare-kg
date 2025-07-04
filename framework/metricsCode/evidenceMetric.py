@@ -43,7 +43,6 @@ def evidence_metric(graph):
         RDFS.isDefinedBy,
         OWL.sameAs,
         URIRef("http://purl.org/dc/elements/1.1/source"),
-        URIRef("http://example.org/hasGoEvidence"), # Example of a predicate pointing to GO/ECO codes
     }
 
     for subject, predicate, obj in graph:
