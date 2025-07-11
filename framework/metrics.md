@@ -36,6 +36,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 | Metric                                       | Definition                                                                                                                                                                                                                             |
 |----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Entities with no type metric | The percentage of nodes lacking rdf:type in the graph. |
 | Re-use of existing terms [^1]                | This metric assesses if a graph re-uses relevant terms in a particular domain. In particular, this metric checks if a property or a class (in case the predicate is rdf:type) used in a triple refers to a term in another vocabulary. |
 
 
