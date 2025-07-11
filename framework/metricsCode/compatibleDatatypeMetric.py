@@ -85,6 +85,6 @@ def compatible_datatype_metric(graph):
     if total_literals > 0:
         compatible_datatype = (valid_literals / total_literals)
     else:
-        compatible_datatype = 0
+        compatible_datatype = 0.0
 
     return compatible_datatype

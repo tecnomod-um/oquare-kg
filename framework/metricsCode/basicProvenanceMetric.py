@@ -26,6 +26,6 @@ def basic_provenance_metric(graph):
     if len(used_prov_predicates) > 0:
         basic_prov_metric = (len(used_prov_predicates) / len(basic_prov_predicates))
     else:
-        basic_prov_metric = 0
+        basic_prov_metric = 0.0
 
     return basic_prov_metric

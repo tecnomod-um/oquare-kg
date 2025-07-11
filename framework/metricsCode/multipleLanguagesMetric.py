@@ -27,6 +27,6 @@ def multiple_languages_metric(graph):
     if total_label_count > 0:
         languages_metric = language_label_count / total_label_count
     else:
-        languages_metric = 0
+        languages_metric = 0.0
 
     return languages_metric

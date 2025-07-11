@@ -45,7 +45,6 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 | **Metric**                                                  | **Definition**                                                                                                                                                                          |
 |-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Freshness of datasets based on currency and volatility [^2] | Detecting freshness of graphs based on currency and volatility. Currency is the age of the data when delivered to the user and volatility is the length of time the data remains valid. |
 | Freshness of datasets based on their data source [^2]       | Detecting freshness of datasets based on their data source by measuring the distance between the last modified time of the data source and last modified time of the dataset            |
 
 
@@ -57,6 +56,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | **Metric**               | **Definition**                                                                                                              |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric.  |
+| Entities with no type metric | The percentage of nodes lacking rdf:type in the graph. |
 
 ### Understandability
 
@@ -92,7 +92,8 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 | **Metric**                                   | **Definition**                                                                                                                                                                                |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Links to external linked data providers [^1] | Well-interlinked data enables better analysis and understanding of the data. The aim of this metric is to identify the total number of external RDF links used within the   assessed dataset. |
+| Links to external linked data providers [^1] | Well-interlinked data enables better analysis and understanding of the data. The aim of this metric is to identify the total number of external RDF links used within the assessed dataset. |
+| Entities with no type metric | The percentage of nodes lacking rdf:type in the graph. |
 
 
 
