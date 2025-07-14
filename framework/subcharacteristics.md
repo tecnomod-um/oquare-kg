@@ -12,7 +12,7 @@ Syntactic validity is defined as the degree to which an RDF document conforms to
 ### Redundancy  
 Redundancy refers to the degree of avoidance of duplicate entities or relationships that could confuse the reasoning and querying of the graph.
 ### Interpretability
-Interpretability refers to technical aspects of the data, that is, whether information is represented using an appropriate notation and whether the machine is able to process the data [^1].
+The extent to which the information within the knowledge graph is machine-readable, semantically unambiguous and consistent, enabling automated systems to perform valid reasoning.
 ### Timeliness
 Timeliness measures how up-to-date data is relative to a specific task [^1].
 
@@ -30,7 +30,7 @@ Clustering refers to the degree to which entities representing the same or close
 
 ## Compatibility
 ### Interoperability
-Interoperability is the degree to which the format and structure of the information conforms to previously returned information as well as data from other sources [^1].
+Interoperability in knowledge graphs refers to the use of formal, accessible, and shared ontologies, controlled vocabularies, and machine-readable formats in the representation of data and metadata, enabling seamless integration, automated reasoning, and cross-system understanding.
 
 ## Transferability
 ### Versatility
