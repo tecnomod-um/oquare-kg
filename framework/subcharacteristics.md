@@ -44,6 +44,11 @@ Licensing is defined as the granting of permission for a consumer to re-use a da
 ### Availability
 Availability of a dataset is the extent to which data (or some portion of it) is present, obtainable and ready for use [^1].
 
+## Maintainability
+### Reusability
+Reusability is the degree to which components of a knowledge graph can be effectively used in multiple contexts to build new systems or enrich other knowledge graphs.
+
+
 
 
 

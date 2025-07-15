@@ -20,5 +20,8 @@ The level of effort required by users (e.g., developers, data scientists, domain
 ## Reliability
 Reliability refers to the capability of the knowledge graph to maintain its level of performance under stated conditions for a given period of time.[^1]
 
+## Maintainability
+The capability of a knowledge graph to be modified or extended in response to changes in environments, evolving requirements, or new functional specifications. [^1]
+
 [^1]:Duque-Ramos, A., Fernández-Breis, J. T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based Approach for Evaluating the Quality of Ontologies. Journal of Research and Practice in Information Technology, 43(2).
 
