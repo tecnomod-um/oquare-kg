@@ -41,8 +41,8 @@ Versatility refers to the availability of the data in different representations 
 Licensing is defined as the granting of permission for a consumer to re-use a dataset under defined conditions [^1].
 
 ## Reliability
-### Availability
-Availability of a dataset is the extent to which data (or some portion of it) is present, obtainable and ready for use [^1].
+### Accessibility
+Accessibility is the degree to which a knowledge graph and its metadata can be reliably retrieved by humans and machines through open, standardized protocols, with clear access conditions and persistent availability of metadata [^4].
 
 ## Maintainability
 ### Reusability
@@ -56,3 +56,4 @@ Reusability is the degree to which components of a knowledge graph can be effect
 [^1]: Zaveri, A., Rula, A., Maurino, A., Pietrobon, R., Lehmann, J., & Auer, S. (2016). Quality assessment for Linked Data: A Survey. Semantic Web, 7(1), 63-93.https://doi.org/10.3233/SW-150175
 [^2]: Debattista, J., Lange, C., Auer, S., & Cortis, D. (2018). Evaluating the quality of the LOD cloud: An empirical investigation. Semantic Web, 9(6), 859-901. https://doi.org/10.3233/SW-180306
 [^3]: Modified from: Duque-Ramos, A., Fernández-Breis, J. T., Stevens, R., & Aussenac-Gilles, N. (2011). OQuaRE: A SQuaRE-based Approach for Evaluating the Quality of Ontologies. Journal of Research and Practice in Information Technology, 43(2).
+[^4]: Modified from: Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3 (1): 160018. https://doi.org/10.1038/sdata.2016.18. 
