@@ -18,12 +18,13 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Usage of deprecated classes or properties [^1] | This metric checks whether deprecated terms are used in a graph. More specifically, all used classes and properties are checked if they are members of owl:DeprecatedClass or owl:DeprecatedProperty respectively.                                                                                                                               |
 | Misused OWL datatype or object properties [^1] | This quality indicator assesses a graph’s statements for the correct usage of the predicate in terms the owl:DatatypeProperty and owl:ObjectProperty axioms. Therefore, this metric detects “erroneous” triples where a data value (literal) object is attached to an owl:ObjectProperty, and an entity (individual) to an owl:DatatypeProperty. |
 | Misplaced classes or properties [^1]           | The metric assesses the graph’s statements to check the correct usage of classes and properties. More specifically, this quality indicator checks if the assessed graph has defined classes placed in the triple’s predicate and defined properties in the object position.                                                                      |
-
+| Compatible datatype [^1] | This quality indicator assesses the lexical form of the data values against the data type attached with the literal itself. |
 ### Syntactic validity
 
 | **Metric**               | **Definition**                                                                                                              |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Compatible datatype [^1] | This quality indicator assesses the lexical form of the data values against the data type attached with the literal itself. |
+| Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|
 
 ### Redundancy  
 
@@ -103,6 +104,8 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | **Metric**                                   | **Definition**                                                                                                                                                                                                                                 |
 |----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Re-use of existing terms [^1]                | This metric   assesses if a graph re-uses relevant terms in a particular domain. In   particular, this metric checks if a property or a class (in case the   predicate is rdf:type) used in a triple refers to a term in another   vocabulary. |
+|  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. |
+| Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|
 
 
 
@@ -126,11 +129,27 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 ## Reliability
-### Availability
+### Accessibility
 
 | **Metric**                            | **Definition**                                                                                                             |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | Dereferenceability of the URI [^1]    | The aim of this metric is to check the number of valid   dereferenceable URIs used in a graph.                             |
+| Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset.                                                                                                                                                        |
+| Traceability of the data [^1]                  | This metric checks whether each resource has provenance information related to the origin of data.                                                                                                                                                                |
+| Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|
+
+
+## Maintainability
+### Reusability
+
+| **Metric**                    | **Definition**                                                                                                                                   |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Re-use of existing terms [^1]                | This metric   assesses if a graph re-uses relevant terms in a particular domain. In   particular, this metric checks if a property or a class (in case the   predicate is rdf:type) used in a triple refers to a term in another   vocabulary. |
+| Machine-readable license [^1] | The aim of this metric is to check if a dataset has a valid machine-readable license.                                                            |
+| Human-readable license [^1]   | Verifies whether a human-readable text, stating the licensing model attributed to the resource, has been provided as part of the graph.          |
+| Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. |
+| Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset.                                                                                                                                                        |
+| Traceability of the data [^1]                  | This metric checks whether each resource has provenance information related to the origin of data.                                                                                                                                                                |
 
 
 
