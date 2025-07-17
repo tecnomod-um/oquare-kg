@@ -4,7 +4,9 @@ The characteristics of the OQuaRE KG framework have 14 associated subcharacteris
 
 ## Structural
 ### Formalisation
-The capability of a knowledge graph's ontology or schema to enable reasoning processes [^3]. 
+The capability of a knowledge graph's ontology or schema to enable reasoning processes [^3].
+### Structural accuracy
+Structural accuracy refers to the correctness of the use of ontological terms in the graph [^3].
 ### Consistency
 Consistency means that two or more entities do not conflict with respect to knowledge representation and inference mechanisms.
 ### Syntactic validity
