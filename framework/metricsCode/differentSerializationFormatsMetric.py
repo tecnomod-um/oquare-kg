@@ -1,4 +1,4 @@
-from rdflib import Graph, URIRef
+from rdflib import Graph, Literal, URIRef, Namespace
 
 def serialization_formats_metric(graph):
     """
@@ -17,6 +17,11 @@ def serialization_formats_metric(graph):
     for subject, predicate, obj in graph:
         if predicate == void_feature_uri:
             # Extraer la parte final de la URI
-            formats.add(str(obj).split("/")[-1])
+            uri_str = str(obj)
+            if '#' in uri_str:
+                format_name = uri_str.split('#')[-1].lower()
+            else:
+                format_name = uri_str.split('/')[-1].lower()
+            formats.add(format_name)
 
     return formats
