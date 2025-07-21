@@ -34,6 +34,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Compatible datatype [^1] | This quality indicator assesses the lexical form of the data values against the data type attached with the literal itself. |
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|
+| Valid format metric[^1] | This metric identifies whether the declared serialisation formats are valid and conform to recognised RDF syntax specifications.|
 
 ### Redundancy  
 
