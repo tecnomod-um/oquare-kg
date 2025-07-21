@@ -1,9 +1,9 @@
-from rdflib import Graph, URIRef, Literal
+from rdflib import Graph, URIRef, Literal, DCTERMS
 
 # Define the set of defined license predicates (as URIRefs).
 defined_license_predicates = {
     URIRef("http://creativecommons.org/ns#license"),
-    URIRef("http://purl.org/dc/terms/license"),
+    DCTERMS.license,
     URIRef("http://www.w3.org/1999/xhtml/vocab#license"),
     # Add other relevant license predicates here
 }

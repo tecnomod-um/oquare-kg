@@ -15,6 +15,8 @@ def human_readable_license_metric(graph):
     license_predicates = [
         DCTERMS.license,
         RDFS.comment,
+        URIRef("http://www.w3.org/1999/xhtml/vocab#license"),
+        URIRef("http://creativecommons.org/ns#license"),
     ]
 
     for predicate in license_predicates:
