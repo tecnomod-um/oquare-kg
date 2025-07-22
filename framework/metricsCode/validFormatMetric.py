@@ -7,7 +7,7 @@ def validate_graph_format(graph: Graph, input_format: str) -> bool:
         input_format: graph formats.
 
     Returns:
-        bool: True if valid formats, False otherwise.
+        bool: True if valid formats, False otherwise. Best = True
     """
     void_feature_uri = URIRef("http://rdfs.org/ns/void#feature")
     known_formats = {'xml', 'turtle', 'nt', 'n3', 'json-ld', 'trig', 'nquads'}
