@@ -1,4 +1,4 @@
-from rdflib import Graph, RDF, Literal, URIRef,RDFS, OWL
+from rdflib import FOAF, SKOS, Graph, RDF, Literal, URIRef,RDFS, OWL, DC,DCTERMS
 
 def annotation_richness_metric(graph):
     """
@@ -21,10 +21,34 @@ def annotation_richness_metric(graph):
         RDFS.seeAlso,
         RDFS.isDefinedBy,
         OWL.versionInfo,
-        URIRef("http://purl.org/dc/terms/description"),
-        URIRef("http://purl.org/dc/terms/title"),
-        URIRef("http://purl.org/dc/elements/1.1/description"),
-        URIRef("http://purl.org/dc/elements/1.1/title")
+        DCTERMS.title,
+        DC.title,
+        FOAF.name,
+        SKOS.prefLabel,
+        URIRef("http://purl.obolibrary.org/obo/IAO_0000589"),
+        URIRef("https://schema.org/name"),
+        URIRef("http://purl.obolibrary.org/obo/NCIT_P108"),
+        SKOS.altLabel,
+        SKOS.hiddenLabel,
+        URIRef("http://purl.obolibrary.org/obo/hasExactSynonym"),
+        URIRef("http://www.geneontology.org/formats/oboInOWL#hasExactSynonym"),
+        URIRef("http://purl.obolibrary.org/obo/hasRelatedSynonym"),
+        URIRef("http://www.geneontology.org/formats/oboInOWL#hasRelatedSynonym"),
+        URIRef("http://www.geneontology.org/formats/oboInOWL#hasBroadSynonym"),
+        URIRef("http://purl.obolibrary.org/obo/hasNarrowSynonym"),
+        URIRef("http://www.geneontology.org/formats/oboInOWL#hasNarrowSynonym"),
+        URIRef("http://purl.obolibrary.org/obo/NCIT_P90"),
+        URIRef("http://purl.obolibrary.org/obo/IAO_0000118"),
+        URIRef("http://purl.obolibrary.org/obo/OBI_9991119"),
+        URIRef("http://purl.obolibrary.org/obo/OBI_9991118"),
+        URIRef("http://purl.obolibrary.org/obo/OBI_0001847"),
+        URIRef("http://purl.obolibrary.org/obo/OBI_0001886"),
+        URIRef ("http://purl.obolibrary.org/obo/IAO_0000115"),
+        SKOS.definition,
+        DCTERMS.description,
+        DC.description,
+        URIRef("http://schema.org/description"),
+        URIRef("http://purl.obolibrary.org/obo/NCIT_P97"),
     }
 
     for subject, predicate, obj in graph:
