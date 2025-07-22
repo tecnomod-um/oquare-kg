@@ -103,8 +103,8 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 | **Metric**                                   | **Definition**                                                                                                                                                                                |
 |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Links to external linked data providers [^1] | Well-interlinked data enables better analysis and understanding of the data. The aim of this metric is to identify the total number of external RDF links used within the assessed dataset. |
-| Entities with no type metric | The percentage of nodes lacking rdf:type in the graph. |
+| Entities with no type metric | The ratio of nodes lacking rdf:type in the graph. |
+| Relations per node metric | Average number of relations per graph node. |
 
 
 
