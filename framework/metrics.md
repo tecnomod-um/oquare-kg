@@ -52,14 +52,6 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 
 
-### Timeliness
-
-| **Metric**                                                  | **Definition**                                                                                                                                                                          |
-|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Freshness of datasets based on their data source [^2]       | Detecting freshness of datasets based on their data source by measuring the distance between the last modified time of the data source and last modified time of the dataset            |
-
-
-
 ## Functional adequacy
 
 ### Inference
