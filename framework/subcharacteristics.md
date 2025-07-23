@@ -15,8 +15,7 @@ Syntactic validity is defined as the degree to which an RDF document conforms to
 Redundancy refers to the degree of avoidance of duplicate entities or relationships that could confuse the reasoning and querying of the graph.
 ### Interpretability
 The extent to which the information within the knowledge graph is machine-readable, semantically unambiguous and consistent, enabling automated systems to perform valid reasoning.
-### Timeliness
-Timeliness measures how up-to-date data is relative to a specific task [^1].
+
 
 ## Functional adequacy
 ### Inference
