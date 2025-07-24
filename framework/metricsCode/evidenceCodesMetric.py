@@ -38,7 +38,7 @@ def calculate_metric(self, graph: Graph) -> float:
         graph: RDF Graph.
 
     Returns:
-        The average number of evidence URIs per instance. Best =< 1
+        The average number of evidence URIs per instance. Best >= 1
     """
     total_instances = 0
     total_evidence_code_occurrences = 0 # Count each occurrence of a valid ECO code
