@@ -8,7 +8,7 @@ def serialization_formats_metric(graph):
         graph: RDF graph.
 
     Returns:
-        A set of valid serialization formats, or None if none are found.
+        A set of valid serialization formats, or an empty set if none are found.
     """
 
     formats = set()
