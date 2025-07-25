@@ -13,10 +13,11 @@ def human_readable_license_metric(graph):
     """
    
     license_predicates = [
-        DCTERMS.license,
-        RDFS.comment,
-        URIRef("http://www.w3.org/1999/xhtml/vocab#license"),
-        URIRef("http://creativecommons.org/ns#license"),
+            DCTERMS.license,
+            RDFS.comment,
+            DCTERMS.description,
+            RDFS.label,
+            URIRef("https://schema.org/license"),
     ]
 
     for predicate in license_predicates:

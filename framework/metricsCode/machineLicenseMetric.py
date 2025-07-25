@@ -1,10 +1,13 @@
-from rdflib import Graph, URIRef, Literal, DCTERMS
+from rdflib import Graph, URIRef, Literal, DCTERMS,DC
 
 # Define the set of defined license predicates (as URIRefs).
 defined_license_predicates = {
-    URIRef("http://creativecommons.org/ns#license"),
-    DCTERMS.license,
-    URIRef("http://www.w3.org/1999/xhtml/vocab#license"),
+        URIRef("http://creativecommons.org/ns#license"),
+        DCTERMS.license,
+        DC.rights,
+        DCTERMS.rights,
+        URIRef("https://schema.org/license"),
+        URIRef("http://www.w3.org/1999/xhtml/vocab#license"),
     # Add other relevant license predicates here
 }
 
@@ -31,20 +34,12 @@ def machine_license_metric(graph):
     Args:
         graph: RDF graph.
 
-    Returns:
-        The metric calculates the ratio of compliant triples to total triples. Best = 1
+   Returns:
+            True if a valid machine-readable license is found, False otherwise. Best = true
     """
-    compliant_triples = 0
-    total_triples = 0
 
     for subject, predicate, obj in graph:
-        total_triples += 1
+
         if licensePred(predicate) and licenseValid(obj):
-            compliant_triples += 1
-
-    if total_triples > 0:
-        valid_licenses_metric = compliant_triples / total_triples
-    else:
-        valid_licenses_metric = 0
-
-    return valid_licenses_metric
+            return True
+    return False
