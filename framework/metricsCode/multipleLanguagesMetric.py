@@ -11,8 +11,6 @@ def multiple_languages_metric(graph):
         Ratio of language-tagged labels to total labels. Best = 1
     """
 
-    if not graph:
-        return 0.0  # If the graph is empty
 
     language_label_count = 0
     total_label_count = 0
