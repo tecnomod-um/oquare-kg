@@ -2,7 +2,7 @@ from rdflib import Graph, Literal, URIRef
 
 def relations_per_node_metric(graph: Graph) -> float:
     """
-    Calculates the average_relations number of relations per node in an RDF graph.
+    Calculates the ratio of relations per node in an RDF graph.
 
     Args:
         graph (Graph): An RDF graph from rdflib.
