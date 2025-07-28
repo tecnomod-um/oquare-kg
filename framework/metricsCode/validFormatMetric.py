@@ -2,6 +2,8 @@ from rdflib import Graph, URIRef
 
 def validate_graph_format(graph: Graph, input_format: str) -> bool:
     """
+    Verify that RDF formats declared with void:feature are known and valid.
+    
     Args:
         graph: RDF graph.
         input_format: graph formats.
