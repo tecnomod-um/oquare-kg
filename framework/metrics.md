@@ -6,8 +6,8 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 ## Structural
 ### Formalisation
 
-| **Metric**               | **Definition**                                                                                                              |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **Metric**               | **Definition**                    |
+|--------------------------|-----------------------------------|
 |  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata. |
 
 ### Structural accuracy
@@ -16,8 +16,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 |------------------------------------------------|-------------------------|
 | Usage of deprecated classes or properties [^1] | This metric checks whether deprecated terms are used in a graph. More specifically, all used classes and properties are checked if they are members of owl:DeprecatedClass or owl:DeprecatedProperty respectively. The result is a score from 0 to 1, where a value of 0 indicates that there are no deprecated terms in the graph.     |
 | Misused OWL datatype or object properties [^1] | This quality indicator assesses a graph’s statements for the correct usage of the predicate in terms the owl:DatatypeProperty and owl:ObjectProperty axioms. Therefore, this metric detects “erroneous” triples where a data value (literal) object is attached to an owl:ObjectProperty, and an entity (individual) to an owl:DatatypeProperty. The result is a score from 0 to 1, where a value of 0 indicates that there are no misused properties in the graph. |
-| Misplaced classes or properties [^1]           | The metric assesses the graph’s statements to check the correct usage of classes and properties. More specifically, this quality indicator checks if the assessed graph has defined classes placed in the triple’s predicate and defined properties in the object position. The result is a score from 0 to 1, where a value of 0 indicates that there are no misplaced terms in the graph.
-                                                                     |
+| Misplaced classes or properties [^1]           | The metric assesses the graph’s statements to check the correct usage of classes and properties. More specifically, this quality indicator checks if the assessed graph has defined classes placed in the triple’s predicate and defined properties in the object position. The result is a score from 0 to 1, where a value of 0 indicates that there are no misplaced terms in the graph.   |
 
 
 ### Consistency
@@ -32,21 +31,19 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Usage of undefined classes and properties [^1] | This metric measures if there are entities in the graph which are not described with ontology terms. The result is a score from 0 to 1, where a value of 0 indicates that there are no undefined terms in the graph.|
 | Entities with no type metric | The ratio of nodes lacking rdf:type in the graph. The result is a score from 0 to 1, where a value of 0 indicates that there are no entities without a type in the graph. |
 
-
 ### Syntactic validity
 
-| **Metric**               | **Definition**                                                                                                              |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **Metric**               | **Definition**                  |
+|--------------------------|---------------------------------|
 | Compatible datatype [^1] | This quality indicator assesses the lexical form of the data values against the data type attached with the literal itself. The result is a score from 0 to 1, where a value of 1 indicates that the datatype of a literal is compatible with its lexical form, whereas 0 indicates that none are. |
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata. The result is a set of valid serialization formats, or an empty set if none are found.|
 | Valid format metric[^1] | This metric identifies whether the declared serialisation formats are valid and conform to recognised RDF syntax specifications. The result is True if valid formats, False otherwise.|
 
 ### Redundancy  
 
-| **Metric**                   | **Definition**                                                                                                                                               |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Extensional conciseness [^1] | The extensional conciseness metric checks for redundant resources in the assessed graph and thus measures the number of unique instances found in the graph. The result is a score from 0 to 1, where a value of 0 indicates that the instances found in the graph are uniques.
- |
+| **Metric**                   | **Definition**                |
+|------------------------------|-------------------------------------------------------------------------------------|
+| Extensional conciseness [^1] | The extensional conciseness metric checks for redundant resources in the assessed graph and thus measures the number of unique instances found in the graph. The result is a score from 0 to 1, where a value of 0 indicates that the instances found in the graph are uniques.|
  
 
 ### Interpretability
@@ -85,7 +82,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Synonyms per instance metric [^3]               | This metric accounts for the number of synonyms associated with instances, which can also be provided by using different annotation properties used by the community to include synonyms (oboInOwl:hasExactSynonym, skos:altLabel, iao:0000118, etc.). This metric is calculated as the number of synonyms associated with instances divided by the total number of instances in the graph. The range of the value of this metric is the set of real positive numbers, where a value of 1 or greater indicates that, on average, every instance has at least one synonym.  |
 | Annotation richness metric [^4]                 | Mean number of annotation properties per instances. The range of the value of this metric is the set of real positive numbers, where a value of 1 or greater indicates, on average, that each instance is characterized by multiple properties.              |
 | Human readable labelling and comments [^1] | The aim of this metric is to calculate graph’s completeness in terms of human readable labels and descriptions. The metric measures the percentage of local entities that have a label or a description.          |
-| Indication of used vocabularies [^1]       | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.                                                                                                                                                                                                                                                                                                                                                       |
+| Indication of used vocabularies [^1]       | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.      |
 
 
 ### Trustworthiness
