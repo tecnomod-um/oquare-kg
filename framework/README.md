@@ -17,7 +17,7 @@ The following table shows the characteristics and their associated subcharacteri
 |Structural           |Formalisation, structural accuracy, consistency, syntactic validity, redundancy, interpretability |
 |Functional adequacy  |Inference, understandability, trustworthiness, provenance, clustering |
 |Compatibility        |Interoperability                     |
-|Transferability      |Availability, versatility            |
+|Transferability      |Versatility                          |
 |Operability          |Licensing                            |
 |Reliability          |Accessibility                        |
 |Maintainability      |Reusability                          |
