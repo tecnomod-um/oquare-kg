@@ -22,6 +22,10 @@ The following table shows the characteristics and their associated subcharacteri
 |Reliability          |Accessibility                        |
 |Maintainability      |Reusability                          |
 
+
+
+The following diagram shows the characteristics and their associated subcharacteristics:
+
 ![The following diagram shows the characteristics and their associated subcharacteristics:](https://github.com/tecnomod-um/oquare-kg/blob/main/framework/images/OquareKG.png)
 
 ## Details
