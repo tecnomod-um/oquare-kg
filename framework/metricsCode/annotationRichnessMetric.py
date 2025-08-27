@@ -63,8 +63,8 @@ def annotation_richness_metric(graph):
     num_total_instances = len(total_instances)
 
     if num_total_instances > 0:
-        descriptions_metric = total_annotations / num_total_instances
+        annotations_metric = total_annotations / num_total_instances
     else:
-        descriptions_metric = 0
+        annotations_metric = 0
 
-    return descriptions_metric
+    return annotations_metric

@@ -14,7 +14,7 @@ def multiple_languages_metric(graph):
 
     language_label_count = 0
     total_label_count = 0
-    label_predicates = {RDFS.label, SKOS.prefLabel, SKOS.altLabel} # set of synonym predicates, add as many as necessary
+    label_predicates = {RDFS.label, SKOS.prefLabel, SKOS.altLabel} # set of label predicates, add as many as necessary
 
     for subject, predicate, obj in graph:
         if predicate in label_predicates and isinstance(obj, Literal):

@@ -43,9 +43,9 @@ def traceability_data_metric(graph):
     total_instances = len(instances)
 
     if total_instances > 0:
-        relevant_instances_with_prov = instances.intersection(used_prov_predicates)
+        instances_with_prov = instances.intersection(used_prov_predicates)
         
-        prov_metric = len(relevant_instances_with_prov) / total_instances
+        prov_metric = len(instances_with_prov) / total_instances
     else:
         prov_metric = 0
 

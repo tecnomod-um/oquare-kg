@@ -16,7 +16,7 @@ def serialization_formats_metric(graph):
 
     for subject, predicate, obj in graph:
         if predicate == void_feature_uri:
-            # Extraer la parte final de la URI
+            # Extract the final part of the URI
             uri_str = str(obj)
             if '#' in uri_str:
                 format_name = uri_str.split('#')[-1].lower()
