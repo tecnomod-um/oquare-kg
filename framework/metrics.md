@@ -8,7 +8,16 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 | **Metric**               | **Definition**           | **Score**              | **Code** |
 |--------------------------|--------------------------|------------------------|----------|
-|  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. | The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.| [Metric code](./metricsCode/usedVocabulariesMetric.py)|
+|  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric.| The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.| [Metric code](./metricsCode/usedVocabulariesMetric.py)|
+
+**Formula**
+
+- Indication of used vocabularies
+$$
+\mathrm{Metric}(G) =
+\frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+
 
 ### Structural accuracy
 
@@ -17,6 +26,25 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Usage of deprecated classes or properties [^1] | This metric checks whether deprecated terms are used in a graph. More specifically, all used classes and properties are checked if they are members of owl:DeprecatedClass or owl:DeprecatedProperty respectively.  | The result is a score from 0 to 1, where a value of 0 indicates that there are no deprecated terms in the graph.|[Metric code](./metricsCode/deprecatedClassPropMetric.py)|
 | Misused OWL datatype or object properties [^1] | This quality indicator assesses a graph’s statements for the correct usage of the predicate in terms the owl:DatatypeProperty and owl:ObjectProperty axioms. Therefore, this metric detects “erroneous” triples where a data value (literal) object is attached to an owl:ObjectProperty, and an entity (individual) to an owl:DatatypeProperty.  | The result is a score from 0 to 1, where a value of 0 indicates that there are no misused properties in the graph.| [Metric code](./metricsCode/misusedDatatypeObjPropMetric.py)|
 | Misplaced classes or properties [^1]           | The metric assesses the graph’s statements to check the correct usage of classes and properties. More specifically, this quality indicator checks if the assessed graph has defined classes placed in the triple’s predicate and defined properties in the object position. | The result is a score from 0 to 1, where a value of 0 indicates that there are no misplaced terms in the graph.| [Metric code](./metricsCode/misplacedClassPropMetric.py)|
+
+**Formulas**
+
+- Usage of deprecated classes or properties
+$$
+\mathrm{Metric}(G) =
+\frac{|DepClasses(G)| + |DepProperties(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+- Misused OWL datatype or object properties
+$$
+\mathrm{Metric}(G) =
+\frac{|MisusedDP(G)| + |MisusedOP(G)|}{|G|}
+$$
+- Misplaced classes or properties
+$$
+\mathrm{Metric}(G) =
+\frac{|MisplacedClasses(G)| + |MisplacedProperties(G)|}{|G|}
+$$
+
 
 
 ### Consistency
@@ -31,6 +59,45 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Usage of undefined classes and properties [^1] | This metric measures if there are entities in the graph which are not described with ontology terms. | The result is a score from 0 to 1, where a value of 0 indicates that there are no undefined terms in the graph.| [Metric code](./metricsCode/usageUndefinedClassPropMetric.py)|
 | Entities with no type metric | The ratio of nodes lacking rdf:type in the graph.| The result is a score from 0 to 1, where a value of 0 indicates that there are no entities without a type in the graph. | [Metric code](./metricsCode/entitiesNoTypeMetric.py)|
 
+**Formulas**
+- Misused OWL datatype or object properties
+$$
+\mathrm{Metric}(G) =
+\frac{|MisusedDP(G)| + |MisusedOP(G)|}{|G|}
+$$
+- Misplaced classes or properties
+$$
+\mathrm{Metric}(G) =
+\frac{|MisplacedClasses(G)| + |MisplacedProperties(G)|}{|G|}
+$$
+- Compatible datatype
+$$
+\mathrm{Metric}(G) = \frac{|ValidLiterals(G)|}{|Literals(G)|}
+$$
+- Classes per instance metric
+$$
+\mathrm{Metric}(G) =
+\frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
+$$
+
+- Instances with multiple types metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
+$$
+
+- Usage of undefined classes and properties
+$$
+\mathrm{Metric}(G) =
+\frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+
+- Entities with no type metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
+$$
+
 ### Syntactic validity
 
 | **Metric**               | **Definition**           | **Score**              | **Code** |
@@ -39,12 +106,36 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata. | The result is a set of valid serialization formats, or an empty set if none are found.| [Metric code](./metricsCode/differentSerializationFormatsMetric.py)|
 | Valid format metric[^1] | This metric identifies whether the declared serialisation formats are valid and conform to recognised RDF syntax specifications.| The result is True if the formats are valid, and False otherwise.|[Metric code](./metricsCode/validFormatMetric.py)|
 
+**Formulas**
+- Compatible datatype
+$$
+\mathrm{Metric}(G) = \frac{|ValidLiterals(G)|}{|Literals(G)|}
+$$
+- Different serialisation formats
+$$
+\mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\}
+$$
+- Valid format metric
+$$
+\mathrm{Metric}(G) =
+\begin{cases}
+1, & \text{if } format(G) \in ValidFormats, \\[6pt]
+0, & \text{otherwise}.
+\end{cases}
+$$
+
 ### Redundancy  
 
 | **Metric**               | **Definition**           | **Score**              | **Code** |
 |--------------------------|--------------------------|------------------------|----------|
 | Extensional conciseness [^1] | The extensional conciseness metric checks for redundant resources in the assessed graph and thus measures the number of unique instances found in the graph.| The result is a score from 0 to 1, where a value of 0 indicates that the instances found in the graph are uniques.| [Metric code](./metricsCode/extensionalConcisenessMetric.py)|
  
+**Formulas**
+- Extensional conciseness
+$$
+\mathrm{Metric}(G) =
+\frac{|UniqueInstances(G)|}{|Ind(G)|}
+$$
 
 ### Interpretability
 
@@ -56,7 +147,36 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Classes per instance metric | Mean number of classes per instance. This metric measure whether an instance has two rdf:type. | The range of the value of this metric is the set of real positive numbers. Values lower than 1 mean that there are instances without any rdf:type in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple rdf:types. | | [Metric code](./metricsCode/classesPerInstanceMetric.py)|
 | Instances with multiple types metric | The ratio of instances of more than one type. This metric measure whether an instance has more than one rdf:type.|  The result is a score from 0 to 1, where a value of 0 indicates that there are no instances that have more than one rdf:type in the graph.| [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
 
+**Formulas**
+- Entities with no type metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
+$$
 
+- Re-use of existing terms
+$$
+\mathrm{Metric}(G) =
+\frac{|ReusedClasses(G)| + |ReusedProperties(G)|}
+     {|Classes(G)| + |Properties(G)|}
+$$
+
+- Usage of undefined classes and properties
+$$
+\mathrm{Metric}(G) =
+\frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+
+- Classes per instance metric
+$$
+\mathrm{Metric}(G) =
+\frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
+$$
+- Instances with multiple types metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
+$$
 
 ## Functional adequacy
 
@@ -70,6 +190,37 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Classes per instance metric | Mean number of classes per instance. This metric measure whether an instance has two rdf:type. | The range of the value of this metric is the set of real positive numbers. Values lower than 1 mean that there are instances without any rdf:type in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple rdf:types. | [Metric code](./metricsCode/classesPerInstanceMetric.py)|
 | Instances with multiple types metric | The ratio of instances of more than one type. This metric measure whether an instance has more than one rdf:type. | The result is a score from 0 to 1, where a value of 0 indicates that there are no instances that have more than one rdf:type in the graph.| [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
 
+**Formulas**
+- Indication of used vocabularies
+$$
+\mathrm{Metric}(G) =
+\frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+
+- Entities with no type metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
+$$
+
+- Usage of undefined classes and properties
+$$
+\mathrm{Metric}(G) =
+\frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+
+- Classes per instance metric
+$$
+\mathrm{Metric}(G) =
+\frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
+$$
+
+- Instances with multiple types metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
+$$
+
 ### Understandability
 
 | **Metric**               | **Definition**           | **Score**              | **Code** |
@@ -78,11 +229,49 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Instances with no name metric [^3]  | The ratio of instances lacking a name in the graph. | The result is a score from 0 to 1, where a value of 0 indicates that there are no instances without a name in the graph.    | [Metric code](./metricsCode/instancesWithNoNameMetric.py)|                    
 | Instances with no synonym metric [^3]  | The ratio of instances lacking a synonym in the graph. | The result is a score from 0 to 1, where a value of 0 indicates that there are no instances without synonym in the graph.  |[Metric code](./metricsCode/instancesWithNoSynonymMetric.py)|
 | Descriptions per instance metric [^3]  | This metric accounts for the number of descriptions associated with instances, which can also be provided by using different annotation properties used by the community to include descriptions (rdfs:comment, skos:definition, dcterms:description, etc.). This metric is calculated as the total number of descriptions associated with graph instances divided by the total number of instances in the graph. | The range of the value of this metric is the set of real positive numbers, where a value of 1 or greater indicates that, on average, every instance has at least one description.  | [Metric code](./metricsCode/descriptionsPerInstanceMetric.py)|
-| Names per instance metric [^3]   | This metric accounts for the number of names associated with instances, and uses the list of annotation properties used by the community for names (rdfs:label, skos:prefLabel, foaf:name, etc.). Then, this metric is calculated as the number of names associated with graph instances divided by the total number of classes in the graph.| The range of the value of this metric is the set of real positive numbers. Values lower than one mean that there are instances without any name in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple names; possibly caused by the inclusion of multilingual names or by some design decision.| [Metric code](./metricsCode/namesPerInstanceMetric.py)|
+| Names per instance metric [^3]   | This metric accounts for the number of names associated with instances, and uses the list of annotation properties used by the community for names (rdfs:label, skos:prefLabel, foaf:name, etc.). Then, this metric is calculated as the number of names associated with graph instances divided by the total number of instances in the graph.| The range of the value of this metric is the set of real positive numbers. Values lower than one mean that there are instances without any name in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple names; possibly caused by the inclusion of multilingual names or by some design decision.| [Metric code](./metricsCode/namesPerInstanceMetric.py)|
 | Synonyms per instance metric [^3]  | This metric accounts for the number of synonyms associated with instances, which can also be provided by using different annotation properties used by the community to include synonyms (oboInOwl:hasExactSynonym, skos:altLabel, iao:0000118, etc.). This metric is calculated as the number of synonyms associated with instances divided by the total number of instances in the graph. | The range of the value of this metric is the set of real positive numbers, where a value of 1 or greater indicates that, on average, every instance has at least one synonym.  | [Metric code](./metricsCode/synonymsPerInstanceMetric.py)|
 | Annotation richness metric [^4]   | Mean number of annotation properties per instances. |The range of the value of this metric is the set of real positive numbers, where a value of 1 or greater indicates, on average, that each instance is characterized by multiple properties. | [Metric code](./metricsCode/annotationRichnessMetric.py)| |
 | Indication of used vocabularies [^1]  | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. | The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.  | [Metric code](./metricsCode/usedVocabulariesMetric.py)|
 
+**Formulas**
+- Instances with no description metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Descriptions(i) = \varnothing \}|}{|Ind(G)|}
+$$
+- Instances with no name metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Names(i) = \varnothing \}|}{|Ind(G)|}
+$$
+- Instances with no synonym metric
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Synonyms(i) = \varnothing \}|}{|Ind(G)|}
+$$
+- Descriptions per instance metric
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Decriptions}(i)}{|Ind(G)|}
+$$
+- Names per instance metric
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Names}(i)}{|Ind(G)|}
+$$
+- Synonyms per instance metric
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|}
+$$
+
+- Annotation richness metric
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{AP}(i)}{|Ind(G)|}
+$$
+- Indication of used vocabularies
+$$
+\mathrm{Metric}(G) =
+\frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
+$$
 
 ### Trustworthiness
 
@@ -92,6 +281,21 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 | Evidence codes metric | This metric verifies whether graph’s assertions have terms for capturing evidence.| The result is a score from 0 to 1, where a value of 1 indicates that, on average, every triple has at least one evidence URI, whereas 0 indicates that none are. |[Metric code](./metricsCode/evidenceCodesMetric.py)|
 | Traceability of the data [^1]   | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  |[Metric code](./metricsCode/traceabilityMetric.py)|
 
+**Formulas**
+- Evidence metric
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Evidence}(i)}{|Ind(G)|}
+$$
+- Evidence codes metric
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{EvidenceCodes}(i)}{|Ind(G)|}
+$$
+
+- Traceability of the data
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
+$$
 
 ### Provenance
  
@@ -99,6 +303,19 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 |--------------------------|--------------------------|------------------------|----------|
 | Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this metadata.  | [Metric code](./metricsCode/basicProvenanceMetric.py)|
 | Traceability of the data [^1]  | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information. | [Metric code](./metricsCode/traceabilityMetric.py)|
+
+**Formulas**
+- Provision of basic provenance information 
+$$
+\mathrm{Metric_{ProvBasic}}(G) =
+\frac{|ProvProps(G)|}{|BasicProvProps|}
+$$
+- Traceability of the data
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
+$$
+
 
 ### Clustering  
 
