@@ -13,6 +13,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 ### Formula
 
 **Indication of used vocabularies**
+
 $\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$
 
 where:
@@ -677,29 +678,35 @@ where:
 - $hLicense(G)$: function that returns if a human readable license is declared in the graph $G$.
 
 **Indication of used vocabularies**
+
 $
 \mathrm{Metric}(G) =
 \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
 $
+
 where:
 - $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
 - $Classes(G)={c∣(s,rdf:type,c)∈G}$.
 - $Properties(G)={p∣(s,p,o)∈G}$.
 
 **Provision of basic provenance information**
+
 $
 \mathrm{Metric}(G) =
 \frac{|ProvProps(G)|}{|BasicProvProps|}
 $
+
 where:
 - $BasicProvProps$: set of provenance properties considered basic or minimally required.
 - $ProvProps(G)⊆BasicProvProps$: subset of those properties that actually appear in graph $G$.
 
 **Traceability of the data**
+
 $
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
 $
+
 where:
 - $Ind(G)$: set of instances (individual resources) in graph 
 G.
