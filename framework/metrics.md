@@ -10,13 +10,17 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 |--------------------------|--------------------------|------------------------|----------|
 |  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric.| The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.| [Metric code](./metricsCode/usedVocabulariesMetric.py)|
 
-**Formula**
+### Formula
 
-- Indication of used vocabularies
+**Indication of used vocabularies**
 $$
 \mathrm{Metric}(G) =
 \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
+- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
+- $Properties(G)={p∣(s,p,o)∈G}$.
 
 
 ### Structural accuracy
@@ -74,29 +78,48 @@ $$
 $$
 \mathrm{Metric}(G) = \frac{|ValidLiterals(G)|}{|Literals(G)|}
 $$
-- Classes per instance metric
+
+**Classes per instance metric**
 $$
 \mathrm{Metric}(G) =
 \frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $∣Classes(i)∣$: the number of classes associated with instance $i$.
+- The numerator $∑i∈Ind(G)∣Classes(i)∣$ counts the total number of class assignments across all instances.
 
-- Instances with multiple types metric
+
+**Instances with multiple types metric**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- The condition $∣Classes(i)∣>1$ means that the instance $i$ is assigned to more than one class.
 
-- Usage of undefined classes and properties
+**Usage of undefined classes and properties**
 $$
 \mathrm{Metric}(G) =
 \frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $UndefClasses(G)$: the subset of $Classes(G)$ that are undefined, i.e., classes used in the graph but not formally defined in any accessible vocabulary or ontology.
+- $UndefProperties(G)$: the subset of $Properties(G)$ that are undefined, i.e., properties used in the graph but not formally defined in any accessible vocabulary or ontology.
 
-- Entities with no type metric
+**Entities with no type metric**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- ${i∈Ind(G)∣Classes(i)=∅}$: the subset of instances that have no associated class.
 
 ### Syntactic validity
 
@@ -106,15 +129,19 @@ $$
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata. | The result is a set of valid serialization formats, or an empty set if none are found.| [Metric code](./metricsCode/differentSerializationFormatsMetric.py)|
 | Valid format metric[^1] | This metric identifies whether the declared serialisation formats are valid and conform to recognised RDF syntax specifications.| The result is True if the formats are valid, and False otherwise.|[Metric code](./metricsCode/validFormatMetric.py)|
 
-**Formulas**
+### Formulas
 - Compatible datatype
 $$
 \mathrm{Metric}(G) = \frac{|ValidLiterals(G)|}{|Literals(G)|}
 $$
-- Different serialisation formats
+
+**Different serialisation formats**
 $$
 \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\}
 $$
+where:
+- $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
+
 - Valid format metric
 $$
 \mathrm{Metric}(G) =
@@ -147,36 +174,59 @@ $$
 | Classes per instance metric | Mean number of classes per instance. This metric measure whether an instance has two rdf:type. | The range of the value of this metric is the set of real positive numbers. Values lower than 1 mean that there are instances without any rdf:type in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple rdf:types. | | [Metric code](./metricsCode/classesPerInstanceMetric.py)|
 | Instances with multiple types metric | The ratio of instances of more than one type. This metric measure whether an instance has more than one rdf:type.|  The result is a score from 0 to 1, where a value of 0 indicates that there are no instances that have more than one rdf:type in the graph.| [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
 
-**Formulas**
-- Entities with no type metric
+### Formulas
+**Entities with no type metric**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- ${i∈Ind(G)∣Classes(i)=∅}$: the subset of instances that have no associated class.
 
-- Re-use of existing terms
+**Re-use of existing terms**
 $$
 \mathrm{Metric}(G) =
 \frac{|ReusedClasses(G)| + |ReusedProperties(G)|}
      {|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Classes(G)$: set of all classes used in $G$.
+- $Properties(G)$: set of all properties used in $G$.
+- $ReusedClasses(G)⊆Classes(G)$: subset of classes that are not defined within the graph, but imported from external vocabularies.
+- $ReusedProperties(G)⊆Properties(G)$: subset of properties that are not defined within the graph, but imported from external vocabularies.
 
-- Usage of undefined classes and properties
+**Usage of undefined classes and properties**
 $$
 \mathrm{Metric}(G) =
 \frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $UndefClasses(G)$: the subset of $Classes(G)$ that are undefined, i.e., classes used in the graph but not formally defined in any accessible vocabulary or ontology.
+- $UndefProperties(G)$: the subset of $Properties(G)$ that are undefined, i.e., properties used in the graph but not formally defined in any accessible vocabulary or ontology.
 
-- Classes per instance metric
+**Classes per instance metric**
 $$
 \mathrm{Metric}(G) =
 \frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
 $$
-- Instances with multiple types metric
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $∣Classes(i)∣$: the number of classes associated with instance $i$.
+- The numerator $∑i∈Ind(G)∣Classes(i)∣$ counts the total number of class assignments across all instances.
+
+**Instances with multiple types metric**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- The condition $∣Classes(i)∣>1$ means that the instance $i$ is assigned to more than one class.
 
 ## Functional adequacy
 
@@ -190,36 +240,58 @@ $$
 | Classes per instance metric | Mean number of classes per instance. This metric measure whether an instance has two rdf:type. | The range of the value of this metric is the set of real positive numbers. Values lower than 1 mean that there are instances without any rdf:type in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple rdf:types. | [Metric code](./metricsCode/classesPerInstanceMetric.py)|
 | Instances with multiple types metric | The ratio of instances of more than one type. This metric measure whether an instance has more than one rdf:type. | The result is a score from 0 to 1, where a value of 0 indicates that there are no instances that have more than one rdf:type in the graph.| [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
 
-**Formulas**
-- Indication of used vocabularies
+### Formulas
+
+**Indication of used vocabularies**
 $$
 \mathrm{Metric}(G) =
 \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
+- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
+- $Properties(G)={p∣(s,p,o)∈G}$.
 
-- Entities with no type metric
+**Entities with no type metric**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- ${i∈Ind(G)∣Classes(i)=∅}$: the subset of instances that have no associated class.
 
-- Usage of undefined classes and properties
+**Usage of undefined classes and properties**
 $$
 \mathrm{Metric}(G) =
 \frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $UndefClasses(G)$: the subset of $Classes(G)$ that are undefined, i.e., classes used in the graph but not formally defined in any accessible vocabulary or ontology.
+- $UndefProperties(G)$: the subset of $Properties(G)$ that are undefined, i.e., properties used in the graph but not formally defined in any accessible vocabulary or ontology.
 
-- Classes per instance metric
+**Classes per instance metric**
 $$
 \mathrm{Metric}(G) =
 \frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $∣Classes(i)∣$: the number of classes associated with instance $i$.
+- The numerator $∑i∈Ind(G)∣Classes(i)∣$ counts the total number of class assignments across all instances.
 
-- Instances with multiple types metric
+**Instances with multiple types metric**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- The condition $∣Classes(i)∣>1$ means that the instance $i$ is assigned to more than one class.
 
 ### Understandability
 
@@ -258,20 +330,30 @@ $$
 $$
 \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Names}(i)}{|Ind(G)|}
 $$
-- Synonyms per instance metric
+
+**Synonyms per instance metric**
 $$
 \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $Synonyms(i)$: the number of synonym annotations (e.g., using synonym annotation properties) associated with instance $i$.
+- The numerator $∑i∈Ind(G)Synonyms(i)$ is the total number of synonyms defined for all instances.
 
 - Annotation richness metric
 $$
 \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{AP}(i)}{|Ind(G)|}
 $$
-- Indication of used vocabularies
+
+**Indication of used vocabularies**
 $$
 \mathrm{Metric}(G) =
 \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
 $$
+where:
+- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
+- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
+- $Properties(G)={p∣(s,p,o)∈G}$.
 
 ### Trustworthiness
 
@@ -281,21 +363,34 @@ $$
 | Evidence codes metric | This metric verifies whether graph’s assertions have terms for capturing evidence.| The result is a score from 0 to 1, where a value of 1 indicates that, on average, every triple has at least one evidence URI, whereas 0 indicates that none are. |[Metric code](./metricsCode/evidenceCodesMetric.py)|
 | Traceability of the data [^1]   | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  |[Metric code](./metricsCode/traceabilityMetric.py)|
 
-**Formulas**
-- Evidence metric
+### Formulas
+**Evidence metric**
 $$
 \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Evidence}(i)}{|Ind(G)|}
 $$
-- Evidence codes metric
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $EvidenceCodes(i)$: the number of evidence codes associated with instance $i$.
+- The numerator $∑i∈Ind(G)Evidence(i)$ is the total number of evidence provided across all instances.
+
+**Evidence codes metric**
 $$
 \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{EvidenceCodes}(i)}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $EvidenceCodes(i)$: the number of evidence codes associated with instance $i$.
+- The numerator $∑i∈Ind(G)EvidenceCodes(i)$ is the total number of evidence codes provided across all instances.
 
-- Traceability of the data
+**Traceability of the data**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: set of instances (individual resources) in graph 
+G.
+- $Provenance(i)$: set of provenance properties associated with instance $i$.
 
 ### Provenance
  
@@ -304,17 +399,26 @@ $$
 | Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this metadata.  | [Metric code](./metricsCode/basicProvenanceMetric.py)|
 | Traceability of the data [^1]  | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information. | [Metric code](./metricsCode/traceabilityMetric.py)|
 
-**Formulas**
-- Provision of basic provenance information 
+### Formulas
+
+**Provision of basic provenance information**
 $$
-\mathrm{Metric_{ProvBasic}}(G) =
+\mathrm{Metric}(G) =
 \frac{|ProvProps(G)|}{|BasicProvProps|}
 $$
-- Traceability of the data
+where:
+- $BasicProvProps$: set of provenance properties considered basic or minimally required.
+- $ProvProps(G)⊆BasicProvProps$: subset of those properties that actually appear in graph $G$.
+
+**Traceability of the data**
 $$
 \mathrm{Metric}(G) =
 \frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
 $$
+where:
+- $Ind(G)$: set of instances (individual resources) in graph 
+G.
+- $Provenance(i)$: set of provenance properties associated with instance $i$.
 
 
 ### Clustering  
@@ -328,6 +432,66 @@ $$
 | Classes per instance metric | Mean number of classes per instance. This metric measure whether an instance has two rdf:type. | The range of the value of this metric is the set of real positive numbers. Values lower than 1 mean that there are instances without any rdf:type in the graph. Contrariwise, a value greater than 1 indicates that there are instances with multiple rdf:types. | [Metric code](./metricsCode/classesPerInstanceMetric.py)|
 | Instances with multiple types metric | The ratio of instances of more than one type. This metric measure whether an instance has more than one rdf:type. | The result is a score from 0 to 1, where a value of 0 indicates that there are no instances that have more than one rdf:type in the graph.| [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
 
+### Formulas
+**Entities with no type metric**
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Classes(i) = \varnothing \}|}{|Ind(G)|}
+$$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- ${i∈Ind(G)∣Classes(i)=∅}$: the subset of instances that have no associated class.
+
+**Relations per node metric**
+$$
+\mathrm{Metric}(G) =
+\frac{|P(G)|}{|N(G)|}
+$$
+where:
+- $N(G)$: set of nodes in the graph
+- $P(G)$: set of relations (edges) in the graph, i.e., the total number of RDF properties connecting nodes.
+
+**Synonyms per instance metric**
+$$
+\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|}
+$$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph $G$.
+- $Synonyms(i)$: the number of synonym annotations (e.g., using synonym annotation properties) associated with instance $i$.
+- The numerator $∑i∈Ind(G)Synonyms(i)$ is the total number of synonyms defined for all instances.
+
+**Usage of undefined classes and properties**
+$$
+\mathrm{Metric}(G) =
+\frac{|UndefClasses(G)| + |UndefProperties(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+where:
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $UndefClasses(G)$: the subset of $Classes(G)$ that are undefined, i.e., classes used in the graph but not formally defined in any accessible vocabulary or ontology.
+- $UndefProperties(G)$: the subset of $Properties(G)$ that are undefined, i.e., properties used in the graph but not formally defined in any accessible vocabulary or ontology.
+
+**Classes per instance metric**
+$$
+\mathrm{Metric}(G) =
+\frac{\sum_{i \in Ind(G)} |Classes(i)|}{|Ind(G)|}
+$$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $∣Classes(i)∣$: the number of classes associated with instance $i$.
+- The numerator $∑i∈Ind(G)∣Classes(i)∣$ counts the total number of class assignments across all instances.
+
+**Instances with multiple types metric**
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid |Classes(i)| > 1 \}|}{|Ind(G)|}
+$$
+where:
+- $Ind(G)$: the set of all instances (individuals) in the graph.
+- $Classes(i)$: the set of classes to which instance $i$ belongs.
+- The condition $∣Classes(i)∣>1$ means that the instance $i$ is assigned to more than one class.
+
 
 
 ## Compatibility
@@ -340,7 +504,35 @@ $$
 |  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. |The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.| [Metric code](./metricsCode/usedVocabulariesMetric.py)|
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.| The result is a set of valid serialization formats, or an empty set if none are found.| [Metric code](./metricsCode/differentSerializationMetric.py)|
 
+### Formulas
+**Re-use of existing terms**
+$$
+\mathrm{Metric}(G) =
+\frac{|ReusedClasses(G)| + |ReusedProperties(G)|}
+     {|Classes(G)| + |Properties(G)|}
+$$
+where:
+- $Classes(G)$: set of all classes used in $G$.
+- $Properties(G)$: set of all properties used in $G$.
+- $ReusedClasses(G)⊆Classes(G)$: subset of classes that are not defined within the graph, but imported from external vocabularies.
+- $ReusedProperties(G)⊆Properties(G)$: subset of properties that are not defined within the graph, but imported from external vocabularies.
 
+**Indication of used vocabularies**
+$$
+\mathrm{Metric}(G) =
+\frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+where:
+- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
+- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
+- $Properties(G)={p∣(s,p,o)∈G}$.
+
+**Different serialisation formats**
+$$
+\mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\}
+$$
+where:
+- $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
 
 ## Transferability
 ### Versatility
@@ -350,6 +542,24 @@ $$
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.|  The result is a set of valid serialization formats, or an empty set if none are found.| [Metric code](./metricsCode/differentSerializationMetric.py)|
 | Usage of multiple languages [^1]     | This metric checks the number of languages a graph supports.| The result is a score from 0 to 1, where a value of 1 indicates that all the labels have language tags, whereas 0 indicates that none are.   | [Metric code](./metricsCode/multipleLanguagesMetric.py)|
 
+### Formulas
+
+**Different serialisation formats**
+$$
+\mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\}
+$$
+where:
+- $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
+
+**Usage of multiple languages**
+$$
+\mathrm{Metric}(G) =
+\frac{|\{\, lit \in AP(G) \mid hasLangTag(lit) \,\}|}{|AP(G)|}
+$$
+where:
+- $AP(G)$: set of literals associated with annotation properties.
+
+- $hasLangTag(lit)$: predicate indicating whether the literal has an associated language tag.
 
 ## Operability
 ### Licensing
@@ -359,6 +569,28 @@ $$
 | Machine-readable license [^1] | The aim of this metric is to check if a dataset has a valid machine-readable license.| The result is True if a valid machine-readable license is found, False otherwise.  | [Metric code](./metricsCode/machineLicenseMetric.py)|
 | Human-readable license [^1]   | Verifies whether a human-readable text, stating the licensing model attributed to the resource, has been provided as part of the graph. |The result is True if a valid human-readable license description is found, False otherwise.  | [Metric code](./metricsCode/humanLicenseMetric.py)|
 
+### Formulas
+**Machine-readable license**
+$$
+\mathrm{Metric}(G) =
+\begin{cases}
+1, & \text{if } mLicense(G) \text{ is True}, \\[6pt]
+0, & \text{if } mLicense(G) \text{ is False}.
+\end{cases}
+$$
+where:
+- $mLicense(G)$: function that returns if a machine readable license is declared in the graph $G$.
+
+**Human-readable license**
+$$
+\mathrm{Metric}(G) =
+\begin{cases}
+1, & \text{if } hLicense(G) \text{ is True}, \\[6pt]
+0, & \text{if } hLicense(G) \text{ is False}.
+\end{cases}
+$$
+where:
+- $hLicense(G)$: function that returns if a human readable license is declared in the graph $G$.
 
 ## Reliability
 ### Accessibility
@@ -370,6 +602,33 @@ $$
 | Traceability of the data [^1]   | This metric checks whether each resource has provenance information related to the origin of data. |The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  | [Metric code](./metricsCode/traceabilityDataMetric.py)|
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata. | The result is a set of valid serialization formats, or an empty set if none are found.| [Metric code](./metricsCode/differentSerializationFormatsMetric.py)|
 
+### Formulas
+**Dereferenceability of the URI**
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ u \in URI(G) \mid dereferenceable(u) \}|}{|URI(G)|}
+$$
+where:
+- $URI(G)$: set of all URIs used in graph $G$.
+- $dereferenceable(u)$: predicate that is true if URI 
+u returns a valid response (e.g., HTTP code 200 and RDF/HTML content) when attempting to resolve it.
+
+**Traceability of the data**
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
+$$
+where:
+- $Ind(G)$: set of instances (individual resources) in graph 
+G.
+- $Provenance(i)$: set of provenance properties associated with instance $i$.
+
+**Different serialisation formats**
+$$
+\mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\}
+$$
+where:
+- $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
 
 ## Maintainability
 ### Reusability
@@ -384,7 +643,69 @@ $$
 | Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset. | The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this metadata.  | [Metric code](./metricsCode/basicProvenanceMetric.py)|
 | Traceability of the data [^1]  | This metric checks whether each resource has provenance information related to the origin of data. |The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  | [Metric code](./metricsCode/traceabilityDataMetric.py)|
 
+### Formulas
+**Re-use of existing terms**
+$$
+\mathrm{Metric}(G) =
+\frac{|ReusedClasses(G)| + |ReusedProperties(G)|}
+     {|Classes(G)| + |Properties(G)|}
+$$
+where:
+- $Classes(G)$: set of all classes used in $G$.
+- $Properties(G)$: set of all properties used in $G$.
+- $ReusedClasses(G)⊆Classes(G)$: subset of classes that are not defined within the graph, but imported from external vocabularies.
+- $ReusedProperties(G)⊆Properties(G)$: subset of properties that are not defined within the graph, but imported from external vocabularies.
 
+**Machine-readable license**
+$$
+\mathrm{Metric}(G) =
+\begin{cases}
+1, & \text{if } mLicense(G) \text{ is True}, \\[6pt]
+0, & \text{if } mLicense(G) \text{ is False}.
+\end{cases}
+$$
+where:
+- $mLicense(G)$: function that returns if a machine readable license is declared in the graph $G$.
+
+**Human-readable license**
+$$
+\mathrm{Metric}(G) =
+\begin{cases}
+1, & \text{if } hLicense(G) \text{ is True}, \\[6pt]
+0, & \text{if } hLicense(G) \text{ is False}.
+\end{cases}
+$$
+where:
+- $hLicense(G)$: function that returns if a human readable license is declared in the graph $G$.
+
+**Indication of used vocabularies**
+$$
+\mathrm{Metric}(G) =
+\frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}
+$$
+where:
+- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
+- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
+- $Properties(G)={p∣(s,p,o)∈G}$.
+
+**Provision of basic provenance information**
+$$
+\mathrm{Metric}(G) =
+\frac{|ProvProps(G)|}{|BasicProvProps|}
+$$
+where:
+- $BasicProvProps$: set of provenance properties considered basic or minimally required.
+- $ProvProps(G)⊆BasicProvProps$: subset of those properties that actually appear in graph $G$.
+
+**Traceability of the data**
+$$
+\mathrm{Metric}(G) =
+\frac{|\{ i \in Ind(G) \mid Provenance(i) \neq \varnothing \}|}{|Ind(G)|}
+$$
+where:
+- $Ind(G)$: set of instances (individual resources) in graph 
+G.
+- $Provenance(i)$: set of provenance properties associated with instance $i$.
 
 
 
