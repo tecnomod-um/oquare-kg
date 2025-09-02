@@ -160,7 +160,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \left\{ f \in ValidFormats \;\middle|\; f \text{ is declared in the metadata of } G \right\} $$
+$$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $f$: a serialization format.
@@ -565,7 +565,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \left\{ f \in ValidFormats \;\middle|\; f \text{ is declared in the metadata of } G \right\} $$
+$$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
@@ -582,15 +582,16 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \left\{ f \in ValidFormats \;\middle|\; f \text{ is declared in the metadata of } G \right\} $$
+$$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
 
 **Usage of multiple languages**
 
-$$ \mathrm{Metric}(G) = \frac{|\{ lit \in AP(G) \mid hasLangTag(lit) \}|}{|AP(G)|} $$
-
+$$
+\mathrm{Metric}(G) = \frac{\bigl|\{\, lit \in AP(G) \mid hasLangTag(lit) \}\bigr|}{\bigl|AP(G)\bigr|}
+$$
 
 where:
 - $AP(G)$: set of literals associated with annotation properties.
@@ -661,7 +662,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \left\{ f \in ValidFormats \;\middle|\; f \text{ is declared in the metadata of } G \right\} $$
+$$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
