@@ -160,7 +160,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \{\ f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
+$$ \mathrm{Metric}(G) = \{\,\ f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $f$: a serialization format.
