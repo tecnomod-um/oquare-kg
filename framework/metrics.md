@@ -30,7 +30,7 @@ where:
 | Misused OWL datatype or object properties [^1] | This quality indicator assesses a graph’s statements for the correct usage of the predicate in terms the owl:DatatypeProperty and owl:ObjectProperty axioms. Therefore, this metric detects “erroneous” triples where a data value (literal) object is attached to an owl:ObjectProperty, and an entity (individual) to an owl:DatatypeProperty.  | The result is a score from 0 to 1, where a value of 0 indicates that there are no misused properties in the graph.| [Metric code](./metricsCode/misusedDatatypeObjPropMetric.py)|
 | Misplaced classes or properties [^1]           | The metric assesses the graph’s statements to check the correct usage of classes and properties. More specifically, this quality indicator checks if the assessed graph has defined classes placed in the triple’s predicate and defined properties in the object position. | The result is a score from 0 to 1, where a value of 0 indicates that there are no misplaced terms in the graph.| [Metric code](./metricsCode/misplacedClassPropMetric.py)|
 
-### Formula
+### Formulas
 
 **Usage of deprecated classes or properties**
 
@@ -74,7 +74,7 @@ where:
 | Usage of undefined classes and properties [^1] | This metric measures if there are entities in the graph which are not described with ontology terms. | The result is a score from 0 to 1, where a value of 0 indicates that there are no undefined terms in the graph.| [Metric code](./metricsCode/usageUndefinedClassPropMetric.py)|
 | Entities with no type metric | The ratio of nodes lacking rdf:type in the graph.| The result is a score from 0 to 1, where a value of 0 indicates that there are no entities without a type in the graph. | [Metric code](./metricsCode/entitiesNoTypeMetric.py)|
 
-### Formula
+### Formulas
 
 **Misused OWL datatype or object properties**
 
@@ -160,7 +160,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
+$$ \mathrm{Metric}(G) = \{\ f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $f$: a serialization format.
