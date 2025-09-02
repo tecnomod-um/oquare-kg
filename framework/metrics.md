@@ -160,7 +160,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \{\,\ f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
+$$ \mathrm{Metric}(G) = \{ f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
 - $f$: a serialization format.
@@ -171,7 +171,7 @@ where:
 $$
 \mathrm{Metric}(G) =
 \begin{cases}
-1, & \text{if } format(G) \in ValidFormats, \\[6pt]
+1, & \text{if } format(G) \in ValidFormats, \\ \\
 0, & \text{otherwise}.
 \end{cases}
 $$
@@ -271,12 +271,12 @@ where:
 
 **Indication of used vocabularies**
 
-$$ \mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|} $$
+$$\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$$
 
 where:
-- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
-- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
-- $Properties(G)={p∣(s,p,o)∈G}$.
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $Vocabularies(G)$: the set of distinct external vocabularies (namespaces) from which the classes and properties in the graph are reused.
 
 **Entities with no type metric**
 
@@ -359,7 +359,7 @@ where:
 
 **Descriptions per instance metric**
 
-$$ \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Decriptions}(i)}{|Ind(G)|} $$
+$$ \mathrm{Metric}(G) = \frac{\sum_{i\in Ind(G)}\mathrm{Decriptions}(i)}{|Ind(G)|} $$
 
 where:
 - $Ind(G)$: the set of all instances (individuals) in the graph $G$.
@@ -368,7 +368,7 @@ where:
 
 **Names per instance metric**
 
-$$ \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Names}(i)}{|Ind(G)|} $$
+$$ \mathrm{Metric}(G) = \frac{\sum_{i\in Ind(G)}\mathrm{Names}(i)}{|Ind(G)|} $$
 
 where:
 - $Ind(G)$: the set of all instances (individuals) in the graph $G$.
@@ -377,7 +377,7 @@ where:
 
 **Synonyms per instance metric**
 
-$$ \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|} $$
+$$ \mathrm{Metric}(G) = \frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|} $$
 
 where:
 - $Ind(G)$: the set of all instances (individuals) in the graph $G$.
@@ -387,7 +387,7 @@ where:
 **Annotation richness metric**
 
 $$
-\mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{AP}(i)}{|Ind(G)|}
+\mathrm{Metric}(G) = \frac{\sum_{i\in Ind(G)}\mathrm{AP}(i)}{|Ind(G)|}
 $$
 
 where:
@@ -397,12 +397,12 @@ where:
 
 **Indication of used vocabularies**
 
-$$ \mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|} $$
+$$\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$$
 
 where:
-- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
-- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
-- $Properties(G)={p∣(s,p,o)∈G}$.
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $Vocabularies(G)$: the set of distinct external vocabularies (namespaces) from which the classes and properties in the graph are reused.
 
 ### Trustworthiness
 
@@ -496,7 +496,7 @@ where:
 
 **Synonyms per instance metric**
 
-$$ \mathrm{Metric}(G)\;=\;\frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|} $$
+$$ \mathrm{Metric}(G) = \frac{\sum_{i\in Ind(G)}\mathrm{Synonyms}(i)}{|Ind(G)|} $$
 
 where:
 - $Ind(G)$: the set of all instances (individuals) in the graph $G$.
@@ -556,12 +556,12 @@ where:
 
 **Indication of used vocabularies**
 
-$$ \mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|} $$
+$$\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$$
 
 where:
-- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
-- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
-- $Properties(G)={p∣(s,p,o)∈G}$.
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $Vocabularies(G)$: the set of distinct external vocabularies (namespaces) from which the classes and properties in the graph are reused.
 
 **Different serialisation formats**
 
@@ -609,7 +609,7 @@ where:
 
 $$ \mathrm{Metric}(G) =
 \begin{cases}
-1, & \text{if } mLicense(G) \text{ is True}, \\[6pt]
+1, & \text{if } mLicense(G) \text{ is True}, \\ \\
 0, & \text{if } mLicense(G) \text{ is False}.
 \end{cases}
 $$
@@ -622,7 +622,7 @@ where:
 $$
 \mathrm{Metric}(G) =
 \begin{cases}
-1, & \text{if } hLicense(G) \text{ is True}, \\[6pt]
+1, & \text{if } hLicense(G) \text{ is True}, \\ \\
 0, & \text{if } hLicense(G) \text{ is False}.
 \end{cases}
 $$
@@ -694,7 +694,7 @@ where:
 $$
 \mathrm{Metric}(G) =
 \begin{cases}
-1, & \text{if } mLicense(G) \text{ is True}, \\[6pt]
+1, & \text{if } mLicense(G) \text{ is True}, \\ \\
 0, & \text{if } mLicense(G) \text{ is False}.
 \end{cases}
 $$
@@ -707,7 +707,7 @@ where:
 $$
 \mathrm{Metric}(G) =
 \begin{cases}
-1, & \text{if } hLicense(G) \text{ is True}, \\[6pt]
+1, & \text{if } hLicense(G) \text{ is True}, \\ \\
 0, & \text{if } hLicense(G) \text{ is False}.
 \end{cases}
 $$
@@ -717,12 +717,12 @@ where:
 
 **Indication of used vocabularies**
 
-$$ \mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|} $$
+$$\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$$
 
 where:
-- $Vocabularies(G)={ns(t)∣t∈Classes(G)∪Properties(G)}$. Here, $ns(t)$ returns the namespace of term $t$.
-- $Classes(G)={c∣(s,rdf:type,c)∈G}$.
-- $Properties(G)={p∣(s,p,o)∈G}$.
+- $Classes(G)$: the set of all classes used in the graph $G$.
+- $Properties(G)$: the set of all properties used in the graph $G$.
+- $Vocabularies(G)$: the set of distinct external vocabularies (namespaces) from which the classes and properties in the graph are reused.
 
 **Provision of basic provenance information**
 
