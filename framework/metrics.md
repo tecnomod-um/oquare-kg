@@ -590,7 +590,7 @@ where:
 **Usage of multiple languages**
 
 $$
-\mathrm{Metric}(G) = \frac{\bigl|\{ lit \in AP(G) \mid hasLangTag(lit) \}\bigr|}{\bigl|AP(G)\bigr|}
+\mathrm{Metric}(G) = \frac{|\{ lit \in AP(G) \mid hasLangTag(lit) \}|}{|AP(G)|}
 $$
 
 
