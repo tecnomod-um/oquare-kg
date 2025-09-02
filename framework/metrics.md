@@ -14,7 +14,7 @@ A subcharacteristic comprises at least one or more quality metrics which are, in
 
 **Indication of used vocabularies**
 
-$\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$
+$$\mathrm{Metric}(G) = \frac{|Vocabularies(G)|}{|Classes(G)| + |Properties(G)|}$$
 
 where:
 - $Classes(G)$: the set of all classes used in the graph $G$.
