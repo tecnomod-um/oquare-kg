@@ -590,8 +590,9 @@ where:
 **Usage of multiple languages**
 
 $$
-\mathrm{Metric}(G) = \frac{\bigl|\{\, lit \in AP(G) \mid hasLangTag(lit) \}\bigr|}{\bigl|AP(G)\bigr|}
+\mathrm{Metric}(G) = \frac{\bigl|\{ lit \in AP(G) \mid hasLangTag(lit) \}\bigr|}{\bigl|AP(G)\bigr|}
 $$
+
 
 where:
 - $AP(G)$: set of literals associated with annotation properties.
