@@ -28,6 +28,11 @@ The following diagram shows the characteristics and their associated subcharacte
 
 ![The following diagram shows the characteristics and their associated subcharacteristics:](https://github.com/tecnomod-um/oquare-kg/blob/main/framework/images/OquareKG.png)
 
+
+An example of quality assessment in a knowledge graph with oquare:
+
+![An example of quality assessment in a knowledge graph with oquare:](https://github.com/tecnomod-um/oquare-kg/blob/main/framework/images/ExampleOquareKG.png)
+
 ## Details
 
 * [Quality characteristics](characteristics.md)
