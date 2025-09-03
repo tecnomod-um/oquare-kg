@@ -539,9 +539,10 @@ where:
 
 | **Metric**               | **Definition**           | **Score**              | **Code** |
 |--------------------------|--------------------------|------------------------|----------|
-| Re-use of existing terms [^1]   | This metric   assesses if a graph re-uses relevant terms in a particular domain. In   particular, this metric checks if a property or a class (in case the   predicate is rdf:type) used in a triple refers to a term in another vocabulary.| The result is a score from 0 to 1, where a value of 1 indicates that all terms in the graph are reused, whereas 0 indicates that none are. | [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
+| Re-use of existing terms [^1]   | This metric   assesses if a graph re-uses relevant terms in a particular domain. In particular, this metric checks if a property or a class (in case the predicate is rdf:type) used in a triple refers to a term in another vocabulary.| The result is a score from 0 to 1, where a value of 1 indicates that all terms in the graph are reused, whereas 0 indicates that none are. | [Metric code](./metricsCode/instancesWithMultipleTypesMetric.py)|
 |  Indication of used vocabularies [^1] | This metric verifies whether the vocabularies used in the graphs, either in the predicate position or in the object position if the predicate is rdf:type, are included in the graph metadata particularly using the recommended void:vocabulary predicate. The vocabularies of RDF, RDFS, and OWL are not considered in this metric. |The result is a score from 0 to 1, where a value of 1 denotes that all vocabularies used are declared, whereas 0 indicates absence of this metadata.| [Metric code](./metricsCode/usedVocabulariesMetric.py)|
 | Different serialisation formats [^1] | This metric checks whether a graph has multiple serialisation formats defined in its metadata.| The result is a set of valid serialization formats, or an empty set if none are found.| [Metric code](./metricsCode/differentSerializationMetric.py)|
+| Valid format metric[^1] | This metric identifies whether the declared serialisation formats are valid and conform to recognised RDF syntax specifications.| The result is True if the formats are valid, and False otherwise.|[Metric code](./metricsCode/validFormatMetric.py)|
 
 ### Formulas
 **Re-use of existing terms**
@@ -568,6 +569,20 @@ where:
 $$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
 
 where:
+- $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
+
+**Valid format metric**
+
+$$
+\mathrm{Metric}(G) =
+\begin{cases}
+1, & \text{if } format(G) \in ValidFormats, \\ \\
+0, & \text{otherwise}.
+\end{cases}
+$$
+
+where:
+- $format(G)$: function that returns the format in which graph $G$ is serialised (e.g. Turtle, RDF/XML, JSON-LD).
 - $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
 
 ## Transferability
