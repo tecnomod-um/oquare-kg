@@ -566,7 +566,7 @@ where:
 
 **Different serialisation formats**
 
-$$ \mathrm{Metric}(G) = \{\, f \in ValidFormats \;\mid\; f \text{ is declared in the metadata of } G \,\} $$
+$$ \mathrm{Metric}(G) = \{ f \in ValidFormats \mid f \text{ is declared in the metadata of } G \} $$
 
 where:
 - $ValidFormats$: set of accepted RDF serialisations (e.g. Turtle, RDF/XML, JSON-LD, N-Triples, N-Quads, TriG).
