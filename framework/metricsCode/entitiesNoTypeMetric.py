@@ -12,21 +12,27 @@ def entities_no_type_metric(graph):
         The ratio of entities without a type. Best = 0
     """
 
-    entities = set()
+    all_subjects = set()
+    classes = set()
     entities_with_type = set()
 
     for subject, predicate, obj in graph:
         if isinstance(subject, URIRef):
-            entities.add(subject)
+            all_subjects.add(subject)
+        if predicate == RDF.type:
+            if isinstance(subject, URIRef):
+                entities_with_type.add(subject)
+            if isinstance(obj, URIRef):
+                classes.add(obj)
 
-        if predicate == RDF.type and isinstance(subject, URIRef):
-            entities_with_type.add(subject)
+    instances = all_subjects - classes
+    total_instances = len(instances)
 
-    total_entities = len(entities)
-    entities_without_type = total_entities - len(entities_with_type)
+    instances_with_type = instances.intersection(entities_with_type)
+    instances_without_type = total_instances - len(instances_with_type)
 
-    if total_entities > 0:
-        entities_no_type = entities_without_type / total_entities
+    if total_instances > 0:
+        entities_no_type = instances_without_type / total_instances
     else:
         entities_no_type = 0
 
