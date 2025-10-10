@@ -15,6 +15,8 @@ Biomedical knowledge graphs are a complex and highly structured use case that in
 
 * Gene regulation knowledge graphs
 
+    Knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities.
+
     * Cis-Regulatory modules - Entity Alignment
         * [Data](https://github.com/juan-mulero/cisregEA)
         * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisregEA)
