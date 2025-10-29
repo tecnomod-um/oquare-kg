@@ -410,7 +410,7 @@ where:
 |--------------------------|--------------------------|------------------------|----------|
 | Evidence metric | This metric verifies whether graph’s assertions have terms for capturing evidence. | The result is a score from 0 to 1, where a value of 1 indicates that all triples have evidence, whereas 0 indicates that none are.  | [Metric code](./metricsCode/evidenceMetric.py)|
 | Evidence codes metric | This metric verifies whether graph’s assertions have terms for capturing evidence.| The result is a score from 0 to 1, where a value of 1 indicates that, on average, every triple has at least one evidence URI, whereas 0 indicates that none are. |[Metric code](./metricsCode/evidenceCodesMetric.py)|
-| Traceability of the data [^1]   | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  |[Metric code](./metricsCode/traceabilityMetric.py)|
+| Traceability of the data [^1]   | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  |[Metric code](./metricsCode/traceabilityDataMetric.py)|
 
 ### Formulas
 **Evidence metric**
@@ -444,7 +444,7 @@ where:
 | **Metric**               | **Definition**           | **Score**              | **Code** |
 |--------------------------|--------------------------|------------------------|----------|
 | Provision of basic provenance information [^1] | This metric search for triples with the predicates dc:creator or dc:publisher in the dataset having a type void:Dataset or dcat:Dataset.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this metadata.  | [Metric code](./metricsCode/basicProvenanceMetric.py)|
-| Traceability of the data [^1]  | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information. | [Metric code](./metricsCode/traceabilityMetric.py)|
+| Traceability of the data [^1]  | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information. | [Metric code](./metricsCode/traceabilityDataMetric.py)|
 
 ### Formulas
 
