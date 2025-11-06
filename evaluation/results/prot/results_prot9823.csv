@@ -1,0 +1,30 @@
+Metric,Result
+Annotation properties metric,2.977126905640371
+Basic provenance metric,0.0
+Classes per instances metric,1.0000432792703116
+Compatible datatype metric,0.0
+Deprecated terms metric,0.0
+Dereferenceable uris metric,0.9989736015320875
+Descriptions per instance metric,0.49956179738809603
+Serialization formats metric,set()
+Entities with no type metric,0.0
+Evidence codes metric,0.0
+Evidence metric,0.4995401776537159
+Extensional conciseness metric,0.0
+Human readable license metric,False
+Instances with multiple types metric,4.327927031150255e-05
+Instances with no description metric,0.500438202611904
+Instances with no name metric,0.0
+Instances with no synonyms metric,0.00010819817577875637
+Machine license metric,False
+Misplaced class property metric,8.61010516382447e-06
+Misused properties metric,0.0
+Multiple languages metric,0.0
+Names per instance,1.0000432792703116
+Relation per node,5.574943466453155
+Reuse terms metric,0.00015157092436610874
+Synonyms per instance metric,1.4775218289819634
+Traceability of the data metric,0.0
+Usage of undefined terms metric,9.353976936834464e-06
+Used vocabularies metric,0.0
+Valid format metric,True
