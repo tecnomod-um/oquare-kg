@@ -1,6 +1,6 @@
 # The OQuaRE KG quality characteristics
 
-The OQuaRE KG framework includes 5 characteristics: structural, functional adequacy, compatibility, transferability and operability.
+The OQuaRE KG framework includes 7 characteristics: structural, functional adequacy, compatibility, transferability, operability, reliability and maintainability.
 
 ## Structural
 The structural dimension accounts for the intrinsic design and structure of the knowledge graph, independent of the user's specific context. 
