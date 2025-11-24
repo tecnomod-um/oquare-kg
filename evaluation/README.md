@@ -21,13 +21,6 @@ Biomedical knowledge graphs are a complex and highly structured use case that in
         * [Data](https://github.com/juan-mulero/cisregEA)
         * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisregEA)
 
-    * Gene
-        * [Data] link to be included
-        * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/gene)
-
-    * Protein
-        * [Data] link to be included
-        * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/prot)
     
 * At least another one
 
