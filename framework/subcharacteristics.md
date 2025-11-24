@@ -1,6 +1,6 @@
 # The OQuaRE KG quality subcharacteristics
 
-The characteristics of the OQuaRE KG framework have 14 associated subcharacteristics that can be applied to assess the quality of knowledge graphs.
+The characteristics of the OQuaRE KG framework have 16 associated subcharacteristics that can be applied to assess the quality of knowledge graphs.
 
 ## Structural
 ### Formalisation
