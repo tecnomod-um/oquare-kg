@@ -1,7 +1,7 @@
 # Evaluation of the OQuaRE KG framework
 
 ## Introduction 
-This section presents the evaluation of knowledge graphs using the OQuaRE KG framework. The objective of this analysis is to assess how the practical performance of the defined metrics and to emphasise the quality aspects of the selected knowledge graphs.
+This section presents the evaluation of knowledge graphs using the OQuaRE KG framework. The objective of this analysis is to assess the practical performance of the defined metrics and to emphasise the quality aspects of the selected knowledge graphs.
 
 The evaluation demonstrates the applicability of the framework, as well as the strengths and weaknesses of knowledge graphs, providing insights that support their improvement and practical use.
 
