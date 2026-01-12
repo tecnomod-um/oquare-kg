@@ -1,0 +1,6 @@
+file,classes,object_properties,datatype_properties,annotation_properties,instances,all_properties,undefined_properties,total_triples
+complete_allgraph.ttl,85011,0,0,0,86846,25,25,1622550
+complete_crm2genegraph.ttl,4466,0,0,0,4814,16,16,82491
+complete_crm2phengraph.ttl,3065,0,0,0,3249,13,13,45794
+complete_crmgraph.ttl,77025,0,0,0,78319,18,18,1483949
+crm2tfac.nt,468,0,0,0,464,16,16,12933
