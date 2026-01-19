@@ -35,7 +35,9 @@ An example of quality assessment in a knowledge graph with oquare:
 
 ## Static Scaling
 
-OQuaRE-KG scales the values of the metrics into quality scores in the range [1,5]. Metrics can be classify into three groups based on their range of values:
+OQuaRE-KG scales the raw values of the metrics into normalised quality scores in the range [1,5] (Likert scale), with 1 being the lowest quality score, and 5 the highest quality score.
+
+Metrics can be classified into three groups based on their range of values:
 
 * Binary value: scaled to 1 or 5.
 
