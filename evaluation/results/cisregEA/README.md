@@ -1,6 +1,6 @@
 # Evaluation of the OQuaRE KG framework: CisregEA graphs.
 
-The values of the OQuaRE-KG quality metrics were calculated for the CisregEA graphs and scaled the values into score at the level of metrics, subcharacteristics and characteristics. Here the focus is on the results at the level of characteristics and subcharacteristics. However the [raw value](metricsCisreg.csv) of the metrics, and the quality score (scaled value) of the [metrics](metricsCisreg_likert.csv), [subcharacteristics](allSubcharacteristics_likert.csv) and [characteristics](characteristics_likert.csv) are also available.
+The values of the OQuaRE-KG quality metrics were calculated for the CisregEA graphs and scaled the values into score at the level of metrics, subcharacteristics and characteristics. The focus here is on the results at the characteristics and subcharacteristics level. However, the [raw value](metricsCisreg.csv) of the metrics, and the quality score (scaled value) of the [metrics](metricsCisreg_likert.csv), [subcharacteristics](allSubcharacteristics_likert.csv) and [characteristics](characteristics_likert.csv) are also available.
 
 At the level of characteristics, the analysis of the scores shows differences between the graphs for the structural and functional adequacy characteristics. However, all graphs have the same quality score for compatibility, transferability, operability, reliability, and maintainability.
 
