@@ -1,7 +1,7 @@
 # Evaluation of the OQuaRE KG framework
 
 ## Introduction 
-This section presents the evaluation of knowledge graphs using the OQuaRE KG framework. The objective of this analysis is to assess the practical performance of the defined metrics and to emphasise the quality aspects of the selected knowledge graphs.
+This section presents the evaluation of knowledge graphs using the OQuaRE-KG framework. The objective of this analysis is to assess the practical performance of the defined metrics and to emphasise the quality aspects of the selected knowledge graphs.
 
 The evaluation demonstrates the applicability of the framework, as well as the strengths and weaknesses of knowledge graphs, providing insights that support their improvement and practical use.
 
@@ -17,7 +17,7 @@ Biomedical knowledge graphs are a complex and highly structured use case that in
 
     Knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities.
 
-    * Cis-Regulatory modules - Entity Alignment
+    * Cis-Regulatory modules
         * [Data](https://github.com/juan-mulero/cisregEA)
         * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisregEA)
 

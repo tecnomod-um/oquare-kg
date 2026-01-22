@@ -1,6 +1,6 @@
 # Modifications of cisregEA knowledge graphs
 
-The following modifications have been performed in the [cisregEA](https://github.com/juan-mulero/cisregEA) knowledge graphs in order to evaluate the practical performance of the defined metrics.
+The following modifications have been performed in the [cisreg](https://github.com/juan-mulero/cisregEA) knowledge graphs in order to evaluate the practical performance of the defined metrics.
 
 
 
@@ -32,4 +32,4 @@ The following modifications have been performed in the [cisregEA](https://github
 | (graph)_d40labdesc                      | delete 40%    | delete 40%   |          |           |                 |
 | (graph)_d40labdesc_a50wrongDT           | delete 40%    | delete 40%   |          |           | add 50%         |
 
-*Table1. Modifications performed in the cisregEA knowledge graphs. The column labelled 'Graph name' shows all the knowledge graphs obtained as a result and its modifications.*
+*Table1. Modifications performed in the cisreg knowledge graphs. The column labelled 'Graph name' shows all the knowledge graphs obtained as a result and its modifications.*
