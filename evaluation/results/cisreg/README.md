@@ -9,18 +9,18 @@ At the level of characteristics, the analysis of the scores shows differences be
 
 The results of the subcharacteristics of structural and functional adequacy show differences between graphs:
 
-* The structural subcharacteristic [(see Figure 2)](https://github.com/tecnomod-um/oquare-kg/blob/main/evaluation/results/cisreg/figures/radar_structural.png), all graphs get the same score for formalisation, structural accuracy, and redundancy. The differences between graphs are exhibited for consistency, syntactic validity and interpretability.
+* The structural subcharacteristic [(see Figure 2)](./figures/radar_structural.png), all graphs get the same score for formalisation, structural accuracy, and redundancy. The differences between graphs are exhibited for consistency, syntactic validity and interpretability.
 
-    ![Figure 2: The radar chart for the structural subcharacteristics.](https://github.com/tecnomod-um/oquare-kg/blob/main/evaluation/results/cisreg/figures/radar_structural.png)
+    ![Figure 2: The radar chart for the structural subcharacteristics.](./figures/radar_structural.png)
     *Figure 2: The radar chart for the structural subcharacteristics.*
 
-* In the functional adequacy subcharacteristic [(see Figure 3)](https://github.com/tecnomod-um/oquare-kg/blob/main/evaluation/results/cisreg/figures/radar_functionalAdequacy.png), the difference in quality scores happen for the following subcharacteristics: inference, trustworthiness and clustering.
+* In the functional adequacy subcharacteristic [(see Figure 3)](./figures/radar_functionalAdequacy.png), the difference in quality scores happen for the following subcharacteristics: inference, trustworthiness and clustering.
 
-    ![Figure 3: The radar chart for the functional adequacy subcharacteristics.](https://github.com/tecnomod-um/oquare-kg/blob/main/evaluation/results/cisreg/figures/radar_functionalAdequacy.png)
+    ![Figure 3: The radar chart for the functional adequacy subcharacteristics.](./figures/radar_functionalAdequacy.png)
     *Figure 3: The radar chart for the functional adequacy subcharacteristics.*
 
 
 All graphs have the same quality score for the subcharacteristics of interoperability, versatility, licensing, accesibility, reusability.
 
-![Figure 4: The radar chart for the other subcharacteristics.](https://github.com/tecnomod-um/oquare-kg/blob/main/evaluation/results/cisreg/figures/radar_5subcharacteristics.png)
+![Figure 4: The radar chart for the other subcharacteristics.](./figures/radar_5subcharacteristics.png)
 *Figure 4: The radar chart for the subcharacteristics of interoperability, versatility, licensing, accesibility, reusability.*
