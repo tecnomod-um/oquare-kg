@@ -19,7 +19,7 @@ Biomedical knowledge graphs are a complex and highly structured use case that in
 
     * Cis-Regulatory modules
         * [Data](https://github.com/juan-mulero/cisregEA)
-        * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisregEA)
+        * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisreg)
 
     
 * At least another one
