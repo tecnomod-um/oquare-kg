@@ -1,4 +1,5 @@
 from rdflib import Graph, Literal, URIRef, XSD
+from urllib.parse import urlparse
 
 def isCompatible(literal):
     """
@@ -10,8 +11,14 @@ def isCompatible(literal):
     Returns:
         bool: True if compatible, False otherwise.
     """
-    if not isinstance(literal, Literal) or literal.datatype is None:
+
+
+    if not isinstance(literal, Literal):
         return False
+
+    # If there is not a datatype, assume it is a literal string
+    if literal.datatype is None:
+        return True
 
     datatype = literal.datatype
     lexical_value = str(literal)
@@ -50,10 +57,15 @@ def isCompatible(literal):
                 except ValueError:
                     return False
 
+        elif datatype == XSD.anyURI:
+            u = urlparse(lexical_value)
+            return bool(u.scheme)
+
         elif datatype == XSD.string:
             return True #strings are always compatible.
         else:
-            return True #If the datatype is not one that we specifically check, assume it's compatible.
+            return False #If the datatype is not one that we specifically check, assume it is not compatible.
+
 
     except ValueError:
         return False
@@ -75,9 +87,8 @@ def compatible_datatype_metric(graph):
     total_literals = 0
 
 
-
     for subject, predicate, obj in graph:
-        if isinstance(obj, Literal) and obj.datatype is not None:
+        if isinstance(obj, Literal):
             total_literals += 1
             if isCompatible(obj):
                 valid_literals += 1
