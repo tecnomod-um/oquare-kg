@@ -14,7 +14,7 @@ The experimental evaluation of the framework can be found here:
 * [Evaluation](./evaluation/README.md)
 
 # Publications
-![OQuaRE-KG: an OQuaRE inspired framework for knowledge graph quality assessment](https://ceur-ws.org/Vol-4192/QuaLLM_KG-paper2.pdf)
+[OQuaRE-KG: an OQuaRE inspired framework for knowledge graph quality assessment](https://ceur-ws.org/Vol-4192/QuaLLM_KG-paper2.pdf)
 
 # Contact
 If there is any issue regarding this Github, please contact me on belen.juanesc@um.es, or make an issue in this repository explaining the error. Thank you!
