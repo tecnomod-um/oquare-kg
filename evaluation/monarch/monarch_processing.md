@@ -69,7 +69,27 @@ Define the core edges by association predicate (disease–phenotype via has_phen
 
 ## The queries to obtain the subgraphs
 
-### Graph 1. Gene-condition associations whose disease object is cardiovascular disorder or a subtype.
+### Graph 1. Gene-condition associations for a disorder or a subtype.
+
+*Query for any disorder*
+
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT (COUNT(*) AS ?count) ?dis ?dis_label
+WHERE {
+  ?a rdf:predicate biolink:gene_associated_with_condition ; 
+	 rdf:object ?d .
+  ?d biolink:subclass_of*  ?dis.
+   ?dis biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0000001>.
+  ?dis rdfs:label ?dis_label .
+  ?a ?ap ?ao .
+} 
+GROUP BY  ?dis ?dis_label
+```
+*Query for cardiovascular disorder*
+
 ```sparql
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -84,7 +104,25 @@ WHERE {
 
 The output graph has 9,184 triples.
 
-# Graph 2.  Triples that describe has_phenotype associations whose disease subject is cardiovascular disorder or a subtype
+### Graph 2.  Triples that describe has_phenotype associations for a  disease subject  or a subtype
+
+*Query for any disorder*
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT (COUNT(*) AS ?count) ?dis ?dis_label
+WHERE {
+  ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
+  ?d biolink:subclass_of*  ?dis.
+  ?dis biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0000001>.
+  ?dis rdfs:label ?dis_label .
+  ?a ?ap ?ao .
+} 
+GROUP BY  ?dis ?dis_label
+```
+
+*Query for cardiovascular disorder*
 
 ```sparql
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
