@@ -148,7 +148,7 @@ PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms:  <http://purl.org/dc/terms/>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?ap ?ao } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?ap ?ao } }
 WHERE {
    ?a rdf:predicate biolink:gene_associated_with_condition ; rdf:object ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995> .
@@ -164,7 +164,7 @@ PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms:  <http://purl.org/dc/terms/>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?ap ?ao } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?ap ?ao } }
 WHERE {
   ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0019751> .
