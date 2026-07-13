@@ -136,5 +136,70 @@ At this point, we selected the disorder for the slicing of the graph. For this p
 * Graph 1: approx 10K: http://purl.obolibrary.org/obo/MONDO_0004995	(cardiovascular disorder): 9,184 triples
 * Graph 2: approx 40K-50K: http://purl.obolibrary.org/obo/MONDO_0019751 (autoinflammatory syndrome): 45,940 triples
 * Graph 3: approx 80K-100K: http://purl.obolibrary.org/obo/MONDO_0005071 (nervous system disorder); 82,737 triples
+
+
+
+
+### Graph 1 Creation
+
+```sparql
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?ap ?ao } }
+WHERE {
+   ?a rdf:predicate biolink:gene_associated_with_condition ; rdf:object ?d .
+  ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995> .
+  ?a ?ap ?ao .
+} ;
+```
+
+### Graph 2 Creation
+
+```sparql
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?ap ?ao } }
+WHERE {
+  ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
+  ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0019751> .
+  ?a ?ap ?ao .
+} ;
+```
+
+
+### Graph 3 Creation
+
+```sparql
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+
+INSERT { GRAPH <http://mymonarchinitiative.org/slice2> { ?a ?ap ?ao } }
+WHERE {
+VALUES ?DISORDER { <http://purl.obolibrary.org/obo/MONDO_0005071> }
+  VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
+  ?s ?p ?o .
+  { ?s biolink:subclass_of* ?DISORDER } UNION { ?o biolink:subclass_of* ?DISORDER }
+} ;
+```
+
+### Graph 4. Annotation closure for the three graphs
+
+```sparql
+
+
+
+
+} 
+GROUP BY  ?dis ?dis_label
+```
+
 * Graph 4: approx 1M
 
