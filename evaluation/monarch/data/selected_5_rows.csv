@@ -1,0 +1,6 @@
+dis,dis_label,associations_count,phenotypes_count,genespluspheno_count,avg_relative_error
+http://purl.obolibrary.org/obo/MONDO_0004580,retinal degeneration,3080,49243,2742,0.5599
+http://purl.obolibrary.org/obo/MONDO_0019118,inherited retinal dystrophy,3080,49133,2734,0.5607
+http://purl.obolibrary.org/obo/MONDO_0024417,perceptual disorders,5096,62169,3560,0.5661
+http://purl.obolibrary.org/obo/MONDO_0004992,cancer,5824,27328,2007,0.617
+http://purl.obolibrary.org/obo/MONDO_0009332,congenital hematological disorder,1302,49652,2536,0.6171
