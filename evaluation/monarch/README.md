@@ -65,8 +65,6 @@ Seed the slice from a disease branch (a MONDO class and all its descendants via 
 Define the core edges by association predicate (disease–phenotype via has_phenotype; gene–disease via gene_associated_with_condition). The relation type already encodes the semantics of the slice, so we obtain a clean, interpretable cut without needing to enumerate node-category IRIs. It also parallels the BioGateway design, where each graph (crm2gene, crm2phen, crm2tfac) is a relation-type slice — maximising comparability between the two cases.
 
 
-
-
 ## The queries to obtain the subgraphs
 
 ### Graph 1. Gene-condition associations for a disorder or a subtype.
@@ -136,7 +134,26 @@ WHERE {
 ```
 The output graph has 291,185 triples.
 
-# Graph 3. Phenotype associations and gene associations exist in Monarch for type 2 diabetes mellitus and all its ontological subtypes combined?
+# Graph 3. Phenotype associations and gene associations exist in Monarch for a given disorder and all its ontological subtypes combined?
+
+*Query for any disorder*
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT (COUNT(*) AS ?count) ?dis ?dis_label
+WHERE {
+
+  VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
+  ?s ?p ?o .
+  { ?s biolink:subclass_of* ?dis } UNION { ?o biolink:subclass_of* ?dis}
+  ?dis biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0000001>.
+  ?dis rdfs:label ?dis_label .
+} 
+GROUP BY  ?dis ?dis_label
+```
+*Query for cardiovascular disorder*
+
 ```sparql
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -163,14 +180,6 @@ VALUES ?DISEASE { <http://purl.obolibrary.org/obo/MONDO_0004995> }
 } 
 ```
 
-## 5. Nested size variants
-
-Generate 3–4 graphs by changing only the `?ROOT` branch (narrow subbranch → cardiovascular → a broader superclass), aiming to match the orders of magnitude of CisReg (~10^4, 10^5, 10^6). For the largest one, add a second branch with UNION if needed. Materialize each variant in its own named graph (`urn:slice:mondo_s`, `_m`, `_l`) and the union as `all`.
-
-```sparql
-# Control count
-SELECT (COUNT(*) AS ?triples) WHERE { GRAPH <urn:slice:mondo> { ?s ?p ?o } }
-```
 
 | CisReg graph | Triples | Monarch graph | Construction (predicate + MONDO breadth) | Target size |
 |---|---|---|---|---|
