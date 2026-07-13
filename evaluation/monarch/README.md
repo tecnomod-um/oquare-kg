@@ -133,8 +133,8 @@ GROUP BY  ?dis ?dis_label
 
 At this point, we selected the disorder for the slicing of the graph. For this purpose we selected the diseases to achieve graphs of the following size. One branch (disorder) is used only for one graph
 
-* Graph 1: approx 10K
-* Graph 2: approx 40K-50K
-* Graph 3: approx 80K-100K
+* Graph 1: approx 10K: http://purl.obolibrary.org/obo/MONDO_0004995	(cardiovascular disorder): 9,184 triples
+* Graph 2: approx 40K-50K: http://purl.obolibrary.org/obo/MONDO_0019751 (autoinflammatory syndrome): 45,940 triples
+* Graph 3: approx 80K-100K: http://purl.obolibrary.org/obo/MONDO_0005071 (nervous system disorder); 82,737 triples
 * Graph 4: approx 1M
 
