@@ -153,7 +153,7 @@ WHERE {
    ?a rdf:predicate biolink:gene_associated_with_condition ; rdf:object ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995> .
   ?a ?ap ?ao .
-} ;
+} 
 ```
 
 ### Graph 2 Creation
@@ -169,7 +169,7 @@ WHERE {
   ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0019751> .
   ?a ?ap ?ao .
-} ;
+} 
 ```
 
 
@@ -181,13 +181,13 @@ PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms:  <http://purl.org/dc/terms/>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 
-INSERT { GRAPH <http://mymonarchinitiative.org/slice2> { ?a ?ap ?ao } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno>  { ?s ?p ?o } }
 WHERE {
-VALUES ?DISORDER { <http://purl.obolibrary.org/obo/MONDO_0005071> }
+  VALUES ?DISORDER { <http://purl.obolibrary.org/obo/MONDO_0005071>}
   VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
   ?s ?p ?o .
   { ?s biolink:subclass_of* ?DISORDER } UNION { ?o biolink:subclass_of* ?DISORDER }
-} ;
+} 
 ```
 
 ### Graph 4. Annotation closure for the three graphs
