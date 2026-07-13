@@ -64,12 +64,14 @@ Seed the slice from a disease branch (a MONDO class and all its descendants via 
 ### Criterion 3. Slicing by relation type (rdf:predicate)
 Define the core edges by association predicate (disease–phenotype via has_phenotype; gene–disease via gene_associated_with_condition). The relation type already encodes the semantics of the slice, so we obtain a clean, interpretable cut without needing to enumerate node-category IRIs. It also parallels the BioGateway design, where each graph (crm2gene, crm2phen, crm2tfac) is a relation-type slice — maximising comparability between the two cases.
 
+### Criterion 4. Independent slices
+Using disjoint disease branches reproduces the CisReg structure - several distinct slices plus a genuine union - and lets size be tuned by branch breadth. The roots are chosen so that none is an ancestor or descendant of another, so the graphs do not overlap and the union carries no double counting, exactly as CisReg’s "all" is the union of its slices. Each graph is rebuilt independently (re-running the full annotation closure per branch) rather than assembled from smaller ones, which guarantees every graph is self-consistent. As a bonus, comparing across sizes tests whether ratio/density metrics stay stable, which they should; any size-dependence would itself be an informative finding.Using disjoint disease branches reproduces the CisReg structure - several distinct slices plus a genuine union — and lets size be tuned by branch breadth. The roots are chosen so that none is an ancestor or descendant of another, so the graphs do not overlap and the union carries no double counting, exactly as CisReg’s "all" is the union of its slices. Each graph is rebuilt independently (re-running the full annotation closure per branch) rather than assembled from smaller ones, which guarantees every graph is self-consistent. As a bonus, comparing across sizes tests whether ratio/density metrics stay stable, which they should; any size-dependence would itself be an informative finding.
+
 
 ## The queries to obtain the subgraphs
 
-### Graph 1. Gene-condition associations for a disorder or a subtype.
+### Graph 1. Gene-condition associations by disorder or a subtype.
 
-*Query for any disorder*
 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -86,25 +88,12 @@ WHERE {
 } 
 GROUP BY  ?dis ?dis_label
 ```
-*Query for cardiovascular disorder*
 
-```sparql
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT (COUNT(*) AS ?count)
-WHERE {
-  ?a rdf:predicate biolink:gene_associated_with_condition ; 
-	 rdf:object ?d .
-  ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995> .
-  ?a ?ap ?ao .
-} 
-```
+[Results of query graph associations](data/query1-associations.xlsx)
 
-The output graph has 9,184 triples.
 
-### Graph 2.  Triples that describe has_phenotype associations for a  disease subject  or a subtype
+### Graph 2.  Triples that describe has_phenotype associations by disorder  or a subtype
 
-*Query for any disorder*
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -119,24 +108,10 @@ WHERE {
 } 
 GROUP BY  ?dis ?dis_label
 ```
+[Results of query graph phenotypes associations](data/query2-phenotypes.xlsx)
 
-*Query for cardiovascular disorder*
+### Graph 3. Phenotype associations and gene associations exist in Monarch by disorder and all its ontological subtypes combined?
 
-```sparql
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT (COUNT(*) AS ?count)
-WHERE {
-  ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
-  ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995>.
-  ?a ?ap ?ao .
-} 
-```
-The output graph has 291,185 triples.
-
-# Graph 3. Phenotype associations and gene associations exist in Monarch for a given disorder and all its ontological subtypes combined?
-
-*Query for any disorder*
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -152,83 +127,14 @@ WHERE {
 } 
 GROUP BY  ?dis ?dis_label
 ```
-*Query for cardiovascular disorder*
+[Results of query graph phenotypes + genes associations](data/query3-genespluspheno.xlsx)
 
-```sparql
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT (COUNT(*) AS ?count)
-WHERE {
-VALUES ?DISEASE { <http://purl.obolibrary.org/obo/MONDO_0004995> }
-  VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
-  ?s ?p ?o .
-  { ?s biolink:subclass_of* ?DISEASE } UNION { ?o biolink:subclass_of* ?DISEASE}
-} 
-```
-The output graph has 15,689 triples.
+#### Disorder selection
 
-# Graph 4. Genes associated with cardiovascular diseases plus has phenotype cardiovascular disease, plus full annotation closure
-```sparql
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT (COUNT(*) AS ?count)
-WHERE {
-VALUES ?DISEASE { <http://purl.obolibrary.org/obo/MONDO_0004995> }
-  VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
-  ?s ?p ?o .
-  { ?s biolink:subclass_of* ?DISEASE } UNION { ?o biolink:subclass_of* ?DISEASE}
-} 
-```
+At this point, we selected the disorder for the slicing of the graph. For this purpose we selected the diseases to achieve graphs of the following size. One branch (disorder) is used only for one graph
 
+* Graph 1: approx 10K
+* Graph 2: approx 40K-50K
+* Graph 3: approx 80K-100K
+* Graph 4: approx 1M
 
-| CisReg graph | Triples | Monarch graph | Construction (predicate + MONDO breadth) | Target size |
-|---|---|---|---|---|
-| crm2tfac | 12,933 | mondo_s | gene_associated_with_condition; narrow MONDO branch | ~10^4 |
-| crm2phen | 45,794 | mondo_m | has_phenotype (disease→phenotype); medium branch | ~5×10^4 |
-| crm2gene | 82,491 | mondo_l | gene_associated_with_condition + has_phenotype; larger branch | ~10^5 |
-| crm | 1,483,949 | mondo_xl | both predicates + full annotation closure; broad branch | ~10^6 |
-| all | 1,622,550 | mondo_all | union of the Monarch named graphs above | sum of the above |
-
-
-
-## 6. OQuaRE-KG configuration for Monarch (CRITICAL)
-
-Add the following to the framework's annotation-property lists, or the baseline will be artificially poor:
-
-- Names: `rdfs:label`, `biolink:symbol`, `biolink:full_name`
-- Descriptions: `dcterms:description`
-- Synonyms: `biolink:synonym`, `biolink:exact_synonym`, `biolink:related_synonym`, `biolink:narrow_synonym`, `biolink:broad_synonym`
-
-Modeling decision to declare: `biolink:Association` (reification) nodes have no label/description by design and will raise *instances with no name/description*. Consider reporting metrics **with and without** association nodes for a fair comparison with BioGateway.
-
-## 7. Perturbation targets per experiment
-
-| Exp. | Perturbation | Target predicate(s) | Levels |
-|---|---|---|---|
-| 1 | Remove names | `rdfs:label` (+ `biolink:symbol`, `biolink:full_name`) | 20/50/90 % |
-| 2 | Remove descriptions | `dcterms:description` | 20/50/90 % |
-| 3 | Add language tags | on `rdfs:label` (plain literals) | 20/50/90 % |
-| 4 | Wrong datatypes | `has_count`, `has_total`, `evidence_count`, `has_percentage`, `has_quotient` | 10/30/50/90 % |
-
-Methodological recommendation (from the review): additionally use finer levels (e.g. steps of 5–10 %) to locate the detection threshold at the quality-score level, and repeat each perturbation with several seeds, reporting variance. ALWAYS perturb the exported `.ttl`, never during extraction.
-
-## 8. Baseline QC (before perturbing)
-
-```sparql
-# Malformed types within the slice (rdf:type with a literal object)
-SELECT (COUNT(*) AS ?bad) WHERE {
-  GRAPH <urn:slice:mondo> { ?s rdf:type ?o FILTER(isLiteral(?o)) }
-}
-
-# Instances with no label / no description (baseline sanity check)
-SELECT (COUNT(DISTINCT ?s) AS ?noLabel) WHERE {
-  GRAPH <urn:slice:mondo> { ?s ?p ?o } FILTER NOT EXISTS { GRAPH <urn:slice:mondo> { ?s rdfs:label ?l } }
-}
-
-# Language tags on slice labels (expected: 0)
-SELECT (COUNT(*) AS ?tagged) WHERE {
-  GRAPH <urn:slice:mondo> { ?s rdfs:label ?l FILTER(lang(?l) != "") }
-}
-```
-
-Also verify: valid RDF, connected subgraph, and quality profiles that are stable across size variants. Report the malformed-type count as an intrinsic Monarch property (evidence that OQuaRE-KG detects real issues).
