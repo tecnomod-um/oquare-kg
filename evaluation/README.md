@@ -21,7 +21,12 @@ Biomedical knowledge graphs are a complex and highly structured use case that in
         * [Data](https://github.com/juan-mulero/cisregEA)
         * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisreg)
 
-    
+* The Monarch Knowledge Graph
+
+    The Monarch KG, a biomedical knowledge graph that integrates gene, disease, and phenotype information from 33 heterogeneous data sources, which provides a semantically structured representation of biological entities and their relationships, enabling data integration, semantic reasoning, and biomedical discovery across species.
+
+    * [Data](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/monarch)
+
 * At least another one
 
 
