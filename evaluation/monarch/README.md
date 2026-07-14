@@ -133,29 +133,37 @@ GROUP BY  ?dis ?dis_label
 
 At this point, we selected the disorder for the slicing of the graph. For this purpose we selected the diseases to achieve graphs of the following size. One branch (disorder) is used only for one graph
 
-* Graph 1: approx 10K: http://purl.obolibrary.org/obo/MONDO_0004995	(cardiovascular disorder): 9,184 triples
+* Graph 1 ba:http://purl.obolibrary.org/obo/MONDO_0004995	(cardiovascular disorder): 9,184 triples
 * Graph 2: approx 40K-50K: http://purl.obolibrary.org/obo/MONDO_0019751 (autoinflammatory syndrome): 45,940 triples
 * Graph 3: approx 80K-100K: http://purl.obolibrary.org/obo/MONDO_0005071 (nervous system disorder); 82,737 triples
+* Graph 4: approx 80K-100K: http://purl.obolibrary.org/obo/MONDO_0005071 (human disease); 82,737 triple
+* Graph 5: 
 
 
 
 
-### Graph 1 Creation
+
+### Graph 1: Gene associated with cardiovascular diseases
 
 generation: gene_associated_with_condition, disease in the OBJECT slot
 ```sparql
-
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?ap ?ao } }
 WHERE {
   ?a rdf:predicate biolink:gene_associated_with_condition ; rdf:object ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995> .
   ?a ?ap ?ao .
-} ;
+} 
 
 ```
 closure (reified: nodes via rdf:subject/rdf:object)
 ```sparql
-
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?n ?np ?no } }
 WHERE {
   GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?sp ?n . VALUES ?sp { rdf:subject rdf:object } }
@@ -165,14 +173,18 @@ WHERE {
     biolink:narrow_synonym, biolink:broad_synonym, biolink:xref,
     biolink:symbol, biolink:full_name, biolink:in_taxon, biolink:in_taxon_label,
     biolink:deprecated))
-} ;
+} 
 
 ```
 
-### Graph 2 Creation
+### Graph 2: has phenotype autoinflammatory syndrome
 
 ```sparql
 # generation: has_phenotype, disease in the SUBJECT slot
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?ap ?ao } }
 WHERE {
   ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
@@ -182,6 +194,10 @@ WHERE {
 ```
 # closure (reified)
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?n ?np ?no } }
 WHERE {
   GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?sp ?n . VALUES ?sp { rdf:subject rdf:object } }
@@ -192,13 +208,17 @@ WHERE {
     biolink:symbol, biolink:full_name, biolink:in_taxon, biolink:in_taxon_label,
     biolink:deprecated))
 } ;
+```
 
-
-### Graph 3 Creation
+### Graph 3: both predicates for nervous system disorder
 
 
 generation: both predicates, direct edges, disease as subject OR object
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous> { ?s ?p ?o } }
 WHERE {
   VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
@@ -211,6 +231,10 @@ WHERE {
 
 closure (direct: nodes via subject/object of the edges)
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous> { ?n ?np ?no } }
 WHERE {
   GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous> {
@@ -227,11 +251,13 @@ WHERE {
 } ;
 ```
 
-### Graph 4. Larger graph 
+### Graph 4.  both predicates for human disease
 
-
-# generation: both predicates, direct edges, broad root (human disease)
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human> { ?s ?p ?o } }
 WHERE {
   VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
@@ -243,6 +269,10 @@ WHERE {
 ```
 # closure (direct)
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX biolink:  <https://w3id.org/biolink/vocab/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dcterms:  <http://purl.org/dc/terms/>
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human> { ?n ?np ?no } }
 WHERE {
   GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human> {
