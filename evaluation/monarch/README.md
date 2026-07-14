@@ -64,8 +64,8 @@ Seed the slice from a disease branch (a MONDO class and all its descendants via 
 ### Criterion 3. Slicing by relation type (rdf:predicate)
 Define the core edges by association predicate (disease–phenotype via has_phenotype; gene–disease via gene_associated_with_condition). The relation type already encodes the semantics of the slice, so we obtain a clean, interpretable cut without needing to enumerate node-category IRIs. It also parallels the BioGateway design, where each graph (crm2gene, crm2phen, crm2tfac) is a relation-type slice — maximising comparability between the two cases.
 
-### Criterion 4. Independent slices
-Using disjoint disease branches reproduces the CisReg structure - several distinct slices plus a genuine union - and lets size be tuned by branch breadth. The roots are chosen so that none is an ancestor or descendant of another, so the graphs do not overlap and the union carries no double counting, exactly as CisReg’s "all" is the union of its slices. Each graph is rebuilt independently (re-running the full annotation closure per branch) rather than assembled from smaller ones, which guarantees every graph is self-consistent. As a bonus, comparing across sizes tests whether ratio/density metrics stay stable, which they should; any size-dependence would itself be an informative finding.Using disjoint disease branches reproduces the CisReg structure - several distinct slices plus a genuine union — and lets size be tuned by branch breadth. The roots are chosen so that none is an ancestor or descendant of another, so the graphs do not overlap and the union carries no double counting, exactly as CisReg’s "all" is the union of its slices. Each graph is rebuilt independently (re-running the full annotation closure per branch) rather than assembled from smaller ones, which guarantees every graph is self-consistent. As a bonus, comparing across sizes tests whether ratio/density metrics stay stable, which they should; any size-dependence would itself be an informative finding.
+### Criterion 4. Nested size variants
+Produce several graphs of increasing size to match the orders of magnitude of the CisReg family makes the two cases directly comparable. It also adds a validation dimension for free: ratio/density metrics should be invariant to graph size, so stable profiles across variants provide extra evidence of the framework’s soundness, while any size-dependence would be an informative finding.
 
 
 ## The queries to obtain the subgraphs
@@ -310,3 +310,5 @@ WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human>  { ?s ?p 
 |http://mymonarchinitiative.org/slice/gene-pheno-nervous     | 222,575      | 
 |http://mymonarchinitiative.org/slice/gene-pheno-human     | 604,602      | 
 |http://mymonarchinitiative.org/slice/complete     | 659,726      | 
+
+

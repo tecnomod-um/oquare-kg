@@ -11,24 +11,7 @@ The subsequent sections are dedicated to the description of the use cases and th
 For the purpose of this evaluation, a set of knowledge graphs from different domains was selected. Each graph represents a distinct scenario, thereby enabling the framework to be tested under diverse conditions.
 
 ### Biomedical use cases
-Biomedical knowledge graphs are a complex and highly structured use case that integrates data on proteins, genes and diseases.
-
-* Gene regulation knowledge graphs
-
-    Knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities.
-
-    * Cis-Regulatory modules
-        * [Data](https://github.com/juan-mulero/cisregEA)
-        * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/results/cisreg)
-
-* The Monarch Knowledge Graph
-
-    The Monarch KG, a biomedical knowledge graph that integrates gene, disease, and phenotype information from 33 heterogeneous data sources, which provides a semantically structured representation of biological entities and their relationships, enabling data integration, semantic reasoning, and biomedical discovery across species.
-
-    * [Data](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/monarch)
-
-* At least another one
-
+* [BioGateway and Monarch knowledge graphs](./bgw-monarch.md)
 
 ### Non-biomedical use cases
 Non-biomedical knowledge graphs refer to information concerning data related to products, sales and user satisfaction.
