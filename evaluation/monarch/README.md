@@ -199,7 +199,7 @@ WHERE {
 
 generation: both predicates, direct edges, disease as subject OR object
 ```sparql
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno> { ?s ?p ?o } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous> { ?s ?p ?o } }
 WHERE {
   VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
   ?s ?p ?o .
@@ -211,9 +211,9 @@ WHERE {
 
 closure (direct: nodes via subject/object of the edges)
 ```sparql
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno> { ?n ?np ?no } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous> { ?n ?np ?no } }
 WHERE {
-  GRAPH <http://mymonarchinitiative.org/slice/gene-pheno> {
+  GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous> {
     { ?n ?p ?o . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
     UNION
     { ?s ?p ?n . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
@@ -227,12 +227,12 @@ WHERE {
 } ;
 ```
 
-### Graph 4. Annotation closure for the three graphs
+### Graph 4. Larger graph 
 
 
 # generation: both predicates, direct edges, broad root (human disease)
 ```sparql
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/mondo_xl> { ?s ?p ?o } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human> { ?s ?p ?o } }
 WHERE {
   VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
   ?s ?p ?o .
@@ -243,9 +243,9 @@ WHERE {
 ```
 # closure (direct)
 ```sparql
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/mondo_xl> { ?n ?np ?no } }
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human> { ?n ?np ?no } }
 WHERE {
-  GRAPH <http://mymonarchinitiative.org/slice/mondo_xl> {
+  GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human> {
     { ?n ?p ?o . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
     UNION
     { ?s ?p ?n . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
@@ -258,3 +258,13 @@ WHERE {
     biolink:deprecated))
 } ;
 ```
+### Graph 5. UNION GRAPH
+
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_s>   { ?s ?p ?o } } ;
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_m>   { ?s ?p ?o } } ;
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_l>   { ?s ?p ?o } } ;
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_xl>  { ?s ?p ?o } } ;
