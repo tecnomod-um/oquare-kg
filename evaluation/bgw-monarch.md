@@ -2,7 +2,7 @@
 
 Biomedical knowledge graphs are a complex and highly structured use case that integrates data on proteins, genes and diseases.
 
-## The knowlege graphs
+## The knowledge graphs
 
 * Gene regulation knowledge graphs
 
@@ -65,7 +65,7 @@ mismatched objects.
 * Matched orders of magnitude. The MONDO disorders were chosen so that each Monarch
 graph reproduces the triple-count magnitude of its CisReg counterpart. The
 correspondence is by role and order of magnitude, tuned by widening or narrowing the
-MONDO root, rather than by exact biological equivalence. Crucially, at the point
+MONDO disorder, rather than by exact biological equivalence. Crucially, at the point
 where both families are most sensitive to the aggregation step — the union relative
 to the large core — the ratio is almost identical: the Monarch union exceeds its core
 by 9.1% (659,726 vs 604,602 triples), against 9.3% for CisReg
