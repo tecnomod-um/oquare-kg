@@ -133,11 +133,11 @@ GROUP BY  ?dis ?dis_label
 
 At this point, we selected the disorder for the slicing of the graph. For this purpose we selected the diseases to achieve graphs of the following size. One branch (disorder) is used only for one graph
 
-* Graph 1 ba:http://purl.obolibrary.org/obo/MONDO_0004995	(cardiovascular disorder): 9,184 triples
-* Graph 2: approx 40K-50K: http://purl.obolibrary.org/obo/MONDO_0019751 (autoinflammatory syndrome): 45,940 triples
-* Graph 3: approx 80K-100K: http://purl.obolibrary.org/obo/MONDO_0005071 (nervous system disorder); 82,737 triples
-* Graph 4: approx 80K-100K: http://purl.obolibrary.org/obo/MONDO_0005071 (human disease); 82,737 triple
-* Graph 5: 
+* Graph 1 http://purl.obolibrary.org/obo/MONDO_0004995	(cardiovascular disorder)
+* Graph 2: http://purl.obolibrary.org/obo/MONDO_0019751 (autoinflammatory syndrome)triples
+* Graph 3: http://purl.obolibrary.org/obo/MONDO_0005071 (nervous system disorder)
+* Graph 4: http://purl.obolibrary.org/obo/MONDO_0005071 (human disease)
+* Graph 5: union of all the graphs
 
 
 ## Generation of the graphs
@@ -145,7 +145,6 @@ At this point, we selected the disorder for the slicing of the graph. For this p
 
 ### Graph 1: Gene associated with cardiovascular diseases
 
-generation: gene_associated_with_condition, disease in the OBJECT slot
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -158,7 +157,8 @@ WHERE {
 } 
 
 ```
-closure (reified: nodes via rdf:subject/rdf:object)
+Closure 
+
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -192,7 +192,7 @@ WHERE {
   ?a ?ap ?ao .
 } ;
 ```
-# closure (reified)
+Closure
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -213,7 +213,6 @@ WHERE {
 ### Graph 3: both predicates for nervous system disorder
 
 
-generation: both predicates, direct edges, disease as subject OR object
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -229,7 +228,8 @@ WHERE {
 } ;
 ```
 
-closure (direct: nodes via subject/object of the edges)
+Closure
+
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -267,7 +267,7 @@ WHERE {
   { ?o biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0700096> }
 } 
 ```
-# closure (direct)
+Closure 
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX biolink:  <https://w3id.org/biolink/vocab/>
@@ -307,7 +307,7 @@ SELECT (COUNT(*) AS ?triples) WHERE {
 }
 
 | Graph    | Triples    | 
-|--------------|--------------|--------------|
+|--------------|--------------|
 |http://mymonarchinitiative.org/slice/assoc     | 20,934       | 
 |http://mymonarchinitiative.org/slice/pheno     | 58,457       | 
 |http://mymonarchinitiative.org/slice/gene-pheno-nervous     | 222,575      | 
