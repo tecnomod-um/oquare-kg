@@ -142,64 +142,119 @@ At this point, we selected the disorder for the slicing of the graph. For this p
 
 ### Graph 1 Creation
 
+generation: gene_associated_with_condition, disease in the OBJECT slot
 ```sparql
-PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX dcterms:  <http://purl.org/dc/terms/>
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?ap ?ao } }
 WHERE {
-   ?a rdf:predicate biolink:gene_associated_with_condition ; rdf:object ?d .
+  ?a rdf:predicate biolink:gene_associated_with_condition ; rdf:object ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0004995> .
   ?a ?ap ?ao .
-} 
+} ;
+
+```
+closure (reified: nodes via rdf:subject/rdf:object)
+```sparql
+
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?n ?np ?no } }
+WHERE {
+  GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?a ?sp ?n . VALUES ?sp { rdf:subject rdf:object } }
+  ?n ?np ?no .
+  FILTER(?np IN (rdf:type, biolink:category, rdfs:label, dcterms:description,
+    biolink:synonym, biolink:exact_synonym, biolink:related_synonym,
+    biolink:narrow_synonym, biolink:broad_synonym, biolink:xref,
+    biolink:symbol, biolink:full_name, biolink:in_taxon, biolink:in_taxon_label,
+    biolink:deprecated))
+} ;
+
 ```
 
 ### Graph 2 Creation
 
 ```sparql
-PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX dcterms:  <http://purl.org/dc/terms/>
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
-
+# generation: has_phenotype, disease in the SUBJECT slot
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?ap ?ao } }
 WHERE {
   ?a rdf:predicate biolink:has_phenotype ; rdf:subject ?d .
   ?d biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0019751> .
   ?a ?ap ?ao .
-} 
+} ;
 ```
+# closure (reified)
+```sparql
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?n ?np ?no } }
+WHERE {
+  GRAPH <http://mymonarchinitiative.org/slice/pheno> { ?a ?sp ?n . VALUES ?sp { rdf:subject rdf:object } }
+  ?n ?np ?no .
+  FILTER(?np IN (rdf:type, biolink:category, rdfs:label, dcterms:description,
+    biolink:synonym, biolink:exact_synonym, biolink:related_synonym,
+    biolink:narrow_synonym, biolink:broad_synonym, biolink:xref,
+    biolink:symbol, biolink:full_name, biolink:in_taxon, biolink:in_taxon_label,
+    biolink:deprecated))
+} ;
 
 
 ### Graph 3 Creation
 
-```sparql
-PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX dcterms:  <http://purl.org/dc/terms/>
-PREFIX biolink:  <https://w3id.org/biolink/vocab/>
 
-INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno>  { ?s ?p ?o } }
+generation: both predicates, direct edges, disease as subject OR object
+```sparql
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno> { ?s ?p ?o } }
 WHERE {
-  VALUES ?DISORDER { <http://purl.obolibrary.org/obo/MONDO_0005071>}
   VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
   ?s ?p ?o .
-  { ?s biolink:subclass_of* ?DISORDER } UNION { ?o biolink:subclass_of* ?DISORDER }
-} 
+  { ?s biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0005071> }
+  UNION
+  { ?o biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0005071> }
+} ;
+```
+
+closure (direct: nodes via subject/object of the edges)
+```sparql
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno> { ?n ?np ?no } }
+WHERE {
+  GRAPH <http://mymonarchinitiative.org/slice/gene-pheno> {
+    { ?n ?p ?o . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
+    UNION
+    { ?s ?p ?n . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
+  }
+  ?n ?np ?no .
+  FILTER(?np IN (rdf:type, biolink:category, rdfs:label, dcterms:description,
+    biolink:synonym, biolink:exact_synonym, biolink:related_synonym,
+    biolink:narrow_synonym, biolink:broad_synonym, biolink:xref,
+    biolink:symbol, biolink:full_name, biolink:in_taxon, biolink:in_taxon_label,
+    biolink:deprecated))
+} ;
 ```
 
 ### Graph 4. Annotation closure for the three graphs
 
+
+# generation: both predicates, direct edges, broad root (human disease)
 ```sparql
-
-
-
-
-} 
-GROUP BY  ?dis ?dis_label
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/mondo_xl> { ?s ?p ?o } }
+WHERE {
+  VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition }
+  ?s ?p ?o .
+  { ?s biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0700096> }
+  UNION
+  { ?o biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0700096> }
+} ;
 ```
-
-* Graph 4: approx 1M
-
+# closure (direct)
+```sparql
+INSERT { GRAPH <http://mymonarchinitiative.org/slice/mondo_xl> { ?n ?np ?no } }
+WHERE {
+  GRAPH <http://mymonarchinitiative.org/slice/mondo_xl> {
+    { ?n ?p ?o . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
+    UNION
+    { ?s ?p ?n . VALUES ?p { biolink:has_phenotype biolink:gene_associated_with_condition } }
+  }
+  ?n ?np ?no .
+  FILTER(?np IN (rdf:type, biolink:category, rdfs:label, dcterms:description,
+    biolink:synonym, biolink:exact_synonym, biolink:related_synonym,
+    biolink:narrow_synonym, biolink:broad_synonym, biolink:xref,
+    biolink:symbol, biolink:full_name, biolink:in_taxon, biolink:in_taxon_label,
+    biolink:deprecated))
+} ;
+```
