@@ -300,11 +300,8 @@ INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
 WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human>  { ?s ?p ?o } } ;
 
 
-## Size of the graphs
+## Final size of the graphs
 
-SELECT (COUNT(*) AS ?triples) WHERE {
-  GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?s ?p ?o }
-}
 
 | Graph    | Triples    | 
 |--------------|--------------|
