@@ -16,7 +16,7 @@ The results of the subcharacteristics of structural and functional adequacy show
 
 * In the functional adequacy subcharacteristic [(see Figure 3)](./figures/radar_functionalAdequacy.png), the difference in quality scores happen for the following subcharacteristics: inference, trustworthiness and clustering.
 
-    ![Figure 3: The radar chart for the functional adequacy subcharacteristics.](./figures/radar_functionalAdequacy.png)
+    ![Figure 3: The radar chart for the functional adequacy subcharacteristics.](./figures/radar_Functional_adequacy.png)
     *Figure 3: The radar chart for the functional adequacy subcharacteristics.*
 
 
