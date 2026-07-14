@@ -129,7 +129,7 @@ GROUP BY  ?dis ?dis_label
 ```
 [Results of query graph phenotypes + genes associations](data/query3-genespluspheno.xlsx)
 
-#### Disorder selection
+## Disorder selection
 
 At this point, we selected the disorder for the slicing of the graph. For this purpose we selected the diseases to achieve graphs of the following size. One branch (disorder) is used only for one graph
 
@@ -140,7 +140,7 @@ At this point, we selected the disorder for the slicing of the graph. For this p
 * Graph 5: 
 
 
-
+## Generation of the graphs
 
 
 ### Graph 1: Gene associated with cardiovascular diseases
@@ -265,7 +265,7 @@ WHERE {
   { ?s biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0700096> }
   UNION
   { ?o biolink:subclass_of* <http://purl.obolibrary.org/obo/MONDO_0700096> }
-} ;
+} 
 ```
 # closure (direct)
 ```sparql
@@ -291,10 +291,25 @@ WHERE {
 ### Graph 5. UNION GRAPH
 
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
-WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_s>   { ?s ?p ?o } } ;
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/assoc>   { ?s ?p ?o } } ;
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
-WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_m>   { ?s ?p ?o } } ;
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/pheno>   { ?s ?p ?o } } ;
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
-WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_l>   { ?s ?p ?o } } ;
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous>   { ?s ?p ?o } } ;
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
-WHERE  { GRAPH <http://mymonarchinitiative.org/slice/mondo_xl>  { ?s ?p ?o } } ;
+WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human>  { ?s ?p ?o } } ;
+
+
+## Size of the graphs
+
+SELECT (COUNT(*) AS ?triples) WHERE {
+  GRAPH <http://mymonarchinitiative.org/slice/assoc> { ?s ?p ?o }
+}
+
+| Graph    | Triples    | 
+|--------------|--------------|--------------|
+|http://mymonarchinitiative.org/slice/assoc     | 20,934       | 
+|http://mymonarchinitiative.org/slice/pheno     | 58,457       | 
+|http://mymonarchinitiative.org/slice/gene-pheno-nervous     | 222,575      | 
+|http://mymonarchinitiative.org/slice/gene-pheno-human     | 604,602      | 
+|http://mymonarchinitiative.org/slice/complete     | 659,726      | 
