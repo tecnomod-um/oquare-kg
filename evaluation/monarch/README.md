@@ -290,6 +290,7 @@ WHERE {
 ```
 ### Graph 5. UNION GRAPH
 
+```sparql
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
 WHERE  { GRAPH <http://mymonarchinitiative.org/slice/assoc>   { ?s ?p ?o } } ;
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
@@ -298,7 +299,7 @@ INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
 WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-nervous>   { ?s ?p ?o } } ;
 INSERT { GRAPH <http://mymonarchinitiative.org/slice/complete> { ?s ?p ?o } }
 WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human>  { ?s ?p ?o } } ;
-
+```
 
 ## Final size of the graphs
 

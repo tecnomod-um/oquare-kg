@@ -25,11 +25,11 @@ The next table describes the size in triples of the two sets of graphs included 
 
 | CRM Graph | Triples | Monarch Graph | Triples |
 |-----------|---------|---------------|---------|
-| crm2tfac  | 12,933  | [assoc](http://mymonarchinitiative.org/slice/assoc) | 20,934 |
-| crm2phen  | 45,794  | [pheno](http://mymonarchinitiative.org/slice/pheno) | 58,457 |
-| crm2gene  | 282,491 | [gene-pheno-nervous](http://mymonarchinitiative.org/slice/gene-pheno-nervous) | 222,575 |
-| crm       | 1,483,949 | [gene-pheno-human](http://mymonarchinitiative.org/slice/gene-pheno-human) | 604,602 |
-| all       | 1,622,550 | [complete](http://mymonarchinitiative.org/slice/complete) | 659,726 |
+| crm2tfac  | 12,933  | http://mymonarchinitiative.org/slice/assoc | 20,934 |
+| crm2phen  | 45,794  | http://mymonarchinitiative.org/slice/pheno | 58,457 |
+| crm2gene  | 282,491 | http://mymonarchinitiative.org/slice/gene-pheno-nervous | 222,575 |
+| crm       | 1,483,949 | http://mymonarchinitiative.org/slice/gene-pheno-human | 604,602 |
+| all       | 1,622,550 | http://mymonarchinitiative.org/slice/complete | 659,726 |
 
 The validation compares two families of RDF graphs — the CisReg/BioGateway set
 (crm2tfac, crm2phen, crm2gene, crm, all) and the Monarch set
