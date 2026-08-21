@@ -11,7 +11,8 @@ The subsequent sections are dedicated to the description of the use cases and th
 For the purpose of this evaluation, a set of knowledge graphs from different domains was selected. Each graph represents a distinct scenario, thereby enabling the framework to be tested under diverse conditions.
 
 ### Biomedical use cases
-* [BioGateway and Monarch knowledge graphs](./bgw-monarch.md)
+* [Analysis of BioGateway knowledge graphs](./bgw.md)
+* [Perturbation on BioGateway and Monarch knowledge graphs](./bgw-monarch.md)
 
 ### Non-biomedical use cases
 Non-biomedical knowledge graphs refer to information concerning data related to products, sales and user satisfaction.
