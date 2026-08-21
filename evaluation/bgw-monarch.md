@@ -1,27 +1,31 @@
-# Evaluation of the OQuaRE KG framework in biomedical use cases
+# Perturbation on BioGateway and Monarch knowledge graphs
 
-Biomedical knowledge graphs are a complex and highly structured use case that integrates data on proteins, genes and diseases.
+The overall objective is to assess whether OQuaRE-KG is able to detect, at the level of metrics and quality scores, the changes
+introduced by the controlled perturbations. We note that, for metrics defined as ratios of the perturbed features, a response is
+expected by design; the non-trivial questions therefore concern specificity  and semantic-correctness awareness, as well as the behaviour of the aggregated quality scores after scaling. For this purpose, a series of experiments that provide a systematic
+validation strategy based on controlled perturbations have been designed and will be reported on this paper. The experiments
+complement previous evaluations based on real-world knowledge graphs and provide stronger evidence that the framework produces
+meaningful and interpretable quality assessments.
+
 
 ## The knowledge graphs
 
-* Gene regulation knowledge graphs
+* BioGateway gene regulation knowledge graphs
 
-  Knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities.
+  Knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities. Five BioGateway graphs were selected.
 
-  * Cis-Regulatory modules
-    * [Data](https://github.com/juan-mulero/cisregEA)
-    * [Evaluation](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/biogateway)
+  * [Cis-Regulatory modules](https://github.com/juan-mulero/cisregEA) 
+ 
 * The Monarch Knowledge Graph
 
-  The Monarch KG, a biomedical knowledge graph that integrates gene, disease, and phenotype information from 33 heterogeneous data sources, which provides a semantically structured representation of biological entities and their relationships, enabling data integration, semantic reasoning, and biomedical discovery across species.
+  The Monarch KG, a biomedical knowledge graph that integrates gene, disease, and phenotype information from 33 heterogeneous data sources, which provides a semantically structured representation of biological entities and their relationships, enabling data integration, semantic reasoning, and biomedical discovery across species. Five  graphs were extracted from the Monarch KG.
 
-  * [Data](https://github.com/tecnomod-um/oquare-kg/tree/main/evaluation/monarch)
+  * [Data](./monarch/data)
+  * [Process for extracting the five Monarch graphs](./monarch/README.md)
 
-## Comparability of the knwoledge graphs
+## Selection of the knowledge graphs
 
 The next table describes the size in triples of the two sets of graphs included in this evaluation.
-
-
 
 | CRM Graph | Triples | Monarch Graph | Triples |
 |-----------|---------|---------------|---------|
@@ -31,6 +35,38 @@ The next table describes the size in triples of the two sets of graphs included 
 | crm       | 1,483,949 | http://mymonarchinitiative.org/slice/gene-pheno-human | 604,602 |
 | all       | 1,622,550 | http://mymonarchinitiative.org/slice/complete | 659,726 |
 
+
+## The perturbations
+
+The following modifications have been performed in each knowledge graph in order to evaluate the practical performance of the defined metrics.
+
+|                                         |               |**Modifications**|         |                 |
+|-----------------------------------------|---------------|--------------|------------|-----------------|
+| **Graph name**                          | **Labels**  |**Descriptions**|**Language**|**Wrong datatypes**|
+| (graph)_d20labels                       | delete 20%    |              |            |                 |
+| (graph)_d20descriptions                 |               | delete 20%   |            |                 |
+| (graph)_a90language                     |               |              | add 90%    |                 |
+| (graph)_a20wrongDT                      |               |              |            | add 20%         |
+| (graph)_d50labels                       | delete 50%    |              |            |                 |
+| (graph)_d50descriptions                 |               | delete 50%   |            |                 |
+| (graph)_a50language                     |               |              | add 50%    |                 |
+| (graph)_d90labels                       | delete 90%    |              |            |                 |
+| (graph)_d90descriptions                 |               | delete 90%   |            |                 |
+| (graph)_a20language                     |               |              | add 20%    |                 |
+| (graph)_a50wrongDT                      |               |              |            | add 50%         |
+| (graph)_a90wrongDT                      |               |              |            | add 90%         |
+
+*Table1. Modifications performed in the cisreg knowledge graphs. The column labelled 'Graph name' shows all the knowledge graphs obtained as a result and its modifications.*
+
+## Results files
+
+* [Original BioGateway graphs](./biogateway/results/cisreg/)
+* [Perturbated BioGateway graphs](./biogateway/results/modified_cisreg/)
+* [Monarch graphs](./monarch/results/)
+
+
+## Additional justification
+
 The validation compares two families of RDF graphs — the CisReg/BioGateway set
 (crm2tfac, crm2phen, crm2gene, crm, all) and the Monarch set
 (assoc, pheno, gene-pheno-nervous, gene-pheno-human, complete). The two families are
@@ -39,8 +75,7 @@ this comparability is engineered into the extraction rather than assumed.
 
 * Same representation, same metric applicability. Both families are RDF/OWL-native
   knowledge graphs. OQuaRE-KG therefore applies to the Monarch set with exactly the
-  same operational definitions used for BioGateway — no translation, re-serialisation
-  or schema mapping intervenes that could introduce a confound. Any difference in the
+  same operational definitions used for BioGateway. Any difference in the
   resulting scores is attributable to the graphs, not to the measurement pipeline.
 * Same construction principle: relation-type slices. Each CisReg graph is a
   relation-type slice of a CRM-centred domain (CRM→transcription factor, CRM→phenotype,
@@ -55,7 +90,7 @@ this comparability is engineered into the extraction rather than assumed.
   (all / mondo_all) formed as the disjunction of the named graphs. The internal
   relationships are identical: the smaller graphs are nested within the larger, and
   the union is their aggregate. A comparison of one family's profile against the other
-  therefore compares like structural roles (small↔small, core↔core, union↔union), not
+  therefore compares like structural roles, not
   mismatched objects.
 * Matched orders of magnitude. The MONDO disorders were chosen so that each Monarch
   graph reproduces the triple-count magnitude of its CisReg counterpart. The
