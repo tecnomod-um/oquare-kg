@@ -3,11 +3,7 @@
 
 ## The Monarch KG
 
-Monarch was selected because it is RDF/OWL-native (so OQuaRE-KG metrics apply directly), independently produced by another consortium, and rich in provenance, evidence and licensing metadata.
-
-- Monarch release loaded in GraphDB: `__version/date__`
-- Extraction date: `2026-07-03`
-- MONDO branch(es) used as seed: `__IRI(s)__`
+Monarch was selected because it is RDF/OWL-native (so OQuaRE-KG metrics apply directly), independently produced by another consortium, and rich in provenance, evidence and licensing metadata. The RDF version of the graph was downloaded from [the Monarch website](https://monarchinitiative.org/kg/downloads) on 2026-07-03.
 
 
 ## Preliminary analysis
@@ -89,7 +85,7 @@ WHERE {
 GROUP BY  ?dis ?dis_label
 ```
 
-[Results of query graph associations](data/query1-associations.xlsx)
+[Results of query graph associations](tmp/query1-associations.xlsx)
 
 
 ### Graph 2.  Triples that describe has_phenotype associations by disorder  or a subtype
@@ -108,7 +104,7 @@ WHERE {
 } 
 GROUP BY  ?dis ?dis_label
 ```
-[Results of query graph phenotypes associations](data/query2-phenotypes.xlsx)
+[Results of query graph phenotypes associations](tmp/query2-phenotypes.xlsx)
 
 ### Graph 3. Phenotype associations and gene associations exist in Monarch by disorder and all its ontological subtypes combined?
 
@@ -127,7 +123,7 @@ WHERE {
 } 
 GROUP BY  ?dis ?dis_label
 ```
-[Results of query graph phenotypes + genes associations](data/query3-genespluspheno.xlsx)
+[Results of query graph phenotypes + genes associations](tmp/query3-genespluspheno.xlsx)
 
 ## Disorder selection
 
