@@ -408,7 +408,7 @@ where:
 
 | **Metric**               | **Definition**           | **Score**              | **Code** |
 |--------------------------|--------------------------|------------------------|----------|
-| Evidence metric | This metric verifies whether graph’s assertions have terms for capturing evidence. | The result is a score from 0 to 1, where a value of 1 indicates that all triples have evidence, whereas 0 indicates that none are.  | [Metric code](./metricsCode/evidenceMetric.py)|
+| Evidence metric | This metric verifies whether graph’s assertions have terms for capturing evidence. | The range of the value of this metric is the set of real positive numbers, where a value of 1 or greater indicates that, on average, every instance has at least one evidence predicate.  | [Metric code](./metricsCode/evidenceMetric.py)|
 | Traceability of the data [^1]   | This metric checks whether each resource has provenance information related to the origin of data.| The result is a score from 0 to 1, where a value of 1 denotes full compliance, whereas 0 indicates absence of this information.  |[Metric code](./metricsCode/traceabilityDataMetric.py)|
 
 ### Formulas

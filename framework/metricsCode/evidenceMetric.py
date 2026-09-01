@@ -11,7 +11,7 @@ def evidence_metric(graph):
             graph: A RDFlib Graph.
 
         Returns:
-            The ratio of triples with valid evidence predicates. Best = 1.
+            The ratio of triples with valid evidence predicates. Best >= 1.
         """
         total_instances = 0
 
