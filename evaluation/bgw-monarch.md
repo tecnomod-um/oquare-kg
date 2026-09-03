@@ -20,7 +20,7 @@ meaningful and interpretable quality assessments.
 
   The Monarch KG, a biomedical knowledge graph that integrates gene, disease, and phenotype information from 33 heterogeneous data sources, which provides a semantically structured representation of biological entities and their relationships, enabling data integration, semantic reasoning, and biomedical discovery across species. Five  graphs were extracted from the Monarch KG.
 
-  * [Data](./monarch/data)
+  * [The five graphs](./monarch/graphs)
   * [Process for extracting the five Monarch graphs](./monarch/README.md)
 
 ## Selection of the knowledge graphs
@@ -29,11 +29,11 @@ The next table describes the size in triples of the two sets of graphs included 
 
 | CRM Graph | Triples | Monarch Graph | Triples |
 |-----------|---------|---------------|---------|
-| crm2tfac  | 12,933  | http://mymonarchinitiative.org/slice/assoc | 20,934 |
-| crm2phen  | 45,794  | http://mymonarchinitiative.org/slice/pheno | 58,457 |
-| crm2gene  | 282,491 | http://mymonarchinitiative.org/slice/gene-pheno-nervous | 222,575 |
-| crm       | 1,483,949 | http://mymonarchinitiative.org/slice/gene-pheno-human | 604,602 |
-| all       | 1,622,550 | http://mymonarchinitiative.org/slice/complete | 659,726 |
+| crm2tfac  | 12,933  | [assoc](./monarch/graphs/assoc.ttl) | 20,934 |
+| crm2phen  | 45,794  | [pheno](./monarch/graphs/pheno.ttl)  | 58,457 |
+| crm2gene  | 282,491 | [gene-pheno-nervous](./monarch/graphs/gene-pheno-nervous.ttl) | 222,575 |
+| crm       | 1,483,949| [gene-pheno-human](./monarch/graphs/gene-pheno-human.ttl) | 604,602 |
+| all       | 1,622,550 | [complete](./monarch/graphs/complete.ttl) | 659,726 |
 
 
 ## The perturbations
