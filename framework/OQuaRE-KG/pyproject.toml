@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OQuaRE-KG"
+version = "0.1.0"
+description = "OQuaRE-KG is a quality evaluation framework for assessing knowledge graphs, based on OQuaRE"
+readme = "README.md"
+requires-python = ">=3.10"
+
+authors = [
+  {name = "Belen Juanes Cortes"}
+]
+
+dependencies = [
+    "rdflib",
+    "pandas"
+]
+
+[project.scripts]
+oquare-evaluate = "oquare.evaluation:main"
+oquare-scale = "oquare.scaling:main"
