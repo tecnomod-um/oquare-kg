@@ -60,9 +60,11 @@ The following modifications have been performed in each knowledge graph in order
 
 ## Results files
 
-* [Original BioGateway graphs](./biogateway/results/cisreg/)
-* [Perturbated BioGateway graphs](./biogateway/results/modified_cisreg/)
-* [Monarch graphs](./monarch/results/)
+* [Original BioGateway graphs](./biogateway/graphs/original)
+* [Perturbated BioGateway graphs](./biogateway/graphs/modified)
+* [Original Monarch graphs](./monarch/graphs/original)
+* [Perturbated Monarch graphs](./monarch/graphs/modified)
+* [Files with the quality scores of the graphs](./bgw-monarch-summary-data/)
 
 
 ## Additional justification
