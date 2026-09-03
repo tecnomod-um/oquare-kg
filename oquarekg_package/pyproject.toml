@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "OQuaRE-KG"
+name = "oquarekg_package"
 version = "0.1.0"
 description = "OQuaRE-KG is a quality evaluation framework for assessing knowledge graphs, based on OQuaRE"
 readme = "README.md"
@@ -18,6 +18,8 @@ dependencies = [
     "pandas"
 ]
 
+
 [project.scripts]
-oquare-evaluate = "oquare.evaluation:main"
-oquare-scale = "oquare.scaling:main"
+oquarekg-evaluate = "oquarekg.evaluation:main"
+oquarekg-scores = "oquarekg.scoring:main"
+oquarekg = "oquarekg:main"
