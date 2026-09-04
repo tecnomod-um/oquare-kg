@@ -1,13 +1,13 @@
 graph,Annotation richness metric,Basic provenance metric,Classes per instance metric,Compatible datatype metric,Deprecated terms metric,Dereferenceable uris metric,Descriptions per instance metric,Different serialisation formats metric,Entities with no type metric,Evidence metric,Extensional conciseness metric,Human readable license metric,Instances with multiple types metric,Instances with no description metric,Instances with no name metric,Instances with no synonyms metric,Machine license metric,Misplaced class property metric,Misused properties metric,Multiple languages metric,Names per instance metric,Relations per node metric,Reuse terms metric,Synonyms per instance metric,Traceability of the data metric,Usage of undefined terms metric,Used vocabularies metric,Valid format metric
-complete_d20descriptions,5,1,3,5,5,5,4,1,5,3,5,1,4,3,5,4,1,5,5,1,5,5,5,3,5,5,1,5
-complete_d50descriptions,4,1,3,5,5,5,3,1,5,3,5,1,4,2,5,4,1,5,5,1,5,4,5,3,5,5,1,5
-complete_d90descriptions,3,1,3,5,5,5,1,1,5,3,5,1,4,1,5,4,1,5,5,1,5,3,5,3,5,5,1,5
-complete_d20labels,4,1,3,5,5,5,5,1,5,3,5,1,4,3,4,4,1,5,5,1,4,4,5,3,5,5,1,5
-complete_d50labels,3,1,3,5,5,5,5,1,5,3,5,1,4,3,3,4,1,5,5,1,3,3,5,3,5,5,1,5
-complete_d90labels,1,1,3,5,5,5,5,1,5,3,5,1,4,3,1,4,1,5,5,1,1,1,5,3,5,5,1,5
-complete_a20language,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,5,5,3,5,5,1,5
-complete_a50language,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,3,5,5,5,3,5,5,1,5
-complete_a90language,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,5,5,5,5,3,5,5,1,5
-complete_a20wrongDT,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,5,5,3,5,5,1,5
-complete_a50wrongDT,5,1,3,3,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,5,5,3,5,5,1,5
-complete_a90wrongDT,5,1,3,1,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,5,5,3,5,5,1,5
+complete_d20descriptions,5,1,3,5,5,5,4,1,5,3,5,1,4,3,5,4,1,5,5,1,5,2,5,5,5,5,1,5
+complete_d50descriptions,4,1,3,5,5,5,3,1,5,3,5,1,4,2,5,4,1,5,5,1,5,2,5,5,5,5,1,5
+complete_d90descriptions,4,1,3,5,5,5,1,1,5,3,5,1,4,1,5,4,1,5,5,1,5,2,5,5,5,5,1,5
+complete_d20labels,4,1,3,5,5,5,5,1,5,3,5,1,4,3,4,4,1,5,5,1,4,2,5,5,5,5,1,5
+complete_d50labels,4,1,3,5,5,5,5,1,5,3,5,1,4,3,3,4,1,5,5,1,3,1,5,5,5,5,1,5
+complete_d90labels,4,1,3,5,5,5,5,1,5,3,5,1,4,3,1,4,1,5,5,1,1,1,5,5,5,5,1,5
+complete_a20language,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,2,5,5,5,5,1,5
+complete_a50language,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,3,5,2,5,5,5,5,1,5
+complete_a90language,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,5,5,2,5,5,5,5,1,5
+complete_a20wrongDT,5,1,3,5,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,2,5,5,5,5,1,5
+complete_a50wrongDT,5,1,3,3,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,2,5,5,5,5,1,5
+complete_a90wrongDT,5,1,3,1,5,5,5,1,5,3,5,1,4,3,5,4,1,5,5,1,5,2,5,5,5,5,1,5
