@@ -15,7 +15,8 @@ authors = [
 
 dependencies = [
     "rdflib",
-    "pandas"
+    "pandas",
+    "requests",
 ]
 
 
