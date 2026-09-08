@@ -18,7 +18,7 @@ oquarekg graph.ttl --domain-uri http://example.org
 ```
 **Calculate metrics**
 ```bash
-quarekg-evaluate graph.ttl --domain-uri http://example.org
+oquarekg-evaluate graph.ttl --domain-uri http://example.org
 ```
 **Calculate scores**
 ```bash
