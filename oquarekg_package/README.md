@@ -22,7 +22,7 @@ oquarekg-evaluate graph.ttl --domain-uri http://example.org
 ```
 **Calculate scores**
 ```bash
- oquarekg-scores --input_dir results --outdir results
+oquarekg-scores --input_dir results --outdir results
 ```
 
 ## Command-line parameters
