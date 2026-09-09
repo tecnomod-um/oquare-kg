@@ -18,19 +18,19 @@ The next table describes the size in triples of the graphs included in this eval
 
 The values of the OQuaRE-KG quality metrics were calculated for the Cisreg graphs and scaled the values into score at the level of metrics, subcharacteristics and characteristics. The focus here is on the results at the characteristics and subcharacteristics level. However, the [raw value](./biogateway/results/original_cisreg_graphs/original_cisreg_raw_metrics.csv) of the metrics, and the quality score (scaled value) of the [metrics](./biogateway/results/original_cisreg_graphs/original_cisreg_metrics_likert.csv), [subcharacteristics](./biogateway/results/original_cisreg_graphs/original_cisreg_subcharacteristics_likert.csv) and [characteristics](./biogateway/results/original_cisreg_graphs/original_cisreg_characteristics_likert.csv) are also available.
 
-At the level of characteristics, the analysis of the scores shows differences between the graphs for the structural and functional adequacy characteristics. However, all graphs have the same quality score for compatibility, transferability, operability, reliability, and maintainability.
+At the level of characteristics (Figure 1), the analysis of the scores shows differences between the graphs for the structural and functional adequacy characteristics. However, all graphs have the same quality score for compatibility, transferability, operability, reliability, and maintainability.
 
 ![Figure 1: The radar chart at the level of characteristics.](./biogateway/results/original_cisreg_graphs/figures/radar_characteristics.png)
 *Figure 1: The radar chart at the level of characteristics.*
 
 The results of the subcharacteristics of structural and functional adequacy show differences between graphs:
 
-* The structural subcharacteristic [(see Figure 2)](./biogateway/results/original_cisreg_graphs/figures/radar_structural.png), all graphs get the same score for formalisation, structural accuracy, and redundancy. The differences between graphs are exhibited for consistency, syntactic validity and interpretability.
+* Structural subcharacteristic (Figure 2): all graphs get the same score for formalisation, structural accuracy, and redundancy. The differences between graphs are exhibited for consistency, syntactic validity and interpretability.
 
     ![Figure 2: The radar chart for the structural subcharacteristics.](./biogateway/results/original_cisreg_graphs/figures/radar_structural.png)
     *Figure 2: The radar chart for the structural subcharacteristics.*
 
-* In the functional adequacy subcharacteristic [(see Figure 3)](./biogateway/results/original_cisreg_graphs/figures/radar_functionalAdequacy.png), the difference in quality scores happen for the following subcharacteristics: inference, trustworthiness and clustering.
+* Functional adequacy subcharacteristic (Figure 3): the difference in quality scores happen for the following subcharacteristics: inference, trustworthiness and clustering.
 
     ![Figure 3: The radar chart for the functional adequacy subcharacteristics.](./biogateway/results/original_cisreg_graphs/figures/radar_Functional_adequacy.png)
     *Figure 3: The radar chart for the functional adequacy subcharacteristics.*
