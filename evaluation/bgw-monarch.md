@@ -4,8 +4,7 @@ The overall objective is to assess whether OQuaRE-KG is able to detect, at the l
 introduced by the controlled perturbations. We note that, for metrics defined as ratios of the perturbed features, a response is
 expected by design; the non-trivial questions therefore concern specificity  and semantic-correctness awareness, as well as the behaviour of the aggregated quality scores after scaling. For this purpose, a series of experiments that provide a systematic
 validation strategy based on controlled perturbations have been designed and will be reported on this paper. The experiments
-complement previous evaluations based on real-world knowledge graphs and provide stronger evidence that the framework produces
-meaningful and interpretable quality assessments.
+complement previous evaluations based on real-world knowledge graphs and provide stronger evidence that the framework produces meaningful and interpretable quality assessments.
 
 
 ## The knowledge graphs
