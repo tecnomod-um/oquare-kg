@@ -63,7 +63,8 @@ The following modifications have been performed in each knowledge graph in order
 * [Perturbated BioGateway graphs](./biogateway/graphs/modified)
 * [Original Monarch graphs](./monarch/graphs/original)
 * [Perturbated Monarch graphs](./monarch/graphs/modified)
-* [Files with the quality scores of all the graphs](./bgw-monarch-summary-data/). The files with the individual results can be found at the [Biogateway](./biogateway/results/) and [Monarch results](./monarch/results/) folders.
+* [Files with the quality scores of all the graphs](./bgw-monarch-summary-data/). 
+* The files with the individual results can be found at the [Biogateway](./biogateway/results/) and [Monarch](./monarch/results/) results folders.
 
 
 ## Additional justification
