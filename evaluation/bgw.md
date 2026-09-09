@@ -3,7 +3,7 @@
 This study evaluates the quality of selected knowledge graphs from the BioGateway knowledge network by applying OQuaRE-KG. BioGateway provides knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities.
 
   
-The next table describes the size in triples of the graphs included in this evaluation, which were selected from the existing [Cis-Regulatory modules KGs] (https://github.com/juan-mulero/cisregEA)
+The next table describes the size in triples of the graphs included in this evaluation, which were selected from the existing [Cis-Regulatory modules KGs](./biogateway/graphs/original/)
 
 | CRM Graph | Triples | 
 |-----------|---------|
@@ -27,7 +27,7 @@ The results of the subcharacteristics of structural and functional adequacy show
 
 * The structural subcharacteristic [(see Figure 2)](./biogateway/results/original_cisreg_graphs/figures/radar_structural.png), all graphs get the same score for formalisation, structural accuracy, and redundancy. The differences between graphs are exhibited for consistency, syntactic validity and interpretability.
 
-    ![Figure 2: The radar chart for the structural subcharacteristics.](./biogateway/results/original_cisreg_graphs/igures/radar_structural.png)
+    ![Figure 2: The radar chart for the structural subcharacteristics.](./biogateway/results/original_cisreg_graphs/figures/radar_structural.png)
     *Figure 2: The radar chart for the structural subcharacteristics.*
 
 * In the functional adequacy subcharacteristic [(see Figure 3)](./biogateway/results/original_cisreg_graphs/figures/radar_functionalAdequacy.png), the difference in quality scores happen for the following subcharacteristics: inference, trustworthiness and clustering.
