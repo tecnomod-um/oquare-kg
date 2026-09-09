@@ -14,13 +14,13 @@ meaningful and interpretable quality assessments.
 
   Knowledge graphs on the gene regulation domain, with a particular focus on enhancers, which are the most widely studied of the cis-regulatory modules. These sequences were modelled using the CisReg schema, which was also used in BioGateway to integrate data from 25 different sources, modelling information from various biological databases about enhancers and their relations with other entities. Five BioGateway graphs were selected.
 
-  * [Cis-Regulatory modules](https://github.com/juan-mulero/cisregEA) 
+  * [Cis-Regulatory modules](./biogateway/graphs/original/) 
  
 * The Monarch Knowledge Graph
 
   The Monarch KG, a biomedical knowledge graph that integrates gene, disease, and phenotype information from 33 heterogeneous data sources, which provides a semantically structured representation of biological entities and their relationships, enabling data integration, semantic reasoning, and biomedical discovery across species. Five  graphs were extracted from the Monarch KG.
 
-  * [The five graphs](./monarch/graphs)
+  * [The five graphs](./monarch/graphs/original/)
   * [Process for extracting the five Monarch graphs](./monarch/README.md)
 
 ## Selection of the knowledge graphs
@@ -29,11 +29,11 @@ The next table describes the size in triples of the two sets of graphs included 
 
 | CRM Graph | Triples | Monarch Graph | Triples |
 |-----------|---------|---------------|---------|
-| crm2tfac  | 12,933  | [assoc](./monarch/graphs/assoc.ttl) | 20,934 |
-| crm2phen  | 45,794  | [pheno](./monarch/graphs/pheno.ttl)  | 58,457 |
-| crm2gene  | 282,491 | [gene-pheno-nervous](./monarch/graphs/gene-pheno-nervous.ttl) | 222,575 |
-| crm       | 1,483,949| [gene-pheno-human](./monarch/graphs/gene-pheno-human.ttl) | 604,602 |
-| all       | 1,622,550 | [complete](./monarch/graphs/complete.ttl) | 659,726 |
+| crm2tfac  | 12,933  | [assoc](./monarch/graphs/original/assoc.ttl) | 20,934 |
+| crm2phen  | 45,794  | [pheno](./monarch/graphs/original/pheno.ttl)  | 58,457 |
+| crm2gene  | 282,491 | [gene-pheno-nervous](./monarch/graphs/original/gene-pheno-nervous.ttl) | 222,575 |
+| crm       | 1,483,949| [gene-pheno-human](./monarch/graphs/original/gene-pheno-human.ttl) | 604,602 |
+| all       | 1,622,550 | [complete](./monarch/graphs/original/complete.ttl) | 659,726 |
 
 
 ## The perturbations
@@ -64,7 +64,7 @@ The following modifications have been performed in each knowledge graph in order
 * [Perturbated BioGateway graphs](./biogateway/graphs/modified)
 * [Original Monarch graphs](./monarch/graphs/original)
 * [Perturbated Monarch graphs](./monarch/graphs/modified)
-* [Files with the quality scores of the graphs](./bgw-monarch-summary-data/)
+* [Files with the quality scores of all the graphs](./bgw-monarch-summary-data/). The files with the individual results can be found at the [Biogateway](./biogateway/results/) and [Monarch results](./monarch/results/) folders.
 
 
 ## Additional justification
