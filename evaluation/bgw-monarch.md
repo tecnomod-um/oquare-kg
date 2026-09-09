@@ -89,7 +89,7 @@ this comparability is engineered into the extraction rather than assumed.
   different source.
 * Same set topology: nested size variants plus a union. Both families comprise
   small and medium relation-type slices, a large core graph, and a union graph
-  (all / mondo_all) formed as the disjunction of the named graphs. The internal
+  (all) formed as the disjunction of the named graphs. The internal
   relationships are identical: the smaller graphs are nested within the larger, and
   the union is their aggregate. A comparison of one family's profile against the other
   therefore compares like structural roles, not
