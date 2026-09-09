@@ -10,8 +10,8 @@ The next table describes the size in triples of the graphs included in this eval
 | crm2tfac  | 12,933  | 
 | crm2phen  | 45,794  | 
 | crm2gene  | 282,491 | 
-| crm       | 1,483,949 
-| all       | 1,622,550 
+| crm       | 1,483,949 |
+| all       | 1,622,550 |
 
 
 ##  Evaluation of the OQuaRE-KG framework: Cisreg graphs.
