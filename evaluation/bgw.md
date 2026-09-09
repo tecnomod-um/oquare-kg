@@ -36,7 +36,7 @@ The results of the subcharacteristics of structural and functional adequacy show
     *Figure 3: The radar chart for the functional adequacy subcharacteristics.*
 
 
-All graphs have the same quality score for the subcharacteristics of interoperability, versatility, licensing, accesibility, reusability.
+All graphs have the same quality score for the subcharacteristics of interoperability, versatility, licensing, accesibility, reusability (Figure 4).
 
 ![Figure 4: The radar chart for the other subcharacteristics.](./biogateway/results/original_cisreg_graphs/figures/radar_5subcharacteristics.png)
 *Figure 4: The radar chart for the subcharacteristics of interoperability, versatility, licensing, accesibility, reusability.*
