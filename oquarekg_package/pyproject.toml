@@ -3,14 +3,22 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "oquarekg_package"
+name = "oquarekg"
 version = "0.1.0"
 description = "OQuaRE-KG is a quality evaluation framework for assessing knowledge graphs, based on OQuaRE"
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+
+keywords = [
+    "knowledge-graph",
+    "rdf",
+    "semantic-web",
+    "quality-assessment",
+]
 
 authors = [
-  {name = "Belen Juanes Cortes"}
+  {name = "Belen Juanes Cortes", email = "belen.juanesc@um.es"}
 ]
 
 dependencies = [
@@ -19,6 +27,16 @@ dependencies = [
     "requests",
 ]
 
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+]
+
+[project.urls]
+Homepage = "https://github.com/tecnomod-um/oquare-kg/tree/main/oquarekg_package"
+Repository = "https://github.com/tecnomod-um/oquare-kg"
 
 [project.scripts]
 oquarekg-evaluate = "oquarekg.evaluation:main"
