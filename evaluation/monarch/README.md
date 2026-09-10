@@ -302,10 +302,10 @@ WHERE  { GRAPH <http://mymonarchinitiative.org/slice/gene-pheno-human>  { ?s ?p 
 
 | Graph    | Triples    | 
 |--------------|--------------|
-|http://mymonarchinitiative.org/slice/assoc     | 20,934       | 
-|http://mymonarchinitiative.org/slice/pheno     | 58,457       | 
-|http://mymonarchinitiative.org/slice/gene-pheno-nervous     | 222,575      | 
-|http://mymonarchinitiative.org/slice/gene-pheno-human     | 604,602      | 
-|http://mymonarchinitiative.org/slice/complete     | 659,726      | 
+|[assoc](./graphs/original/assoc.ttl)    | 20,934       | 
+|[pheno](./graphs/original/pheno.ttl)      | 58,457       | 
+|[gene-pheno-nervous](./graphs/original/gene-pheno-nervous.ttl)    | 222,575      | 
+|[gene-pheno-human](./graphs/original/gene-pheno-human.ttl)    | 604,602      | 
+|[complete](./graphs/original/complete.ttl)   | 659,726      | 
 
 

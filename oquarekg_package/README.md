@@ -12,16 +12,17 @@ pip install git+https://github.com/tecnomod-um/oquare-kg.git#subdirectory=oquare
 
 ## Command-line execution
 
+**Complete workflow** 
 ```bash
-Complete workflow: oquarekg graph.ttl --domain-uri http://example.org
+oquarekg graph.ttl --domain-uri http://example.org
 ```
-
+**Calculate metrics**
 ```bash
-Calculate metrics: oquarekg-evaluate graph.ttl --domain-uri http://example.org
+oquarekg-evaluate graph.ttl --domain-uri http://example.org
 ```
-
+**Calculate scores**
 ```bash
-Calculate scores: oquarekg-scores --input_dir results --outdir results
+oquarekg-scores --input_dir results --outdir results
 ```
 
 ## Command-line parameters

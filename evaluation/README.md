@@ -14,8 +14,4 @@ For the purpose of this evaluation, a set of knowledge graphs from different dom
 * [Analysis of BioGateway knowledge graphs](./bgw.md)
 * [Perturbation on BioGateway and Monarch knowledge graphs](./bgw-monarch.md)
 
-### Non-biomedical use cases
-Non-biomedical knowledge graphs refer to information concerning data related to products, sales and user satisfaction.
 
-* E-commerce knowledge graphs
-    * [Data](https://github.com/tecnomod-um/EvaluationGraphAlignmentMethods)
