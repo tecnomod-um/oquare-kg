@@ -4,6 +4,17 @@ OQuaRE-KG is a quality evaluation framework for assessing knowledge graphs based
 
 ## Installation
 
+From PyPi
+```bash
+pip install oquarekg
+```
+From PyPi (specifying version)
+```bash
+pip install oquarekg==0.1.0
+```
+
+
+From GitHub
 ```bash
 pip install git+https://github.com/tecnomod-um/oquare-kg.git#subdirectory=oquarekg_package
 ```
