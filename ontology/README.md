@@ -1,5 +1,5 @@
 # The oquo-oquare-kg ontology
-The [oquo-oquare-kg](https://purl.archive.org/oquo-oquare-kg) ontology extends the Ontology QUality Ontology ([OQUO](https://github.com/tecnomod-um/oquo)) by including the OQuaRE-KG framework[^oquarekg].
+The [oquo-oquarekg](https://purl.archive.org/oquo-oquarekg) ontology extends the Ontology QUality Ontology ([OQUO](https://github.com/tecnomod-um/oquo)) by including the OQuaRE-KG framework[^oquarekg].
 
 
 
