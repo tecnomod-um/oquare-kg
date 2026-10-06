@@ -6,6 +6,7 @@ OQuaRE-KG[^1] is a quality framework for assessing KGs inspired on the [OQuaRE](
     * [Metrics](./framework/metrics.md)
 * [Evaluation experiments](./evaluation/README.md)
 * [The oquarekg Python Package](./oquarekg_package/README.md)
+* [The OQuaRE-KG ontology](./ontology/oquo-oquare-kg.owl)
 
 
 # Publications
