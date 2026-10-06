@@ -15,10 +15,10 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:QualityModel="http://purl.org/net/QualityModel#">
-    <owl:Ontology rdf:about="https://purl.org/oquo-oquare-kg">
+    <owl:Ontology rdf:about="https://purl.org/oquo-oquarekg">
         <owl:imports rdf:resource="https://purl.org/oquo-core"/>
-        <dc:description>The oquo-oquare-kg ontology extends the Ontology QUality Ontology (OQUO) by including the OQuaRE-KG framework</dc:description>
-        <dc:title>The oquo-oquare-kg ontology</dc:title>
+        <dc:description>The oquo-oquarekg ontology extends the Ontology QUality Ontology (OQUO) by including the OQuaRE-KG framework</dc:description>
+        <dc:title>The oquo-oquarekg ontology</dc:title>
     </owl:Ontology>
     
 
